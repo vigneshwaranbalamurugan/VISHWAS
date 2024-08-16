@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './login.css'; 
-import img from '../../assets/cereals.jpg';
+import './login.css';
+import image from '../../assets/cereals.jpg';
 
 
 interface LoginFormValues {
@@ -31,9 +31,10 @@ const Login = () => {
 
   return (
     <section className="">
-       <div className="image-container"></div>
+      <div className="image-container"></div>
       <div className="login-container">
         <h2 className="">SIGN IN</h2>
+        <img src={image} alt='login'></img>
         <form onSubmit={handleSubmit}>
           <div className="">
             <label htmlFor="mobileNumber">Mobile Number:</label>
@@ -63,10 +64,10 @@ const Login = () => {
             Login
           </button>
           <div className="link-container">
-  <Link to="/signup">
-    <p>Don't have an account? Register</p>
-  </Link>
-</div>
+            <Link to="/signup">
+              <p>Don't have an account? Register</p>
+            </Link>
+          </div>
 
         </form>
       </div>
