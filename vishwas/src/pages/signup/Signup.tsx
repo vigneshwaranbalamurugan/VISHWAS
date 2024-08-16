@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import './signup.css';
+import img from '../../assets/cereals.jpg';
 
 interface SignupFormValues {
   name: string;
@@ -33,33 +35,41 @@ const Signup = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="name">Name:</label>
-        <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} />
+    <div className="signup-container">
+      <div className="image-section">
+        <img src={img} alt="Signup" />
       </div>
-      <div>
-        <label htmlFor="phoneNumber">Phone Number:</label>
-        <input type="tel" id="phoneNumber" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} />
+      <div className="form-section">
+        <h1>Signup</h1>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="name">Name:</label>
+            <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} />
+          </div>
+          <div>
+            <label htmlFor="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} />
+          </div>
+          <div>
+            <label htmlFor="email">Email:</label>
+            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} />
+          </div>
+          <div>
+            <label htmlFor="dateOfBirth">Date of Birth:</label>
+            <input type="date" id="dateOfBirth" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} />
+          </div>
+          <div>
+            <label htmlFor="password">Password:</label>
+            <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} />
+          </div>
+          <div>
+            <label htmlFor="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} />
+          </div>
+          <button type="submit">Submit</button>
+        </form>
       </div>
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} />
-      </div>
-      <div>
-        <label htmlFor="dateOfBirth">Date of Birth:</label>
-        <input type="date" id="dateOfBirth" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} />
-      </div>
-      <div>
-        <label htmlFor="password">Password:</label>
-        <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} />
-      </div>
-      <div>
-        <label htmlFor="confirmPassword">Confirm Password:</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} />
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+    </div>
   );
 };
 

@@ -10,7 +10,7 @@ const Header = () => {
           <a title="Login" href="/login">Login</a>
         </button>
         <button type="button" className="text-[#000080] bg-gradient-to-br from-[#FF9933] via-white to-[#138808] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-          <a title="Login" href="/register">Register</a>
+          <a title="Login" href="/signup">Register</a>
         </button>
       </nav>
     </div>
