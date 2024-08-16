@@ -1,58 +1,68 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './login.css'; 
+
+
+interface LoginFormValues {
+  mobileNumber: string; // Update the interface name
+  password: string;
+}
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [userType, setUserType] = useState('User'); 
-  
-  const handleSubmit = async () => {
-    console.log('hi');
+
+  const [formData, setFormData] = useState<LoginFormValues>({
+    mobileNumber: '',
+    password: '',
+  });
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // Handle form submission logic here
+    console.log(formData);
   };
 
   return (
-    <section className='d-flex justify-content-center align-items-center vh-100'>
-      <div className="login-container shadow p-5 rounded m-5" style={{ width: '100vw' }}>
-        <h2 className="text-center mb-4">Login</h2>
+    <section className="">
+       <div className="image-container"></div>
+      <div className="login-container">
+        <h2 className="">Login</h2>
         <form onSubmit={handleSubmit}>
-          <div className="form-group mb-3">
-            <label htmlFor="userType">User Type:</label>
-            <select
-              className="form-control"
-              id="userType"
-              value={userType}
-              onChange={(e) => setUserType(e.target.value)}
-            >
-              <option value="User">User</option>
-              <option value="admin">Admin</option>
-              <option value="principal">Principal</option>
-            </select>
-          </div>
-          <div className="form-group mb-3">
-            <label htmlFor="email">Email:</label>
+          <div className="">
+            <label htmlFor="mobileNumber">Mobile Number:</label>
             <input
-              type="email"
+              type="tel" // Change type to "tel" for phone number input
               className="form-control"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              id="mobileNumber"
+              name="mobileNumber" // Update name to match interface
+              value={formData.mobileNumber}
+              onChange={handleChange}
               required
             />
           </div>
-          <div className="form-group mb-3">
+          <div className="">
             <label htmlFor="password">Password:</label>
             <input
               type="password"
               className="form-control"
               id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary mb-3">Login</button>
-          <Link to='/register'>
-            <p className="text-center">Don't have an account? Register</p>
+          <button type="submit" className="">
+            Login
+          </button>
+          <Link to="/signup">
+            <p className="">Don't have an account? Register</p>
           </Link>
         </form>
       </div>
