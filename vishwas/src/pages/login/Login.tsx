@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './login.css'; 
+import img from '../../assets/cereals.jpg';
 
 
 interface LoginFormValues {
@@ -9,6 +10,7 @@ interface LoginFormValues {
 }
 
 const Login = () => {
+
   const [formData, setFormData] = useState<LoginFormValues>({
     mobileNumber: '',
     password: '',

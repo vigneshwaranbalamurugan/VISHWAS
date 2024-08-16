@@ -1,0 +1,28 @@
+.crop-card {
+  min-width: 300px; /* Adjust this width as needed */
+  height: 300px; /* Adjust this height as needed */
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.6rem;
+  overflow: hidden;
+  margin: 5px;
+}
+
+.crop-card-image {
+  height: 150px; /* 30% of card height */
+  object-fit: cover;
+}
+
+.crop-card-content {
+  flex-grow: 1;
+  padding: 10px;
+}
+
+.crop-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust minmax values as needed */
+  grid-gap: 10px; /* Adjust gap between cards */
+  align-self: center;
+  max-width: 100vw;
+}

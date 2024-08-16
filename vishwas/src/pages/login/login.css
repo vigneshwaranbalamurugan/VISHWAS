@@ -1,5 +1,6 @@
 /* Container for the entire login section */
 section {
+
   display: grid;
   grid-template-columns: 1fr 1fr;
   height: 70vh; /* Increased to cover more of the viewport height */
@@ -11,7 +12,7 @@ section {
 
 /* Left side image container */
 .image-container {
-  background-image: url('cereals.jpg'); /* Replace with your image path */
+  background-image: url('../../assets/cereals.jpg'); /* Replace with your image path */
   background-size: cover;
   background-position: center;
 }
