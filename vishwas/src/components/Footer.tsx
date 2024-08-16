@@ -3,8 +3,8 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/f
 
 const Footer = () => {
   return (
-    <footer className="bg-orange-300 text-white pb-0 w-full">
-      <div className="flex justify-between p-4">
+    <footer className="bg-orange-300 text-white pb-0 w-full mt-auto">
+      <div className="flex justify-between p-0">
         <div>
           <ul className="list-none p-0">
             <li className="mb-2">Home</li>
