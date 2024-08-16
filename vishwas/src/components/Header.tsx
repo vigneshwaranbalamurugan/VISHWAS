@@ -4,7 +4,7 @@ import '../input.css'
 const Header = () => {
   return (
     <>
-      <div className="bg-orange-300 fixed top-0 right-0 w-full left-0 h-18 flex items-center justify-between px-16 py-2 text-slate-50">
+      <div className="bg-orange-300 top-0 right-0 w-full left-0 h-18 flex items-center justify-between px-16 py-2 text-slate-50">
         <h2 className="font-bold text-2xl md:text-4xl text-[#000080]">Vishwas</h2>
         <div className="flex">
           <nav className="flex items-center gap-3">
@@ -18,9 +18,6 @@ const Header = () => {
             </div>
           </nav>
         </div>
-      </div>
-      <div className="pt-18"> {/* Add padding-top to this div */}
-        {/* Your main content goes here */}
       </div>
     </>
   )
