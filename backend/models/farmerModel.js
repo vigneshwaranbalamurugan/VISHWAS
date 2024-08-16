@@ -15,11 +15,11 @@ const farmerSchema = new mongoose({
             required: true
         }
     },
-    mobileNumber: { 
+    mobileNumber: {
         type: String,
         minlength: 10,
         maxlength: 10,
-        required: true 
+        required: true
     },
     email: {
         type: String,
@@ -27,17 +27,18 @@ const farmerSchema = new mongoose({
         unique: true,
         default: null
     },
-    age:{
-        type:Number,
-        default:null,
+    age: {
+        type: Number,
+        default: null,
     },
     dateOfBirth: {
         type: Date,
         default: new Date('0000-00-00')
     },
-    password: { 
-        type: String, 
-        required: true 
+    password: {
+        type: String,
+        required: true, 
+        select: false
     },
     created_at: {
         type: Date,
