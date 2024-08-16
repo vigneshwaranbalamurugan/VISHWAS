@@ -1,0 +1,23 @@
+.crop-card {
+    width: 200px; /* Adjust this width as needed */
+    height: 300px; /* Adjust this height as needed */
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .crop-card-image {
+    height: 100px; /* 30% of card height */
+    object-fit: cover;
+  }
+  
+  .crop-card-content {
+    flex-grow: 1;
+    padding: 10px;
+  }
+  
+  .crop-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust minmax values as needed */
+    grid-gap: 20px; /* Adjust gap between cards */
+  }
