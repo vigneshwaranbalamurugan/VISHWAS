@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [userType, setUserType] = useState('User'); // Default user type is 'user'
-
+  const [userType, setUserType] = useState('User'); 
+  
   const handleSubmit = async () => {
     console.log('hi');
   };
