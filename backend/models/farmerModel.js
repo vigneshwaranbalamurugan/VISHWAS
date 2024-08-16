@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 
-const userSchema = new mongoose({
+const farmerSchema = new mongoose({
     userName: {
         firstName: {
             type: String,
@@ -58,6 +58,6 @@ userSchema.pre('save', async function (next) {
     }
 });
 
-const User = mongoose.model('User', userSchema);
+const Farmer = mongoose.model('User', farmerSchema);
 
-export default User;
+export default Farmer;
