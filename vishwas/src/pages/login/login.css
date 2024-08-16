@@ -62,18 +62,18 @@ section {
     background-color: #0056b3;
   }
   
-  p {
+  .login-container p {
     text-align: center;
     margin-top: 20px;
     color: #555;
   }
   
-  p a {
+  .login-container p a {
     color: #007bff;
     text-decoration: none;
   }
   
-  p a:hover {
+  .login-container p a:hover {
     text-decoration: underline;
   }
   
