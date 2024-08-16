@@ -7,7 +7,7 @@ section {
   
   /* Left side image container */
   .image-container {
-    background-image: url('path-to-your-image.jpg'); /* Replace with your image path */
+    background-image: url('../../assets/cereals.jpg'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
   }
