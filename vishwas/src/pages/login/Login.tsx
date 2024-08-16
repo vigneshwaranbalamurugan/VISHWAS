@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './login.css'; 
+
 
 interface LoginFormValues {
   mobileNumber: string; // Update the interface name
@@ -7,6 +9,7 @@ interface LoginFormValues {
 }
 
 const Login = () => {
+
   const [formData, setFormData] = useState<LoginFormValues>({
     mobileNumber: '',
     password: '',
@@ -27,6 +30,7 @@ const Login = () => {
 
   return (
     <section className="">
+       <div className="image-container"></div>
       <div className="login-container">
         <h2 className="">Login</h2>
         <form onSubmit={handleSubmit}>
