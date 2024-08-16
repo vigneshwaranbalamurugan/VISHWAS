@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 interface LoginFormValues {
-  email: string;
+  mobileNumber: string; // Update the interface name
   password: string;
 }
 
 const Login = () => {
   const [formData, setFormData] = useState<LoginFormValues>({
-    email: '',
+    mobileNumber: '',
     password: '',
   });
 
@@ -31,13 +31,13 @@ const Login = () => {
         <h2 className="">Login</h2>
         <form onSubmit={handleSubmit}>
           <div className="">
-            <label htmlFor="email">Email:</label>
+            <label htmlFor="mobileNumber">Mobile Number:</label>
             <input
-              type="email"
+              type="tel" // Change type to "tel" for phone number input
               className="form-control"
-              id="email"
-              name="email"
-              value={formData.email}
+              id="mobileNumber"
+              name="mobileNumber" // Update name to match interface
+              value={formData.mobileNumber}
               onChange={handleChange}
               required
             />
