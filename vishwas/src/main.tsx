@@ -1,11 +1,14 @@
-import Error from './pages/Error'
-import Layout from './components/Layout'
-import Home from './pages/home/Home'
-
 import './index.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
+import Error from './pages/Error'
+import Home from './pages/home/Home'
+import Login from './pages/login/Login'
+import Signup from './pages/signup/Signup'
+
+import Layout from './components/Layout'
 
 const router = createBrowserRouter(
   [
@@ -15,7 +18,8 @@ const router = createBrowserRouter(
       errorElement:<Error/>,
       children:[
         {index:true, element:<Home />},
-        // {path:"/login",element:<Login/>},
+        {path:"/login",element:<Login/>},
+        {path:"/signup",element:<Signup/>}
       ]
     }
   ]
@@ -25,5 +29,5 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <RouterProvider router={router}/>
-  </React.StrictMode>,
+  </React.StrictMode>
 )
