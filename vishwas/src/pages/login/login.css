@@ -1,8 +1,8 @@
 /* Container for the entire login section */
 .login-section {
   display: flex; /* Use Flexbox for side-by-side layout */
-  height: 50vh; /* Reduced height for a smaller rectangle */
-  width: 40vw; /* Reduced width for a smaller rectangle */
+  height: 55vh; /* Reduced height for a smaller rectangle */
+  width: 45vw; /* Reduced width for a smaller rectangle */
   margin: auto; /* Centers the section horizontally */
 }
 
