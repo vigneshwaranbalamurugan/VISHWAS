@@ -1,36 +1,22 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { login } from '../../components/loginval.js';
+import {login} from '../../components/loginval.js';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [userType, setUserType] = useState('User'); // Default user type is 'user'
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('hi');
-    login(userType, email, password);
+    login(email, password);
   };
 
   return (
-    <section className='d-flex justify-content-center align-items-center vh-100'>
-      <div className="login-container shadow p-5 rounded m-5" style={{ width: '100vw' }}>
+    <section className=''>
+      <div className="login-container">
         <h2 className="text-center mb-4">Login</h2>
         <form onSubmit={handleSubmit}>
-          <div className="form-group mb-3">
-            <label htmlFor="userType">User Type:</label>
-            <select
-              className="form-control"
-              id="userType"
-              value={userType}
-              onChange={(e) => setUserType(e.target.value)}
-            >
-              <option value="User">User</option>
-              <option value="admin">Admin</option>
-              <option value="principal">Principal</option>
-            </select>
-          </div>
           <div className="form-group mb-3">
             <label htmlFor="email">Email:</label>
             <input

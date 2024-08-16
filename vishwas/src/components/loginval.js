@@ -1,4 +1,4 @@
-export function login(userType,email,password)
+export function login(email,password)
 {
    if(userType==='User')
     {
