@@ -1,43 +1,64 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
-  const handleSubmit = async () => {
-    console.log('hi');
+interface LoginFormValues {
+  email: string;
+  password: string;
+}
+
+const Login = () => {
+  const [formData, setFormData] = useState<LoginFormValues>({
+    email: '',
+    password: '',
+  });
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // Handle form submission logic here
+    console.log(formData);
   };
 
   return (
-    <section className=''>
+    <section className="">
       <div className="login-container">
-        <h2 className="text-center mb-4">Login</h2>
+        <h2 className="">Login</h2>
         <form onSubmit={handleSubmit}>
-          <div className="form-group mb-3">
+          <div className="">
             <label htmlFor="email">Email:</label>
             <input
               type="email"
               className="form-control"
               id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
               required
             />
           </div>
-          <div className="form-group mb-3">
+          <div className="">
             <label htmlFor="password">Password:</label>
             <input
               type="password"
               className="form-control"
               id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary mb-3">Login</button>
-          <Link to='/register'>
-            <p className="text-center">Don't have an account? Register</p>
+          <button type="submit" className="">
+            Login
+          </button>
+          <Link to="/signup">
+            <p className="">Don't have an account? Register</p>
           </Link>
         </form>
       </div>
