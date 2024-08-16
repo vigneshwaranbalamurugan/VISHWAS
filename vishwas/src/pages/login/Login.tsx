@@ -33,7 +33,7 @@ const Login = () => {
     <section className="">
        <div className="image-container"></div>
       <div className="login-container">
-        <h2 className="">SIGN IN</h2>
+        <h2 className="">Sign In</h2>
         <form onSubmit={handleSubmit}>
           <div className="">
             <label htmlFor="mobileNumber">Mobile Number:</label>

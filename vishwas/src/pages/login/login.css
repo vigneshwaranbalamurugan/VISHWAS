@@ -2,6 +2,7 @@
 section {
 
   display: grid;
+  font-family: 'Poppins', sans-serif;
   grid-template-columns: 1fr 1fr;
   height: 70vh; /* Increased to cover more of the viewport height */
   width: 60vw; /* Increased to cover more of the viewport width */
@@ -12,19 +13,21 @@ section {
 
 /* Left side image container */
 .image-container {
-  background-image: url('../../assets/cereals.jpg'); /* Replace with your image path */
+  background-image: url('../../assets/cereals.jpg'); 
   background-size: cover;
   background-position: center;
 }
 
-/* Right side login form container */
+
 .login-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 22px; /* Increased padding for more space inside the container */
-  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Increased shadow for a stronger effect */
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 22px; 
+    background-color: #f0f8ff; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  
 }
 
 .login-container h2 {
@@ -45,11 +48,12 @@ section {
 }
 
 label {
-  font-weight: bold;
+  font-family: 'Poppins', sans-serif; /* Ensures consistent font styling */
+  font-size: 17px; /* Smaller font size for the label */
+  font-weight: bold; /* Medium weight for readability */
   display: block;
-  margin-bottom: 5px; /* Increased space between label and input */
-  color: #333;
-  font-size: 18px; /* Larger font size for labels */
+  margin-bottom: 5px; /* Space between label and input field */
+  color: #333; /* Larger font size for labels */
 }
 
 .button {
@@ -60,13 +64,14 @@ label {
   border-radius: 6px;
   color: #fff;
   font-size: 16px;
+  font-weight: bold; /* Makes the text bold */
   cursor: pointer;
   margin-top: 10px;
   transition: background-color 0.3s ease; /* Smooth transition on hover */
 }
 
 .button:hover {
-  background-color: #35a935; /* Darker background color on hover */
+  background-color: #51c051; /* Darker background color on hover */
 }
 
 /* Container for the link */
