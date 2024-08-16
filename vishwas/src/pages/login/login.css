@@ -1,102 +1,111 @@
 /* Container for the entire login section */
-section {
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  height: 70vh; /* Increased to cover more of the viewport height */
-  width: 60vw; /* Increased to cover more of the viewport width */
-  margin: auto; /* Centers the section horizontally and vertically */
-  align-items: center; /* Vertically centers the content within the grid */
-  justify-content: center; /* Ensures the content is horizontally centered within the grid */
+.login-section {
+  display: flex; /* Use Flexbox for side-by-side layout */
+  height: 50vh; /* Reduced height for a smaller rectangle */
+  width: 40vw; /* Reduced width for a smaller rectangle */
+  margin: auto; /* Centers the section horizontally */
 }
 
 /* Left side image container */
 .image-container {
-  background-image: url('../../assets/cereals.jpg'); /* Replace with your image path */
+  flex: 1; /* Takes up half of the flex container */
+  background-image: url('../../assets/cereals.jpg'); 
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  height: 100%; /* Full height of the section */
+  min-width: 40%; /* Ensures image is visible */
 }
 
 /* Right side login form container */
 .login-container {
+  flex: 1; /* Takes up the other half of the flex container */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 22px; /* Increased padding for more space inside the container */
-  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Increased shadow for a stronger effect */
+  padding: 16px; /* Reduced padding for a more compact form */
+  background-color: #f0f8ff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Reduced shadow for a subtle effect */
+  height: 100%; /* Full height of the section */
 }
 
+/* Style for the heading in the login container */
 .login-container h2 {
   text-align: center;
   color: #333;
-  margin-bottom: 20px; /* Increased margin for more space between elements */
-  font-size: 28px; /* Larger font size */
+  margin-bottom: 12px; /* Reduced margin for more compact heading */
+  font-size: 22px; /* Slightly smaller font size */
   font-weight: bold;
 }
 
+/* Style for the form input fields */
 .form-control {
   width: 100%;
-  padding: 10px; /* Increased padding for larger input fields */
-  margin: 8px 0; /* Slightly increased margin */
+  padding: 8px; /* Adjusted padding for input fields */
+  margin: 6px 0; /* Reduced margin for a more compact look */
   border: 1px solid #ccc;
-  border-radius: 6px; /* Slightly increased border radius for rounded corners */
+  border-radius: 4px; /* Slightly reduced border radius */
   box-sizing: border-box;
 }
 
+/* Style for the label elements */
 label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px; /* Slightly smaller font size */
   font-weight: bold;
   display: block;
-  margin-bottom: 5px; /* Increased space between label and input */
+  margin-bottom: 4px; /* Reduced margin for labels */
   color: #333;
-  font-size: 18px; /* Larger font size for labels */
 }
 
+/* Style for the button */
 .button {
   width: 100%;
-  padding: 10px;
-  background-color: #007bff; /* Visible background color */
+  padding: 8px; /* Adjusted padding */
+  background-color: #007bff;
   border: none;
-  border-radius: 6px;
+  border-radius: 4px; /* Reduced border radius */
   color: #fff;
-  font-size: 16px;
+  font-size: 14px; /* Slightly smaller font size */
+  font-weight: bold;
   cursor: pointer;
-  margin-top: 10px;
-  transition: background-color 0.3s ease; /* Smooth transition on hover */
+  margin-top: 8px; /* Reduced margin for button */
+  transition: background-color 0.3s ease;
 }
 
+/* Hover effect for the button */
 .button:hover {
-  background-color: #35a935; /* Darker background color on hover */
+  background-color: #51c051;
 }
 
 /* Container for the link */
 .link-container {
-  text-align: center; /* Centers the link horizontally */
-  margin-top: 20px; /* Adds some space above the link */
+  text-align: center;
+  margin-top: 12px; /* Reduced margin for link container */
 }
 
 /* Style for the paragraph within the link */
 .link-container p {
-  font-size: 16px; /* Sets the font size */
-  color: #007bff; /* Link color */
-  text-decoration: none; /* Removes the underline */
-  cursor: pointer; /* Changes the cursor to pointer to indicate it's clickable */
-  margin: 0; /* Removes any default margin */
-  transition: color 0.3s ease; /* Smooth transition for hover effect */
+  font-size: 14px; /* Slightly smaller font size */
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0;
+  transition: color 0.3s ease;
 }
 
-/* Hover effect */
+/* Hover effect for the link */
 .link-container p:hover {
-  color: #0056b3; /* Darkens the link color on hover */
-  text-decoration: underline; /* Underlines the text on hover */
+  color: #0056b3;
+  text-decoration: underline;
 }
 
-
+/* Style for additional paragraphs */
 p {
   text-align: center;
-  margin-top: 25px; /* Increased margin for better spacing */
+  margin-top: 20px; /* Kept margin for spacing */
   color: #555;
-  font-size: 16px; /* Slightly increased font size for text */
+  font-size: 14px; /* Slightly smaller font size */
 }
 
 p a {
