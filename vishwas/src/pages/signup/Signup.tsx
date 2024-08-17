@@ -4,7 +4,9 @@ import './signup.css';
 import img from '../../assets/cereals.jpg';
 
 interface SignupFormValues {
-  name: string;
+  firstName: string;
+  lastName: string;
+  middleName: string;
   phoneNumber: string;
   email: string;
   dateOfBirth: string;
@@ -14,7 +16,9 @@ interface SignupFormValues {
 
 const Signup = () => {
   const [formData, setFormData] = useState<SignupFormValues>({
-    name: '',
+    firstName: '',
+    lastName:'',
+    middleName:'',
     phoneNumber: '',
     email: '',
     dateOfBirth: '',
@@ -37,22 +41,50 @@ const Signup = () => {
 
   return (
     <section className="signup-section">
-      <div className="image-container"></div>
+      <div className="image-container" style={{marginTop:'10vh'}}><img src={img} alt='login'></img></div>
       <div className="signup-container">
       <h2 style={{ marginTop: '10vh' }}>Sign Up</h2>
         <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="name">Name:</label>
-            <input
-              type="text"
-              className="form-control"
-              id="name"
-              name="name"
-              placeholder="Enter your name"
-              value={formData.name}
-              onChange={handleChange}
-            />
-          </div>
+         <div>
+        <label htmlFor="firstName">First Name:</label>
+        <input
+          type="text"
+          className="form-control"
+          id="firstName"
+          name="firstName"
+          placeholder="Enter your first name"
+          value={formData.firstName}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      <div>
+        <label htmlFor="middleName">Middle Name:</label>
+        <input
+          type="text"
+          className="form-control"
+          id="middleName"
+          name="middleName"
+          placeholder="Enter your middle name (optional)"
+          value={formData.middleName}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="lastName">Last Name:</label>
+        <input
+          type="text"
+          className="form-control"
+          id="lastName"
+          name="lastName"
+          placeholder="Enter your last name"
+          value={formData.lastName}
+          onChange={handleChange}
+          required
+        />
+      </div>
           <div>
             <label htmlFor="phoneNumber">Phone Number:</label>
             <input
