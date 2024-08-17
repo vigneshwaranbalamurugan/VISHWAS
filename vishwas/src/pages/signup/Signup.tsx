@@ -17,15 +17,14 @@ interface SignupFormValues {
 const Signup = () => {
   const [formData, setFormData] = useState<SignupFormValues>({
     firstName: '',
-    lastName: '',
-    middleName: '',
+    lastName:'',
+    middleName:'',
     phoneNumber: '',
     email: '',
     dateOfBirth: '',
     password: '',
     confirmPassword: '',
   });
-
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -34,85 +33,58 @@ const Signup = () => {
     });
   };
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      alert('Confirm Password does not match');
-      return;
-    }
-
-    try {
-      const response = await fetch('http://localhost:5000/api/v1/farmer/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-      if (response.ok) {
-        const data = await response.json();
-        console.log('Success:', data);
-        alert("Farmer Successfully R  egistered");        // Optionally, you can redirect the user or show a success message
-      } else {
-        const errorData = await response.json();
-        alert(errorData.message || 'Failed to sign up');
-      }
-    } catch (error) {
-      alert('An error occurred. Please try again later.');
-      console.error('Error:', error);
-    }
-
+    // Handle form submission logic here
     console.log(formData);
   };
 
   return (
     <section className="signup-section">
       <div className="regimage-container" style={{marginTop:'10vh'}}><img src={img} alt='login'></img></div>
-
-      <div className="image-container" style={{ marginTop: '10vh' }}><img src={img} alt='login'></img></div>
       <div className="signup-container">
-        <h2 style={{ marginTop: '10vh' }}>Sign Up</h2>
+      <h2 style={{ marginTop: '10vh' }}>Sign Up</h2>
         <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="firstName">First Name:</label>
-            <input
-              type="text"
-              className="form-control"
-              id="firstName"
-              name="firstName"
-              placeholder="Enter your first name"
-              value={formData.firstName}
-              onChange={handleChange}
-              required
-            />
-          </div>
+         <div>
+        <label htmlFor="firstName" className='signupl'>First Name:</label>
+        <input
+          type="text"
+          className="signup-control"
+          id="firstName"
+          name="firstName"
+          placeholder="Enter your first name"
+          value={formData.firstName}
+          onChange={handleChange}
+          required
+        />
+      </div>
 
-          <div>
-            <label htmlFor="middleName">Middle Name:</label>
-            <input
-              type="text"
-              className="form-control"
-              id="middleName"
-              name="middleName"
-              placeholder="Enter your middle name (optional)"
-              value={formData.middleName}
-              onChange={handleChange}
-            />
-          </div>
+      <div>
+        <label htmlFor="middleName" className='signupl'>Middle Name:</label>
+        <input
+          type="text"
+          className="signup-control"
+          id="middleName"
+          name="middleName"
+          placeholder="Enter your middle name (optional)"
+          value={formData.middleName}
+          onChange={handleChange}
+        />
+      </div>
 
-          <div>
-            <label htmlFor="lastName">Last Name:</label>
-            <input
-              type="text"
-              className="form-control"
-              id="lastName"
-              name="lastName"
-              placeholder="Enter your last name"
-              value={formData.lastName}
-              onChange={handleChange}
-              required
-            />
-          </div>
+      <div>
+        <label htmlFor="lastName"className='signupl'>Last Name:</label>
+        <input
+          type="text"
+          className="signup-control"
+          id="lastName"
+          name="lastName"
+          placeholder="Enter your last name"
+          value={formData.lastName}
+          onChange={handleChange}
+          required
+        />
+      </div>
           <div>
             <label htmlFor="phoneNumber"className='signupl'>Phone Number:</label>
             <input
@@ -180,8 +152,6 @@ const Signup = () => {
           </div>
         </form>
       </div>
-
-
     </section>
   );
 };
