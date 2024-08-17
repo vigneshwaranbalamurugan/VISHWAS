@@ -14,8 +14,8 @@ const SearchContainer = () => {
   return (
     <div className="flex items-center">
       <SearchBox />
-      <Link to="/view" className="text-blue-700 font-bold hover:underline ml-2">
-        <CiSearch className="h-10 w-10" />
+      <Link to="/view" className="text-blue-700 font-bold hover:text-blue-500 transition-colors duration-300 ease-in-out ml-2">
+        <CiSearch className="h-10 w-10 hover:scale-110 transition-transform duration-300 ease-in-out" />
       </Link>
     </div>
   );
