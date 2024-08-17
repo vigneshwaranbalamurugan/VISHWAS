@@ -11,6 +11,7 @@ import Signup from './pages/signup/Signup'
 import Layout from './components/Layout'
 import Market from './pages/market/Market'
 
+
 const router = createBrowserRouter(
   [
     {

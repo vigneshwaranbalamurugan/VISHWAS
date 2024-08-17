@@ -1,60 +1,57 @@
-/* Container for the entire signup section */
 .signup-section {
-  display: flex; /* Use Flexbox for side-by-side layout */
-  height: 100vh; /* Adjust height as needed */
-  width: 70vw; /* Increased width for a slightly larger container */
-  margin: auto; /* Centers the section horizontally */
-  margin-top: 5vh;
-  margin-bottom: 5vh;
-  border-radius: 8px; /* Optional: Add border-radius for rounded corners */
+  display: flex;
+  flex-direction: row;
+  height: 70vh;
+  width: 95vw;
+  
+  margin: auto;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-radius: 30px;
 }
 
-/* Left side image container */
 .image-container {
-  flex: 1; /* Takes up half of the flex container */
-  background-image: url('../../assets/cereals.jpg'); 
+  flex: 0.5; /* 40% of the screen for image */
+  background-image: url('../../assets/2farmers.svg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100%; /* Full height of the section */
-  min-width: 30%; /* Ensures image is visible */
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  height: 100%;
 }
 
-/* Right side signup form container */
 .signup-container {
-  flex: 1; /* Takes up the other half of the flex container */
+  flex: 0.5; /* 60% of the screen for form */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 16px; /* Adjust padding as needed */
+  padding: 32px;
   background-color: #f0f8ff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow */
-  height: 100%; /* Full height of the section */
-  overflow-y: auto; /* Allows scrolling if content exceeds height */
-  max-width: 600px; /* Optional: set a max-width for the form container */
-  margin: auto; /* Center the form horizontally */
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
-/* Style for the heading in the signup container */
 .signup-container h2 {
   text-align: center;
   color: #333;
-  margin-bottom: 12px; /* Adjust margin for heading */
+  margin-bottom: 12px;
   font-size: 22px;
   font-weight: bold;
 }
 
-/* Style for the form input fields */
+/* Form input fields */
 .form-control {
   width: 100%;
-  padding: 8px; /* Adjust padding for input fields */
-  margin: 6px 0; /* Adjust margin */
+  padding: 8px;
+  margin: 6px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
 }
 
-/* Style for the label elements */
+/* Form labels */
 label {
   font-family: 'Poppins', sans-serif;
   font-size: 15px;
@@ -64,11 +61,11 @@ label {
   color: #333;
 }
 
-/* Style for the button */
+/* Submit button */
 .button {
-  width: 100%;
+  width: 100%; /* Full width for all screen sizes */
   padding: 8px;
-  background-color: #007bff; /* Blue background color */
+  background-color: #007bff;
   border: none;
   border-radius: 4px;
   color: #fff;
@@ -79,18 +76,15 @@ label {
   transition: background-color 0.3s ease;
 }
 
-/* Hover effect for the button */
 .button:hover {
-  background-color: #0056b3; /* Darker blue for hover effect */
+  background-color: #0056b3;
 }
 
-/* Container for the link */
 .link-container {
   text-align: center;
   margin-top: 12px;
 }
 
-/* Style for the paragraph within the link */
 .link-container p {
   font-size: 14px;
   color: #007bff;
@@ -100,13 +94,11 @@ label {
   transition: color 0.3s ease;
 }
 
-/* Hover effect for the link */
 .link-container p:hover {
   color: #0056b3;
   text-decoration: underline;
 }
 
-/* Style for additional paragraphs */
 p {
   text-align: center;
   margin-top: 20px;
@@ -122,102 +114,68 @@ p a {
 p a:hover {
   text-decoration: underline;
 }
+/* Your existing styles here... */
 
-/* Media Queries for Responsiveness */
-@media (max-width: 1024px) {
+/* Two form inputs per row on large screens */
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.form-group > div {
+  width: 48%; /* Two columns, each taking about half the width */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 992px) {
   .signup-section {
-    width: 80vw; /* Increase width for better readability */
+    flex-direction: column;
+    width: 90vw;
+  }
+
+  .image-container {
+    display: none; /* Hide image on smaller screens */
   }
 
   .signup-container {
-    padding: 12px; /* Reduce padding on smaller screens */
-  }
-  
-  .signup-container h2 {
-    font-size: 20px; /* Slightly smaller font size */
+    width: 100%;
+    padding: 16px;
   }
 
-  .form-control {
-    padding: 6px; /* Further adjust padding */
-    font-size: 14px; /* Slightly smaller font size */
+  .form-group {
+    flex-direction: column; /* Single column on medium screens */
   }
 
-  .button {
-    padding: 10px; /* Increase button padding for easier tapping */
-    font-size: 16px; /* Larger button text */
-  }
-
-  .link-container p {
-    font-size: 14px; /* Slightly smaller font size */
+  .form-group > div {
+    width: 100%; /* Full width on medium screens */
   }
 }
 
 @media (max-width: 768px) {
   .signup-section {
-    flex-direction: column; /* Stack items vertically on smaller screens */
-    width: 90vw; /* Further increase width for readability */
-  }
-
-  .image-container {
-    height: 200px; /* Adjust image height for smaller screens */
-    min-width: 100%; /* Ensure image takes full width */
-    background-size: contain; /* Ensure the entire image is visible */
-    order: -1; /* Move the image to the top */
+    width: 95vw;
   }
 
   .signup-container {
-    padding: 12px; /* Reduce padding on smaller screens */
+    padding: 12px;
   }
 
   .signup-container h2 {
-    font-size: 20px; /* Slightly smaller font size */
+    font-size: 20px;
   }
 
   .form-control {
-    padding: 6px; /* Further adjust padding */
-    font-size: 14px; /* Slightly smaller font size */
+    padding: 6px;
+    font-size: 14px;
   }
 
   .button {
-    padding: 10px; /* Increase button padding for easier tapping */
-    font-size: 16px; /* Larger button text */
+    padding: 12px;
+    font-size: 16px;
   }
 
   .link-container p {
-    font-size: 14px; /* Slightly smaller font size */
-  }
-}
-
-@media (max-width: 480px) {
-  .signup-section {
-    width: 95vw; /* Further increase width for readability */
-  }
-
-  .image-container {
-    height: 150px; /* Reduce image height further */
-    background-size: cover; /* Ensure the image covers the container */
-    background-position: top; /* Focus on the top part of the image */
-  }
-
-  .signup-container {
-    padding: 8px; /* Reduce padding further */
-  }
-
-  .signup-container h2 {
-    font-size: 18px; /* Smaller font size for heading */
-  }
-
-  .form-control {
-    padding: 4px; /* Reduce padding for input fields */
-    font-size: 13px; /* Adjust font size */
-  }
-
-  .button {
-    padding: 8px; /* Adjust button padding */
-    font-size: 14px; /* Adjust button font size */
-  }
-
-  .link-container p {
-    font-size: 14px; /* Slightly smaller font size */
+    font-size: 14px;
   }
 }

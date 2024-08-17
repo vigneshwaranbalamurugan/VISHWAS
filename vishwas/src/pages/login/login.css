@@ -1,95 +1,90 @@
-/* Container for the entire login section */
 .login-section {
-  display: flex; /* Flexbox for side-by-side layout */
-  flex-direction: row; /* Side by side for larger screens */
-  height: 65vh; /* Reduced height for a smaller rectangle */
-  width: 45vw; /* Reduced width for a smaller rectangle */
-  margin: auto; /* Center the section horizontally */
-  border-radius: 8px; /* Slight rounding to corners */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  overflow: hidden; /* Hide overflow to maintain section shape */
-}
-
-/* Left side image container */
-.imagelogin-container {
-  flex: 1; /* Take up half of the flex container */
-  background-image: url('../../assets/cereals.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100%; /* Full height of the section */
-  min-width: 40%; /* Ensure image is visible */
-}
-
-/* Right side login form container */
-.login-container {
-  flex: 1; /* Take up the other half of the flex container */
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 16px; /* Reduced padding for a more compact form */
-  background-color: #f0f8ff;
-  height: 100%; /* Full height of the section */
-}
-
-/* Style for the heading in the login container */
-.login-container h2 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 12px; /* Reduced margin for more compact heading */
-  font-size: 22px; /* Slightly smaller font size */
-  font-weight: bold;
-}
-
-/* Style for the form input fields */
-.login-control {
-  width: 100%;
-  padding: 8px; /* Adjusted padding for input fields */
-  margin: 6px 0; /* Reduced margin for a more compact look */
-  border: 1px solid #ccc;
-  border-radius: 4px; /* Slightly reduced border radius */
+  flex-direction: row;
+  height: 80vh;
+  width: 80vw;
+  
+  margin: auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
   box-sizing: border-box;
 }
 
-/* Style for the label elements */
+.imagelogin-container {
+  flex: 1;
+  background-image: url('../../assets/farmer1.svg');
+  background-size: cover;
+  border-radius: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  min-width: 50%;
+  border-radius: 8px 0 0 8px;
+}
+
+.login-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px;
+  background-color: #f0f8ff;
+  height: 100%;
+  border-radius: 0 8px 8px 0;
+}
+
+.login-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.login-control {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
 .loginlabel {
   font-family: 'Poppins', sans-serif;
-  font-size: 15px; /* Slightly smaller font size */
+  font-size: 15px;
   font-weight: bold;
   display: block;
-  margin-bottom: 4px; /* Reduced margin for labels */
+  margin-bottom: 4px;
   color: #333;
 }
 
-/* Style for the button */
 .loginbutton {
   width: 100%;
-  padding: 8px; /* Adjusted padding */
+  padding: 12px;
   background-color: #007bff;
   border: none;
-  border-radius: 4px; /* Reduced border radius */
+  border-radius: 4px;
   color: #fff;
-  font-size: 14px; /* Slightly smaller font size */
+  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 8px; /* Reduced margin for button */
+  margin-top: 12px;
   transition: background-color 0.3s ease;
 }
 
-/* Hover effect for the button */
 .loginbutton:hover {
   background-color: #51c051;
 }
 
-/* Container for the link */
 .loginlink-container {
   text-align: center;
-  margin-top: 12px; /* Reduced margin for link container */
+  margin-top: 16px;
 }
 
-/* Style for the paragraph within the link */
 .loginlink-container p {
-  font-size: 14px; /* Slightly smaller font size */
+  font-size: 14px;
   color: #007bff;
   text-decoration: none;
   cursor: pointer;
@@ -97,95 +92,84 @@
   transition: color 0.3s ease;
 }
 
-/* Hover effect for the link */
 .loginlink-container p:hover {
   color: #0056b3;
   text-decoration: underline;
 }
 
-/* Style for additional paragraphs */
 .login-container p {
   text-align: center;
-  margin-top: 20px; /* Kept margin for spacing */
+  margin-top: 20px;
   color: #555;
-  font-size: 14px; /* Slightly smaller font size */
+  font-size: 14px;
 }
-
 
 .login-container p a {
   color: #007bff;
   text-decoration: none;
 }
 
-
 .login-container p a:hover {
   text-decoration: underline;
 }
 
-/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .login-section {
-    flex-direction: column; /* Stack items vertically on smaller screens */
-    height: auto; /* Allow the section to adjust based on content */
-    width: 80vw; /* Increase width for better readability */
+    flex-direction: column;
+    height: auto;
+    width: 90vw;
+    padding: 16px;
   }
-  
+
   .imagelogin-container {
-    height: 200px; /* Adjust image height for smaller screens */
-    min-width: 100%; /* Ensure image takes full width */
-    order: -1; /* Move the image to the top */
-    background-size: contain; /* Ensure the entire image is visible */
+    display: none;
   }
-  
+
   .login-container {
-    padding: 12px; /* Reduce padding on smaller screens */
+    width: 100%;
+    border-radius: 8px;
   }
-  
+
   .login-container h2 {
-    font-size: 20px; /* Slightly smaller font size */
+    font-size: 22px;
   }
-  
+
   .login-control {
-    padding: 6px; /* Further adjust padding */
-    font-size: 14px; /* Slightly smaller font size */
+    padding: 10px;
+    font-size: 14px;
   }
-  
+
   .loginbutton {
-    padding: 10px; /* Increase button padding for easier tapping */
-    font-size: 16px; /* Larger button text */
+    padding: 14px;
+    font-size: 16px;
   }
-  
+
   .loginlink-container p {
-    font-size: 14px; /* Slightly smaller font size */
+    font-size: 14px;
   }
 }
 
 @media (max-width: 480px) {
   .login-section {
-    width: 90vw; /* Further increase width for readability */
+    width: 100vw;
+    height: auto;
   }
-  
-  .imagelogin-container {
-    height: 150px; /* Reduce image height further */
-    background-size: cover; /* Ensure the image covers the container */
-    background-position: top; /* Focus on the top part of the image */
-  }
-  
+
   .login-container {
-    padding: 8px; /* Reduce padding further */
+    padding: 12px;
   }
-  
+
   .login-container h2 {
-    font-size: 18px; /* Smaller font size for heading */
+    font-size: 20px;
   }
-  
+
   .login-control {
-    padding: 4px; /* Reduce padding for input fields */
-    font-size: 13px; /* Adjust font size */
+    padding: 8px;
+    font-size: 14px;
   }
-  
+
   .loginbutton {
-    padding: 8px; /* Adjust button padding */
-    font-size: 14px; /* Adjust button font size */
+    padding: 12px;
+    font-size: 14px;
   }
 }

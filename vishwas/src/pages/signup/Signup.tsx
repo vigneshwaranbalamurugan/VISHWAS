@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './signup.css';
-import img from '../../assets/cereals.jpg';
 
 interface SignupFormValues {
   name: string;
@@ -37,10 +36,11 @@ const Signup = () => {
 
   return (
     <section className="signup-section">
-      <div className="image-container"></div>
-      <div className="signup-container">
+    <div className="image-container"></div>
+    <div className="signup-container">
       <h2 style={{ marginTop: '10vh' }}>Sign Up</h2>
-        <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
           <div>
             <label htmlFor="name">Name:</label>
             <input
@@ -65,6 +65,9 @@ const Signup = () => {
               onChange={handleChange}
             />
           </div>
+        </div>
+  
+        <div className="form-group">
           <div>
             <label htmlFor="email">Email:</label>
             <input
@@ -88,6 +91,9 @@ const Signup = () => {
               onChange={handleChange}
             />
           </div>
+        </div>
+  
+        <div className="form-group">
           <div>
             <label htmlFor="password">Password:</label>
             <input
@@ -112,15 +118,18 @@ const Signup = () => {
               onChange={handleChange}
             />
           </div>
-          <button type="submit" className="button">Register</button>
-          <div className="link-container">
-            <p>
-              <Link to="/login">Already have an account? Log In</Link>
-            </p>
-          </div>
-        </form>
-      </div>
-    </section>
+        </div>
+  
+        <button type="submit" className="button">Register</button>
+        <div className="link-container">
+          <p>
+            <Link to="/login">Already have an account? Log In</Link>
+          </p>
+        </div>
+      </form>
+    </div>
+  </section>
+  
   );
 };
 

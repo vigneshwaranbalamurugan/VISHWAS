@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   return (
     <>
-
-    
       <div className="bg-[#51c051] top-0 right-0 w-full left-0 h-14 flex items-center justify-between px-14 py-2 text-slate-50">
         <Link className="font-bold text-2xl md:text-4xl text-[#000080]">Vishwas</Link>
         <nav className="flex items-center gap-3">

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './login.css';
-import image from '../../assets/cereals.jpg';
 
 
 interface LoginFormValues {
@@ -66,7 +65,10 @@ const Login = () => {
           name="mobileNumber"
           value={formData.mobileNumber}
           onChange={handleChange}
+          minLength={10}
+          maxLength={10}
           placeholder="Enter your mobile number"
+          required
         />
       </div>
       <div>
@@ -79,6 +81,7 @@ const Login = () => {
           value={formData.password}
           onChange={handleChange}
           placeholder="Enter your password"
+          required
         />
       </div>
       <button type="submit" className="loginbutton">Login</button>
