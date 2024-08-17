@@ -101,18 +101,18 @@ label {
 }
 
 /* Style for additional paragraphs */
-p {
+.login-container p {
   text-align: center;
   margin-top: 20px; /* Kept margin for spacing */
   color: #555;
   font-size: 14px; /* Slightly smaller font size */
 }
 
-p a {
+.login-container p a {
   color: #007bff;
   text-decoration: none;
 }
 
-p a:hover {
+.login-container p a:hover {
   text-decoration: underline;
 }
