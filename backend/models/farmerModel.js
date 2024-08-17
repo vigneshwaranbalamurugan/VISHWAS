@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 
-const farmerSchema = new mongoose({
+const farmerSchema = new mongoose.Schema({
     userName: {
         firstName: {
             type: String,
@@ -47,7 +47,7 @@ const farmerSchema = new mongoose({
 });
 
 // Pre-save hook to hash the password before saving
-userSchema.pre('save', async function (next) {
+farmerSchema.pre('save', async function (next) {
     if (!this.isModified('password')) return next();
 
     try {
