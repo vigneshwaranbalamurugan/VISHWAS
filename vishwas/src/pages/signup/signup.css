@@ -1,7 +1,7 @@
 /* Container for the entire signup section */
 .signup-section {
   display: flex; /* Use Flexbox for side-by-side layout */
-  height: 80vh; /* Adjust height as needed */
+  height: 100vh; /* Adjust height as needed */
   width: 70vw; /* Increased width for a slightly larger container */
   margin: auto; /* Centers the section horizontally */
   margin-top: 5vh;
@@ -17,7 +17,7 @@
   background-position: center;
   background-repeat: no-repeat;
   height: 100%; /* Full height of the section */
-  min-width: 50%; /* Ensures image is visible */
+  min-width: 30%; /* Ensures image is visible */
 }
 
 /* Right side signup form container */
