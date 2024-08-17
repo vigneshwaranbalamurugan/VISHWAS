@@ -37,15 +37,15 @@ const Signup = () => {
 
   return (
     <section className="signup-section">
-      <div className="image-container"></div>
+      <div className="regimage-container"></div>
       <div className="signup-container">
-      <h2 style={{ marginTop: '10vh' }}>Sign Up</h2>
+      <h2 style={{ marginTop: '10vh' }} >Sign Up</h2>
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="name">Name:</label>
             <input
               type="text"
-              className="form-control"
+              className="signup-control"
               id="name"
               name="name"
               placeholder="Enter your name"
@@ -57,7 +57,7 @@ const Signup = () => {
             <label htmlFor="phoneNumber">Phone Number:</label>
             <input
               type="tel"
-              className="form-control"
+              className="signup-control"
               id="phoneNumber"
               name="phoneNumber"
               placeholder="Enter your phone number"
@@ -69,7 +69,7 @@ const Signup = () => {
             <label htmlFor="email">Email:</label>
             <input
               type="email"
-              className="form-control"
+              className="signup-control"
               id="email"
               name="email"
               placeholder="Enter your email"
@@ -81,7 +81,7 @@ const Signup = () => {
             <label htmlFor="dateOfBirth">Date of Birth:</label>
             <input
               type="date"
-              className="form-control"
+              className="signup-control"
               id="dateOfBirth"
               name="dateOfBirth"
               value={formData.dateOfBirth}
@@ -92,7 +92,7 @@ const Signup = () => {
             <label htmlFor="password">Password:</label>
             <input
               type="password"
-              className="form-control"
+              className="signup-control"
               id="password"
               name="password"
               placeholder="Enter your password"
@@ -104,7 +104,7 @@ const Signup = () => {
             <label htmlFor="confirmPassword">Confirm Password:</label>
             <input
               type="password"
-              className="form-control"
+              className="signup-control"
               id="confirmPassword"
               name="confirmPassword"
               placeholder="Confirm your password"
@@ -112,9 +112,9 @@ const Signup = () => {
               onChange={handleChange}
             />
           </div>
-          <button type="submit" className="button">Register</button>
-          <div className="link-container">
-            <p>
+          <button type="submit" className="signupbutton">Register</button>
+          <div className="reglink-container">
+            <p className='signup-p'>
               <Link to="/login">Already have an account? Log In</Link>
             </p>
           </div>

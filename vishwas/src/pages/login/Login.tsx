@@ -31,31 +31,31 @@ const Login = () => {
 
   return (
     <section className="login-section">
-  <div className="image-container"></div>
+  <div className="imagelogin-container"></div>
   <div className="login-container">
     <h2>Sign In</h2>
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="mobileNumber">Mobile Number:</label>
+        <label htmlFor="mobileNumber" className="loginlabel">Mobile Number:</label>
         <input
           type="tel"
-          className="form-control"
+          className="login-control"
           id="mobileNumber"
           placeholder="Enter your mobile number"
         />
       </div>
       <div>
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password" className="loginlabel">Password:</label>
         <input
           type="password"
-          className="form-control"
+          className="login-control"
           id="password"
           placeholder="Enter your password"
         />
       </div>
-      <button type="submit" className="button">Login</button>
-      <div className="link-container">
-        <p>
+      <button type="submit" className="loginbutton">Login</button>
+      <div className="loginlink-container">
+        <p className='login-p'>
           <Link to="/signup">Don't have an account? Register</Link>
         </p>
       </div>

@@ -9,7 +9,7 @@
   }
   
   /* Left side image container */
-  .image-container {
+  .regimage-container {
     flex: 1; /* Takes up half of the flex container */
     background-image: url('../../assets/cereals.jpg'); 
     background-size: cover;
@@ -43,7 +43,7 @@
   }
   
   /* Style for the form input fields */
-  .form-control {
+  .signup-control {
     width: 100%;
     padding: 8px; /* Adjust padding for input fields */
     margin: 6px 0; /* Adjust margin */
@@ -63,7 +63,7 @@
   }
   
   /* Style for the button */
-  .button {
+  .signupbutton {
     width: 100%;
     padding: 8px;
     background-color: #007bff; /* Blue background color */
@@ -78,18 +78,18 @@
   }
   
   /* Hover effect for the button */
-  .button:hover {
+  .signupbutton:hover {
     background-color: #0056b3; /* Darker blue for hover effect */
   }
   
   /* Container for the link */
-  .link-container {
+  .reglink-container {
     text-align: center;
     margin-top: 12px;
   }
   
   /* Style for the paragraph within the link */
-  .link-container p {
+  .reglink-container p {
     font-size: 14px;
     color: #007bff;
     text-decoration: none;
@@ -99,25 +99,25 @@
   }
   
   /* Hover effect for the link */
-  .link-container p:hover {
+  .reglink-container p:hover {
     color: #0056b3;
     text-decoration: underline;
   }
   
   /* Style for additional paragraphs */
-  p {
+  .signup-p {
     text-align: center;
     margin-top: 20px;
     color: #555;
     font-size: 14px;
   }
   
-  p a {
+  .signup-p a {
     color: #007bff;
     text-decoration: none;
   }
   
-  p a:hover {
+  .signup-p a:hover {
     text-decoration: underline;
   }
   

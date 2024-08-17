@@ -11,7 +11,7 @@
 }
 
 /* Left side image container */
-.image-container {
+.imagelogin-container {
   flex: 1; /* Take up half of the flex container */
   background-image: url('../../assets/cereals.jpg');
   background-size: cover;
@@ -42,7 +42,7 @@
 }
 
 /* Style for the form input fields */
-.form-control {
+.login-control {
   width: 100%;
   padding: 8px; /* Adjusted padding for input fields */
   margin: 6px 0; /* Reduced margin for a more compact look */
@@ -52,7 +52,7 @@
 }
 
 /* Style for the label elements */
-label {
+.loginlabel {
   font-family: 'Poppins', sans-serif;
   font-size: 15px; /* Slightly smaller font size */
   font-weight: bold;
@@ -62,7 +62,7 @@ label {
 }
 
 /* Style for the button */
-.button {
+.loginbutton {
   width: 100%;
   padding: 8px; /* Adjusted padding */
   background-color: #007bff;
@@ -77,18 +77,18 @@ label {
 }
 
 /* Hover effect for the button */
-.button:hover {
+.loginbutton:hover {
   background-color: #51c051;
 }
 
 /* Container for the link */
-.link-container {
+.loginlink-container {
   text-align: center;
   margin-top: 12px; /* Reduced margin for link container */
 }
 
 /* Style for the paragraph within the link */
-.link-container p {
+.loginlink-container p {
   font-size: 14px; /* Slightly smaller font size */
   color: #007bff;
   text-decoration: none;
@@ -98,25 +98,25 @@ label {
 }
 
 /* Hover effect for the link */
-.link-container p:hover {
+.loginlink-container p:hover {
   color: #0056b3;
   text-decoration: underline;
 }
 
 /* Style for additional paragraphs */
-p {
+.login-p {
   text-align: center;
   margin-top: 20px; /* Kept margin for spacing */
   color: #555;
   font-size: 14px; /* Slightly smaller font size */
 }
 
-p a {
+.login-p a {
   color: #007bff;
   text-decoration: none;
 }
 
-p a:hover {
+.login-p a:hover {
   text-decoration: underline;
 }
 
@@ -128,7 +128,7 @@ p a:hover {
     width: 80vw; /* Increase width for better readability */
   }
   
-  .image-container {
+  .imagelogin-container {
     height: 200px; /* Adjust image height for smaller screens */
     min-width: 100%; /* Ensure image takes full width */
     order: -1; /* Move the image to the top */
@@ -143,17 +143,17 @@ p a:hover {
     font-size: 20px; /* Slightly smaller font size */
   }
   
-  .form-control {
+  .login-control {
     padding: 6px; /* Further adjust padding */
     font-size: 14px; /* Slightly smaller font size */
   }
   
-  .button {
+  .loginbutton {
     padding: 10px; /* Increase button padding for easier tapping */
     font-size: 16px; /* Larger button text */
   }
   
-  .link-container p {
+  .loginlink-container p {
     font-size: 14px; /* Slightly smaller font size */
   }
 }
@@ -163,7 +163,7 @@ p a:hover {
     width: 90vw; /* Further increase width for readability */
   }
   
-  .image-container {
+  .imagelogin-container {
     height: 150px; /* Reduce image height further */
     background-size: cover; /* Ensure the image covers the container */
     background-position: top; /* Focus on the top part of the image */
@@ -177,12 +177,12 @@ p a:hover {
     font-size: 18px; /* Smaller font size for heading */
   }
   
-  .form-control {
+  .login-control {
     padding: 4px; /* Reduce padding for input fields */
     font-size: 13px; /* Adjust font size */
   }
   
-  .button {
+  .loginbutton {
     padding: 8px; /* Adjust button padding */
     font-size: 14px; /* Adjust button font size */
   }
