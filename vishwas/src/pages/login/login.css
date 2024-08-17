@@ -104,19 +104,21 @@
 }
 
 /* Style for additional paragraphs */
-.login-p {
+.login-container p {
   text-align: center;
   margin-top: 20px; /* Kept margin for spacing */
   color: #555;
   font-size: 14px; /* Slightly smaller font size */
 }
 
-.login-p a {
+
+.login-container p a {
   color: #007bff;
   text-decoration: none;
 }
 
-.login-p a:hover {
+
+.login-container p a:hover {
   text-decoration: underline;
 }
 
