@@ -25,8 +25,7 @@ const Signup = () => {
     password: '',
     confirmPassword: '',
   });
-  const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState<boolean>(false);
+
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -38,7 +37,7 @@ const Signup = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match');
+      alert('Confirm Password does not match');
       return;
     }
 
@@ -53,14 +52,13 @@ const Signup = () => {
       if (response.ok) {
         const data = await response.json();
         console.log('Success:', data);
-        setSuccess(true);
-        // Optionally, you can redirect the user or show a success message
+        alert("Farmer Successfully R  egistered");        // Optionally, you can redirect the user or show a success message
       } else {
         const errorData = await response.json();
-        setError(errorData.message || 'Failed to sign up');
+        alert(errorData.message || 'Failed to sign up');
       }
     } catch (error) {
-      setError('An error occurred. Please try again later.');
+      alert('An error occurred. Please try again later.');
       console.error('Error:', error);
     }
 
@@ -181,13 +179,7 @@ const Signup = () => {
           </div>
         </form>
       </div>
-      <div>
-        {/* Error Message */}
-        {error && <div className="error-message">{error}</div>}
 
-        {/* Success Message */}
-        {success && <div className="success-message">Signup successful!</div>}
-        </div >
 
     </section>
   );
