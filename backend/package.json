@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Assured Contract Farming System for Stable Market Access",
   "main": "server.js",
+  "type":"module",
   "scripts": {
     "test": "npm start"
   },

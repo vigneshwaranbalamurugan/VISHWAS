@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs";
-import Farmer from "../models/farmerModel";
+import Farmer from "../models/farmerModel.js";
 
 export const loginFarmer = async (req,res) =>{
     const {mobileNumber,password}=req.body;
