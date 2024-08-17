@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './login.css'; 
+import './login.css';
+import image from '../../assets/cereals.jpg';
 
 
 interface LoginFormValues {
@@ -29,44 +30,39 @@ const Login = () => {
   };
 
   return (
-    <section className="">
-       <div className="image-container"></div>
-      <div className="login-container">
-        <h2 className="">Login</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="">
-            <label htmlFor="mobileNumber">Mobile Number:</label>
-            <input
-              type="tel" // Change type to "tel" for phone number input
-              className="form-control"
-              id="mobileNumber"
-              name="mobileNumber" // Update name to match interface
-              value={formData.mobileNumber}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="">
-            <label htmlFor="password">Password:</label>
-            <input
-              type="password"
-              className="form-control"
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <button type="submit" className="">
-            Login
-          </button>
-          <Link to="/signup">
-            <p className="">Don't have an account? Register</p>
-          </Link>
-        </form>
+    <section className="login-section">
+  <div className="image-container"></div>
+  <div className="login-container">
+    <h2>Sign In</h2>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="mobileNumber">Mobile Number:</label>
+        <input
+          type="tel"
+          className="form-control"
+          id="mobileNumber"
+          placeholder="Enter your mobile number"
+        />
       </div>
-    </section>
+      <div>
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          className="form-control"
+          id="password"
+          placeholder="Enter your password"
+        />
+      </div>
+      <button type="submit" className="button">Log In</button>
+      <div className="link-container">
+        <p>
+          <Link to="/signup">Don't have an account? Register</Link>
+        </p>
+      </div>
+    </form>
+  </div>
+</section>
+
   );
 };
 
