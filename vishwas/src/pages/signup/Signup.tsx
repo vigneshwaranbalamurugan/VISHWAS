@@ -38,7 +38,7 @@ const Signup = () => {
     <section className="signup-section">
     <div className="image-container"></div>
     <div className="signup-container">
-      <h2 style={{ marginTop: '10vh' }}>Sign Up</h2>
+      <h2 style={{ marginTop: '5vh' }}>Sign Up</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <div>
