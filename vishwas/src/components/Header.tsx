@@ -11,15 +11,19 @@ const Header = () => {
       <div className="bg-[#51c051] top-0 right-0 w-full left-0 h-14 flex items-center justify-between px-14 py-2 text-slate-50">
         <Link className="font-bold text-2xl md:text-4xl text-[#000080]">Vishwas</Link>
         <nav className="flex items-center gap-3">
-          <button type="button" className="text-white bg-[#000080] hover:bg-[#0f6a06]  focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-            <a title="Market" href="/market">Market</a>
+          <Link to='/market'><button type="button" className="text-white bg-[#000080] hover:bg-[#0f6a06]  focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+            Market
+          </button></Link>
+          <Link to='/login'>
+          <button type="button" className="text-white bg-[#000080] hover:bg-[#0f6a06] focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+            Login
           </button>
-          <button type="button" className="text-white bg-[#000080] hover:bg-[#0f6a06] focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-            <a title="Login" href="/login">Login</a>
+          </Link>
+          <Link to='signup'>
+          <button type="button" className="text-white bg-[#000080] hover:bg-[#0f6a06] focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+            Sign Up
           </button>
-          <button type="button" className="text-white bg-[#000080] hover:bg-[#0f6a06] focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-            <a title="Login" href="/signup">Sign Up</a>
-          </button>
+          </Link>
         </nav>
       </div>
 
