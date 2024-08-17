@@ -129,9 +129,12 @@ p a:hover {
 
 /* Media queries for responsiveness */
 @media (max-width: 992px) {
+
   .signup-section {
     flex-direction: column;
-    width: 90vw;
+    width: 70vw;
+    box-shadow: none;
+    border-radius: 0%;
   }
 
   .image-container {
@@ -141,6 +144,8 @@ p a:hover {
   .signup-container {
     width: 100%;
     padding: 16px;
+    margin-bottom: 3rem;
+    border-radius: 0%;
   }
 
   .form-group {
@@ -154,7 +159,7 @@ p a:hover {
 
 @media (max-width: 768px) {
   .signup-section {
-    width: 95vw;
+    width: 85vw;
   }
 
   .signup-container {
