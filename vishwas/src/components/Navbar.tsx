@@ -6,10 +6,17 @@ const Navbars = () => {
     const fontSize = '18px';
     const navbarColor = '#262626';
 
-
     return (
         <Navbar
-            style={{ backgroundColor: navbarColor, height: navbarHeight }}
+            style={{ 
+                backgroundColor: navbarColor, 
+                height: navbarHeight, 
+                position: 'fixed', 
+                top: 0, 
+                left: 0, 
+                width: '100%', 
+                zIndex: 1000 // Ensure it stays above other content
+            }}
         >
             <NavbarContent>
                 <NavbarBrand>
@@ -20,11 +27,17 @@ const Navbars = () => {
             </NavbarContent>
 
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
+            <NavbarItem>
+                    <Link color="foreground" href="/" style={{ fontSize, color: 'white' }}>
+                        Home
+                    </Link>
+                </NavbarItem>
                 <NavbarItem>
                     <Link color="foreground" href="/market" style={{ fontSize, color: 'white' }}>
                         Market
                     </Link>
                 </NavbarItem>
+               
             </NavbarContent>
             <NavbarContent justify="end" style={{ marginRight: '26px' }}>
                 <NavbarItem>

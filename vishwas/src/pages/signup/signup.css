@@ -12,7 +12,7 @@
 }
 
 .image-container {
-  flex: 0.5; /* 40% of the screen for image */
+  flex: 0.45; /* 40% of the screen for image */
   background-image: url('../../assets/2farmers.svg');
   background-size: cover;
   background-position: center;
@@ -23,7 +23,7 @@
 }
 
 .signup-container {
-  flex: 0.5; /* 60% of the screen for form */
+  flex: 0.55; /* 60% of the screen for form */
   display: flex;
   flex-direction: column;
   justify-content: center;
