@@ -1,123 +1,120 @@
-/* Container for the entire signup section */
 .signup-section {
-    display: flex; /* Use Flexbox for side-by-side layout */
-    height: 80vh; /* Adjust height as needed */
-    width: 70vw; /* Increased width for a slightly larger container */
-    margin: auto; /* Centers the section horizontally */
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-  }
-  
-  /* Left side image container */
-  .regimage-container {
-    flex: 1; /* Takes up half of the flex container */
-    background-image: url('../../assets/cereals.jpg'); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100%; /* Full height of the section */
-    min-width: 50%; /* Ensures image is visible */
-  }
-  
-  /* Right side signup form container */
-  .signup-container {
-    flex: 1; /* Takes up the other half of the flex container */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 16px; /* Adjust padding as needed */
-    background-color: #f0f8ff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow */
-    height: 100%; /* Full height of the section */
-    overflow-y: auto; /* Allows scrolling if content exceeds height */
-    max-width: 600px; /* Optional: set a max-width for the form container */
-  }
-  
-  /* Style for the heading in the signup container */
-  .signup-container h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 12px; /* Adjust margin for heading */
-    font-size: 22px;
-    font-weight: bold;
-  }
-  
-  /* Style for the form input fields */
-  .signup-control {
-    width: 100%;
-    padding: 8px; /* Adjust padding for input fields */
-    margin: 6px 0; /* Adjust margin */
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  /* Style for the label elements */
-  label {
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 4px;
-    color: #333;
-  }
-  
-  /* Style for the button */
-  .signupbutton {
-    width: 100%;
-    padding: 8px;
-    background-color: #007bff; /* Blue background color */
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 8px;
-    transition: background-color 0.3s ease;
-  }
-  
-  /* Hover effect for the button */
-  .signupbutton:hover {
-    background-color: #0056b3; /* Darker blue for hover effect */
-  }
-  
-  /* Container for the link */
-  .reglink-container {
-    text-align: center;
-    margin-top: 12px;
-  }
-  
-  /* Style for the paragraph within the link */
-  .reglink-container p {
-    font-size: 14px;
-    color: #007bff;
-    text-decoration: none;
-    cursor: pointer;
-    margin: 0;
-    transition: color 0.3s ease;
-  }
-  
-  /* Hover effect for the link */
-  .reglink-container p:hover {
-    color: #0056b3;
-    text-decoration: underline;
-  }
-  
-  /* Style for additional paragraphs */
-  .signup-p {
-    text-align: center;
-    margin-top: 20px;
-    color: #555;
-    font-size: 14px;
-  }
-  
-  .signup-p a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .signup-p a:hover {
-    text-decoration: underline;
-  }
-  
+  display: flex; /* Use Flexbox for side-by-side layout */
+  height: 100%; /* Adjust height as needed */
+  width: 70vw; /* Increased width for a slightly larger container */
+  margin: auto; /* Centers the section horizontally */
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+/* Left side image container */
+.regimage-container {
+  flex: 1; /* Takes up half of the flex container */
+  /* background-image: url('../../assets/cereals.jpg');  */
+  background-size: cover;
+  background-position: center;
+  height: 100%; /* Full height of the section */
+  min-width: 50%; /* Ensures image is visible */
+}
+
+/* Right side signup form container */
+.signup-container {
+  flex: 1; /* Takes up the other half of the flex container */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 16px; /* Adjust padding as needed */
+  background-color: #f0f8ff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  height: 100%; /* Full height of the section */
+  overflow-y: auto; /* Allows scrolling if content exceeds height */
+  max-width: 600px; /* Optional: set a max-width for the form container */
+}
+
+/* Style for the heading in the signup container */
+.signup-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 12px; /* Adjust margin for heading */
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* Style for the form input fields */
+.signup-control {
+  width: 100%;
+  padding: 8px; /* Adjust padding for input fields */
+  margin: 6px 0; /* Adjust margin */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Style for the label elements */
+.signupl {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+/* Style for the button */
+.regbutton {
+  width: 100%;
+  padding: 8px;
+  background-color: #007bff; /* Blue background color */
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the button */
+.regbutton:hover {
+  background-color: #0056b3; /* Darker blue for hover effect */
+}
+
+/* Container for the link */
+.signlink-container {
+  text-align: center;
+  margin-top: 12px;
+}
+
+/* Style for the paragraph within the link */
+.signlink-container p {
+  font-size: 14px;
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect for the link */
+.signlink-container p:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Style for additional paragraphs */
+.sign-p {
+  text-align: center;
+  margin-top: 20px;
+  color: #555;
+  font-size: 14px;
+}
+
+.sign-p a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.sign-p a:hover {
+  text-decoration: underline;
+}
