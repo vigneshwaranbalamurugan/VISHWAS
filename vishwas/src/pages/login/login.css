@@ -1,31 +1,34 @@
 /* Container for the entire login section */
 .login-section {
-  display: flex; /* Use Flexbox for side-by-side layout */
-  height: 55vh; /* Reduced height for a smaller rectangle */
+  display: flex; /* Flexbox for side-by-side layout */
+  flex-direction: row; /* Side by side for larger screens */
+  height: 65vh; /* Reduced height for a smaller rectangle */
   width: 45vw; /* Reduced width for a smaller rectangle */
-  margin: auto; /* Centers the section horizontally */
+  margin: auto; /* Center the section horizontally */
+  border-radius: 8px; /* Slight rounding to corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  overflow: hidden; /* Hide overflow to maintain section shape */
 }
 
 /* Left side image container */
 .image-container {
-  flex: 1; /* Takes up half of the flex container */
-  background-image: url('../../assets/cereals.jpg'); 
+  flex: 1; /* Take up half of the flex container */
+  background-image: url('../../assets/cereals.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100%; /* Full height of the section */
-  min-width: 40%; /* Ensures image is visible */
+  min-width: 40%; /* Ensure image is visible */
 }
 
 /* Right side login form container */
 .login-container {
-  flex: 1; /* Takes up the other half of the flex container */
+  flex: 1; /* Take up the other half of the flex container */
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 16px; /* Reduced padding for a more compact form */
   background-color: #f0f8ff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Reduced shadow for a subtle effect */
   height: 100%; /* Full height of the section */
 }
 
@@ -115,4 +118,72 @@ p a {
 
 p a:hover {
   text-decoration: underline;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .login-section {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    height: auto; /* Allow the section to adjust based on content */
+    width: 80vw; /* Increase width for better readability */
+  }
+  
+  .image-container {
+    height: 200px; /* Adjust image height for smaller screens */
+    min-width: 100%; /* Ensure image takes full width */
+    order: -1; /* Move the image to the top */
+    background-size: contain; /* Ensure the entire image is visible */
+  }
+  
+  .login-container {
+    padding: 12px; /* Reduce padding on smaller screens */
+  }
+  
+  .login-container h2 {
+    font-size: 20px; /* Slightly smaller font size */
+  }
+  
+  .form-control {
+    padding: 6px; /* Further adjust padding */
+    font-size: 14px; /* Slightly smaller font size */
+  }
+  
+  .button {
+    padding: 10px; /* Increase button padding for easier tapping */
+    font-size: 16px; /* Larger button text */
+  }
+  
+  .link-container p {
+    font-size: 14px; /* Slightly smaller font size */
+  }
+}
+
+@media (max-width: 480px) {
+  .login-section {
+    width: 90vw; /* Further increase width for readability */
+  }
+  
+  .image-container {
+    height: 150px; /* Reduce image height further */
+    background-size: cover; /* Ensure the image covers the container */
+    background-position: top; /* Focus on the top part of the image */
+  }
+  
+  .login-container {
+    padding: 8px; /* Reduce padding further */
+  }
+  
+  .login-container h2 {
+    font-size: 18px; /* Smaller font size for heading */
+  }
+  
+  .form-control {
+    padding: 4px; /* Reduce padding for input fields */
+    font-size: 13px; /* Adjust font size */
+  }
+  
+  .button {
+    padding: 8px; /* Adjust button padding */
+    font-size: 14px; /* Adjust button font size */
+  }
 }
