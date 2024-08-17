@@ -4,9 +4,7 @@ import './signup.css';
 import img from '../../assets/cereals.jpg';
 
 interface SignupFormValues {
-  firstName: string;
-  lastName: string;
-  middleName: string;
+  name: string;
   phoneNumber: string;
   email: string;
   dateOfBirth: string;
@@ -16,9 +14,7 @@ interface SignupFormValues {
 
 const Signup = () => {
   const [formData, setFormData] = useState<SignupFormValues>({
-    firstName: '',
-    lastName:'',
-    middleName:'',
+    name: '',
     phoneNumber: '',
     email: '',
     dateOfBirth: '',
@@ -41,55 +37,27 @@ const Signup = () => {
 
   return (
     <section className="signup-section">
-      <div className="regimage-container" style={{marginTop:'10vh'}}><img src={img} alt='login'></img></div>
+      <div className="image-container"></div>
       <div className="signup-container">
       <h2 style={{ marginTop: '10vh' }}>Sign Up</h2>
         <form onSubmit={handleSubmit}>
-         <div>
-        <label htmlFor="firstName" className='signupl'>First Name:</label>
-        <input
-          type="text"
-          className="signup-control"
-          id="firstName"
-          name="firstName"
-          placeholder="Enter your first name"
-          value={formData.firstName}
-          onChange={handleChange}
-          required
-        />
-      </div>
-
-      <div>
-        <label htmlFor="middleName" className='signupl'>Middle Name:</label>
-        <input
-          type="text"
-          className="signup-control"
-          id="middleName"
-          name="middleName"
-          placeholder="Enter your middle name (optional)"
-          value={formData.middleName}
-          onChange={handleChange}
-        />
-      </div>
-
-      <div>
-        <label htmlFor="lastName"className='signupl'>Last Name:</label>
-        <input
-          type="text"
-          className="signup-control"
-          id="lastName"
-          name="lastName"
-          placeholder="Enter your last name"
-          value={formData.lastName}
-          onChange={handleChange}
-          required
-        />
-      </div>
           <div>
-            <label htmlFor="phoneNumber"className='signupl'>Phone Number:</label>
+            <label htmlFor="name">Name:</label>
+            <input
+              type="text"
+              className="form-control"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="phoneNumber">Phone Number:</label>
             <input
               type="tel"
-              className="signup-control"
+              className="form-control"
               id="phoneNumber"
               name="phoneNumber"
               placeholder="Enter your phone number"
@@ -98,10 +66,10 @@ const Signup = () => {
             />
           </div>
           <div>
-            <label htmlFor="email"className='signupl'>Email:</label>
+            <label htmlFor="email">Email:</label>
             <input
               type="email"
-              className="singup-control"
+              className="form-control"
               id="email"
               name="email"
               placeholder="Enter your email"
@@ -110,10 +78,10 @@ const Signup = () => {
             />
           </div>
           <div>
-            <label htmlFor="dateOfBirth"className='signupl'>Date of Birth:</label>
+            <label htmlFor="dateOfBirth">Date of Birth:</label>
             <input
               type="date"
-              className="signup-control"
+              className="form-control"
               id="dateOfBirth"
               name="dateOfBirth"
               value={formData.dateOfBirth}
@@ -121,10 +89,10 @@ const Signup = () => {
             />
           </div>
           <div>
-            <label htmlFor="password" className='signupl'>Password:</label>
+            <label htmlFor="password">Password:</label>
             <input
               type="password"
-              className="signup-control"
+              className="form-control"
               id="password"
               name="password"
               placeholder="Enter your password"
@@ -133,10 +101,10 @@ const Signup = () => {
             />
           </div>
           <div>
-            <label htmlFor="confirmPassword" className='signupl'>Confirm Password:</label>
+            <label htmlFor="confirmPassword">Confirm Password:</label>
             <input
               type="password"
-              className="singup-control"
+              className="form-control"
               id="confirmPassword"
               name="confirmPassword"
               placeholder="Confirm your password"
@@ -144,9 +112,9 @@ const Signup = () => {
               onChange={handleChange}
             />
           </div>
-          <button type="submit" className="regbutton">Register</button>
-          <div className="signlink-container">
-            <p className='sign-p'>
+          <button type="submit" className="button">Register</button>
+          <div className="link-container">
+            <p>
               <Link to="/login">Already have an account? Log In</Link>
             </p>
           </div>
