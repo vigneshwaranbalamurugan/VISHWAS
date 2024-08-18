@@ -1,16 +1,27 @@
-import React from 'react';
-import CropCards from './components/CropCards'; // Import the CropCards component
-import './market.css';
+import React, { useState } from 'react';
+import CropCards from './components/CropCards';
+import CategoryFilter from './components/CategoryFilter';
 import SortingMenu from './components/SortingMenu';
-import SearchBar from './components/SearchBar';
+import './market.css';
 
 const Market = () => {
+  const [sortCriteria, setSortCriteria] = useState<string>('');
+  const [filters, setFilters] = useState<any>({});
+
+  const handleSort = (criteria: string) => {
+    setSortCriteria(criteria);
+  };
+
+  const handleFilter = (filters: any) => {
+    setFilters(filters);
+  };
+
   return (
     <div className="flex h-screen">
-      <SortingMenu />
+      <CategoryFilter onFilter={handleFilter} />
       <div className="flex-1">
-        <SearchBar/>
-        <CropCards />
+        <SortingMenu onSort={handleSort} />
+        <CropCards filters={filters} sortCriteria={sortCriteria} />
       </div>
     </div>
   );

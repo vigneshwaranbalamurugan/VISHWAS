@@ -11,7 +11,7 @@ const Layout = () => {
       boxSizing: 'border-box'}}>
       <Navbars />
       <Outlet />
-      {location.pathname !== '/login' && location.pathname !== '/signup' && <Footer />}
+      {location.pathname !== '/login' && location.pathname !== '/signup' /*&& <Footer />*/}
     </div>
   );
 };
