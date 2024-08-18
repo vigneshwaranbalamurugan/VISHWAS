@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './login.css';
-
+import image from '../../assets/farmer1.png'
 
 interface LoginFormValues {
   mobileNumber: string; // Update the interface name
@@ -51,8 +51,8 @@ const Login = () => {
   };
 
   return (
-    <section className="login-section">
-  <div className="imagelogin-container"></div>
+    <section className="login-section" style={{marginTop:'15vh'}}>
+  <div className="imagelogin-container"><img src={image} style={{width:'100%',height:'100%'}} alt='login'></img></div>
   <div className="login-container">
     <h2>Sign In</h2>
     <form onSubmit={handleSubmit}>

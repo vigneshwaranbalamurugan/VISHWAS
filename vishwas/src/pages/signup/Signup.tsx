@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './signup.css';
+import image from '../../assets/2farmers.png';
 
 interface SignupFormValues {
   firstName: string;
-  middleName:string;
   lastName:string;
   phoneNumber: string;
   email: string;
@@ -16,7 +16,6 @@ interface SignupFormValues {
 const Signup = () => {
   const [formData, setFormData] = useState<SignupFormValues>({
     firstName: '',
-    middleName:'',
     lastName:'',
     phoneNumber: '',
     email: '',
@@ -31,6 +30,11 @@ const Signup = () => {
       [event.target.name]: event.target.value,
     });
   };
+
+  const handleverify = (e) =>{
+    console.log('hi');
+    e.preventDefault();
+  }
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -64,8 +68,8 @@ const Signup = () => {
   };
 
   return (
-    <section className="signup-section">
-    <div className="signup-image-container"></div>
+    <section className="signup-section" style={{marginTop:'15vh'}}>
+    <div className="signup-image-container"><img className='signup-image' src={image} style={{width:'100%',height:'100%'}} alt='signup'></img></div>
     <div className="signup-container">
       <h2 style={{ marginTop: '5vh' }}>Sign Up</h2>
       <form onSubmit={handleSubmit}>
@@ -83,21 +87,6 @@ const Signup = () => {
               required
             />
           </div>
-        
-          <div>
-            <label htmlFor="name">MiddleName:</label>
-            <input
-              type="text"
-              className="signup-form-control"
-              id="middleName"
-              name="middleName"
-              placeholder="Enter your middle name"
-              value={formData.middleName}
-              onChange={handleChange}
-            />
-          </div>
-          </div>
-          <div className="signup-form-group">
           <div>
             <label htmlFor="name">LastName:</label>
             <input
@@ -111,6 +100,8 @@ const Signup = () => {
               required
             />
           </div>
+          </div>
+          <div className="signup-form-group">
           <div>
             <label htmlFor="phoneNumber">Phone Number:</label>
             <input
@@ -123,6 +114,10 @@ const Signup = () => {
               onChange={handleChange}
               required
             />
+          </div>
+          <div>
+          <label htmlFor="hi"  style={{color:'white'}}>h</label>
+          <button onClick={handleverify} className="signup-verify-button">Verify</button>
           </div>
         </div>
   

@@ -2,14 +2,13 @@ import Farmer from "../models/farmerModel.js";
 
 export const registerFarmer = async (req,res) =>{
     try {
-        const {firstName,middleName,lastName,phoneNumber,email,dateOfBirth,password}=req.body;
+        const {firstName,lastName,phoneNumber,email,dateOfBirth,password}=req.body;
         if (!firstName || !phoneNumber || !email || !dateOfBirth || !password) {
             return res.status(400).json({ message: 'All fields are required' });
           }
         const newFarmer= new Farmer({
             userName:{
                 firstName,
-                middleName,
                 lastName
             },
             mobileNumber:phoneNumber,

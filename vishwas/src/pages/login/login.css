@@ -13,13 +13,11 @@
 
 .imagelogin-container {
   flex: 1;
-  background-image: url('../../assets/farmer1.svg');
+  background-image: url('../../assets/farmer1.png');
   background-size: cover;
   border-radius: 10px;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100%;
-  min-width: 50%;
   border-radius: 8px 0 0 8px;
 }
 
@@ -121,9 +119,7 @@
     padding: 16px;
   }
 
-  .imagelogin-container {
-    display: none;
-  }
+
 
   .login-container {
     width: 100%;

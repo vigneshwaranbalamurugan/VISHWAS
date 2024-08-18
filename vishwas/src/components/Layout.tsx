@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from 'react-router-dom';
 // import Header from './Header';
-import Footer from './Footer';
+// import Footer from './Footer';
 import Navbars from './Navbar';
 
 const Layout = () => {
@@ -11,6 +11,7 @@ const Layout = () => {
       boxSizing: 'border-box'}}>
       <Navbars />
       <Outlet />
+      {/* <Footer/> */}
       {location.pathname !== '/login' && location.pathname !== '/signup' /*&& <Footer />*/}
     </div>
   );

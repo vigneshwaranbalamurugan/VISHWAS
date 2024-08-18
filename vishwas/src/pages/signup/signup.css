@@ -6,11 +6,17 @@
   margin: auto;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.signup-image-container  img{
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
 }
 
 .signup-image-container {
-  flex: 0.45; /* 40% of the screen for image */
-  background-image: url('../../assets/2farmers.svg');
+  flex: 0.53; /* 40% of the screen for image */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -20,7 +26,7 @@
 }
 
 .signup-container {
-  flex: 0.55; /* 60% of the screen for form */
+  flex: 0.57; /* 60% of the screen for form */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -58,6 +64,20 @@
   color: #333;
 }
 
+.signup-verify-button{
+  width: 70%;
+  padding: 8px;
+  margin: auto;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+}
 /* Submit button */
 .signup-button {
   width: 100%; /* Full width for all screen sizes */
@@ -126,7 +146,15 @@
 
 /* Media queries for responsiveness */
 @media (max-width: 992px) {
+  .signup-image-container  img{
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 0px;
 
+  }
+  .signup-verify-button{
+    width: 100%;
+  }
   .signup-section {
     flex-direction: column;
     width: 70vw;
@@ -134,9 +162,7 @@
     border-radius: 0%;
   }
 
-  .signup-image-container {
-    display: none; /* Hide image on smaller screens */
-  }
+ 
 
   .signup-container {
     width: 100%;
@@ -158,7 +184,9 @@
   .signup-section {
     width: 85vw;
   }
-
+  .signup-verify-button{
+    width: 100%;
+  }
   .signup-container {
     padding: 12px;
   }
@@ -179,5 +207,11 @@
 
   .signup-link-container p {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 50px) {
+  .signup-section {
+    overflow: hidden;
   }
 }
