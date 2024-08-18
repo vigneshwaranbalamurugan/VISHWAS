@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import './signup.css';
 
 interface SignupFormValues {
-  name: string;
+  firstName: string;
+  middleName:string;
+  lastName:string;
   phoneNumber: string;
   email: string;
   dateOfBirth: string;
@@ -13,7 +15,9 @@ interface SignupFormValues {
 
 const Signup = () => {
   const [formData, setFormData] = useState<SignupFormValues>({
-    name: '',
+    firstName: '',
+    middleName:'',
+    lastName:'',
     phoneNumber: '',
     email: '',
     dateOfBirth: '',
@@ -67,14 +71,42 @@ const Signup = () => {
       <form onSubmit={handleSubmit}>
         <div className="signup-form-group">
           <div>
-            <label htmlFor="name">Name:</label>
+            <label htmlFor="name">FirstName:</label>
             <input
               type="text"
               className="signup-form-control"
-              id="name"
-              name="name"
-              placeholder="Enter your name"
-              value={formData.name}
+              id="firstName"
+              name="firstName"
+              placeholder="Enter your first name"
+              value={formData.firstName}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        
+          <div>
+            <label htmlFor="name">MiddleName:</label>
+            <input
+              type="text"
+              className="signup-form-control"
+              id="middleName"
+              name="middleName"
+              placeholder="Enter your middle name"
+              value={formData.middleName}
+              onChange={handleChange}
+            />
+          </div>
+          </div>
+          <div className="signup-form-group">
+          <div>
+            <label htmlFor="name">LastName:</label>
+            <input
+              type="text"
+              className="signup-form-control"
+              id="lastName"
+              name="lastName"
+              placeholder="Enter your last name"
+              value={formData.lastName}
               onChange={handleChange}
               required
             />
