@@ -28,100 +28,131 @@ const Signup = () => {
     });
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Handle form submission logic here
+    if (formData.password !== formData.confirmPassword) {
+      alert('Confirm Password does not match');
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost:5000/api/v1/farmer/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Success:', data);
+
+        alert("Farmer Registered Successfully"); 
+      } else {
+        const errorData = await response.json();
+        alert(errorData.message || 'Failed to sign up');
+      }
+    } catch (error) {
+      alert('An error occurred. Please try again later.');
+      console.error('Error:', error);
+    }
     console.log(formData);
   };
 
   return (
     <section className="signup-section">
-    <div className="image-container"></div>
+    <div className="signup-image-container"></div>
     <div className="signup-container">
       <h2 style={{ marginTop: '5vh' }}>Sign Up</h2>
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
+        <div className="signup-form-group">
           <div>
             <label htmlFor="name">Name:</label>
             <input
               type="text"
-              className="form-control"
+              className="signup-form-control"
               id="name"
               name="name"
               placeholder="Enter your name"
               value={formData.name}
               onChange={handleChange}
+              required
             />
           </div>
           <div>
             <label htmlFor="phoneNumber">Phone Number:</label>
             <input
               type="tel"
-              className="form-control"
+              className="signup-form-control"
               id="phoneNumber"
               name="phoneNumber"
               placeholder="Enter your phone number"
               value={formData.phoneNumber}
               onChange={handleChange}
+              required
             />
           </div>
         </div>
   
-        <div className="form-group">
+        <div className="signup-form-group">
           <div>
             <label htmlFor="email">Email:</label>
             <input
               type="email"
-              className="form-control"
+              className="signup-form-control"
               id="email"
               name="email"
               placeholder="Enter your email"
               value={formData.email}
               onChange={handleChange}
+              required
             />
           </div>
           <div>
             <label htmlFor="dateOfBirth">Date of Birth:</label>
             <input
               type="date"
-              className="form-control"
+              className="signup-form-control"
               id="dateOfBirth"
               name="dateOfBirth"
               value={formData.dateOfBirth}
               onChange={handleChange}
+              required
             />
           </div>
         </div>
   
-        <div className="form-group">
+        <div className="signup-form-group">
           <div>
             <label htmlFor="password">Password:</label>
             <input
               type="password"
-              className="form-control"
+              className="signup-form-control"
               id="password"
               name="password"
               placeholder="Enter your password"
               value={formData.password}
               onChange={handleChange}
+              required
             />
           </div>
           <div>
             <label htmlFor="confirmPassword">Confirm Password:</label>
             <input
               type="password"
-              className="form-control"
+              className="signup-form-control"
               id="confirmPassword"
               name="confirmPassword"
               placeholder="Confirm your password"
               value={formData.confirmPassword}
               onChange={handleChange}
+              required
             />
           </div>
         </div>
   
-        <button type="submit" className="button">Register</button>
-        <div className="link-container">
+        <button type="submit" className="signup-button">Register</button>
+        <div className="signup-link-container">
           <p>
             <Link to="/login">Already have an account? Log In</Link>
           </p>
