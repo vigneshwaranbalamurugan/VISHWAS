@@ -1,28 +1,36 @@
+/* Crop Card Styles */
 .crop-card {
-  min-width: 300px; /* Adjust this width as needed */
-  height: 300px; /* Adjust this height as needed */
-  border: 1px solid #ccc;
-  display: flex;
-  flex-direction: column;
-  border-radius: 1.6rem;
-  overflow: hidden;
-  margin: 5px;
+  min-width: 300px; /* Minimum width of the card */
+  height: 300px; /* Height of the card */
+  border: 1px solid #ccc; /* Border of the card */
+  display: flex; /* Flexbox layout */
+  flex-direction: column; /* Arrange items in a column */
+  border-radius: 1.6rem; /* Rounded corners */
+  overflow: hidden; /* Hide overflowing content */
+  margin: 5px; /* Margin around the card */
+  background-color: #fff; /* Background color */
 }
 
+/* Image Styles within Card */
 .crop-card-image {
-  height: 150px; /* 30% of card height */
-  object-fit: cover;
+  height: 150px; /* Height of the image */
+  object-fit: cover; /* Cover the image within the container */
+  width: 100%; /* Full width */
 }
 
+/* Content Styles within Card */
 .crop-card-content {
-  flex-grow: 1;
-  padding: 10px;
+  flex-grow: 1; /* Allow content to grow */
+  padding: 10px; /* Padding around content */
+  text-align: center; /* Center text alignment */
 }
 
+/* Container Styles for Crop Cards */
 .crop-card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust minmax values as needed */
-  grid-gap: 10px; /* Adjust gap between cards */
-  align-self: center;
-  max-width: 100vw;
+  display: grid; /* Grid layout */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive columns */
+  grid-gap: 10px; /* Gap between cards */
+  align-items: start; /* Align items to the start */
+  justify-content: center; /* Center the grid */
+  padding: 10px; /* Padding around the container */
 }

@@ -3,17 +3,20 @@
   flex-direction: row;
   height: 80vh;
   width: 95vw;
-  
   margin: auto;
-  margin-top: auto;
-  margin-bottom: auto;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
-.image-container {
-  flex: 0.45; /* 40% of the screen for image */
-  background-image: url('../../assets/2farmers.svg');
+.signup-image-container  img{
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.signup-image-container {
+  flex: 0.53; /* 40% of the screen for image */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -23,7 +26,7 @@
 }
 
 .signup-container {
-  flex: 0.55; /* 60% of the screen for form */
+  flex: 0.57; /* 60% of the screen for form */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,7 +45,7 @@
 }
 
 /* Form input fields */
-.form-control {
+.signup-form-control {
   width: 100%;
   padding: 8px;
   margin: 6px 0;
@@ -52,7 +55,7 @@
 }
 
 /* Form labels */
-label {
+.signup-form-group label {
   font-family: 'Poppins', sans-serif;
   font-size: 15px;
   font-weight: bold;
@@ -61,8 +64,22 @@ label {
   color: #333;
 }
 
+.signup-verify-button{
+  width: 70%;
+  padding: 8px;
+  margin: auto;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+}
 /* Submit button */
-.button {
+.signup-button {
   width: 100%; /* Full width for all screen sizes */
   padding: 8px;
   background-color: #007bff;
@@ -76,16 +93,16 @@ label {
   transition: background-color 0.3s ease;
 }
 
-.button:hover {
+.signup-button:hover {
   background-color: #0056b3;
 }
 
-.link-container {
+.signup-link-container {
   text-align: center;
   margin-top: 12px;
 }
 
-.link-container p {
+.signup-link-container p {
   font-size: 14px;
   color: #007bff;
   text-decoration: none;
@@ -94,42 +111,50 @@ label {
   transition: color 0.3s ease;
 }
 
-.link-container p:hover {
+.signup-link-container p:hover {
   color: #0056b3;
   text-decoration: underline;
 }
 
-p {
+.signup-link-container p {
   text-align: center;
   margin-top: 20px;
   color: #555;
   font-size: 14px;
 }
 
-p a {
+.signup-link-container p a {
   color: #007bff;
   text-decoration: none;
 }
 
-p a:hover {
+.signup-link-container p a:hover {
   text-decoration: underline;
 }
 /* Your existing styles here... */
 
 /* Two form inputs per row on large screens */
-.form-group {
+.signup-form-group {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.form-group > div {
+.signup-form-group > div {
   width: 48%; /* Two columns, each taking about half the width */
 }
 
 /* Media queries for responsiveness */
 @media (max-width: 992px) {
+  .signup-image-container  img{
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 0px;
 
+  }
+  .signup-verify-button{
+    width: 100%;
+  }
   .signup-section {
     flex-direction: column;
     width: 70vw;
@@ -137,9 +162,7 @@ p a:hover {
     border-radius: 0%;
   }
 
-  .image-container {
-    display: none; /* Hide image on smaller screens */
-  }
+ 
 
   .signup-container {
     width: 100%;
@@ -148,11 +171,11 @@ p a:hover {
     border-radius: 0%;
   }
 
-  .form-group {
+  .signup-form-group {
     flex-direction: column; /* Single column on medium screens */
   }
 
-  .form-group > div {
+  .signup-form-group > div {
     width: 100%; /* Full width on medium screens */
   }
 }
@@ -161,7 +184,9 @@ p a:hover {
   .signup-section {
     width: 85vw;
   }
-
+  .signup-verify-button{
+    width: 100%;
+  }
   .signup-container {
     padding: 12px;
   }
@@ -170,20 +195,21 @@ p a:hover {
     font-size: 20px;
   }
 
-  .form-control {
+  .signup-form-control {
     padding: 6px;
     font-size: 14px;
   }
 
-  .button {
+  .signup-button {
     padding: 12px;
     font-size: 16px;
   }
 
-  .link-container p {
+  .signup-link-container p {
     font-size: 14px;
   }
 }
+
 
 /* Error message styling */
 .error-message {
@@ -203,3 +229,10 @@ label.error {
   color: red;
   font-weight: bold;
 }
+
+@media (max-width: 50px) {
+  .signup-section {
+    overflow: hidden;
+  }
+}
+

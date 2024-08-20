@@ -3,8 +3,8 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/f
 
 const Footer = () => {
   return (
-    <footer className="bg-[#51c051] text-white pb-0 w-full bottom-0 left-0 mt-auto">
-      <div className="flex justify-between p-0">
+    <footer className="bg-[#51c051] text-white py-5 w-full bottom-0 left-0 mt-auto">
+      <div className="flex justify-between p-4">
         <div>
           <ul className="list-none p-0">
             <li className="mb-2">Home</li>
@@ -23,11 +23,11 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="flex space-x-4">
-          <FaFacebookF />
-          <FaTwitter />
-          <FaInstagram />
-          <FaLinkedinIn />
+        <div className="flex space-x-4 text-white text-lg">
+          <FaFacebookF className="hover:text-gray-300 transition-colors duration-300" />
+          <FaTwitter className="hover:text-gray-300 transition-colors duration-300" />
+          <FaInstagram className="hover:text-gray-300 transition-colors duration-300" />
+          <FaLinkedinIn className="hover:text-gray-300 transition-colors duration-300" />
         </div>
       </div>
 
