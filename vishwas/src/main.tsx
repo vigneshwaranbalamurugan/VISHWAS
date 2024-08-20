@@ -12,6 +12,8 @@ import Layout from './components/Layout'
 import Market from './pages/market/Market'
 import NewLoginDetails from './pages/signup/NewLoginDetails'
 import P from './pages/profile/P'
+import FarmerProfile from './pages/profile/Test'
+import T from './pages/profile/T'
 
 
 const router = createBrowserRouter(
@@ -27,6 +29,7 @@ const router = createBrowserRouter(
         {path:"/market",element:<Market/>},
         {path:"/nld",element:<NewLoginDetails/>},
         {path:"/profile",element:<P/>},
+        {path:"/test",element:<T/>},
       ]
     }
   ]
