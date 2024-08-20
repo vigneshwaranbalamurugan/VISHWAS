@@ -10,7 +10,7 @@ import Signup from './pages/signup/Signup'
 
 import Layout from './components/Layout'
 import Market from './pages/market/Market'
-
+import NewLoginDetails from './pages/signup/NewLoginDetails'
 
 const router = createBrowserRouter(
   [
@@ -23,6 +23,7 @@ const router = createBrowserRouter(
         {path:"/login",element:<Login/>},
         {path:"/signup",element:<Signup/>},
         {path:"/market",element:<Market/>},
+        {path:"/nld",element:<NewLoginDetails/>},
       ]
     }
   ]
