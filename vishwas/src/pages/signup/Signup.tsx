@@ -46,11 +46,13 @@ const Signup = () => {
         },
         body: JSON.stringify({ phoneNumber: formData.phoneNumber }),
       });
+      const data = await response.json();
       if (response.ok) {
-        const data = await response.json();
         console.log('Success:', data);
-        alert("OTP sent successfully!");
+        alert(`${data.message}`);
         setIsPopupOpen(true);
+      }else{
+        alert(`${data.message}`);
       }
     } catch (error) {
       alert('An error occurred. Please try again later.');

@@ -5,6 +5,7 @@ interface SortingMenuProps {
 }
 
 const SortingMenu = ({ onSort }: SortingMenuProps) => {
+  
   return (
     <div className="bg-gray-100 w-64 p-4 flex flex-col space-y-4">
       <div className="mb-4">

@@ -12,7 +12,7 @@ import Layout from './components/Layout'
 import Market from './pages/market/Market'
 import NewLoginDetails from './pages/signup/NewLoginDetails'
 import P from './pages/profile/P'
-
+import CropDetails from './pages/market/components/CropDetails'
 
 const router = createBrowserRouter(
   [
@@ -27,6 +27,7 @@ const router = createBrowserRouter(
         {path:"/market",element:<Market/>},
         {path:"/nld",element:<NewLoginDetails/>},
         {path:"/profile",element:<P/>},
+        {path:"/cropdetail/:id",element:<CropDetails/>}
       ]
     }
   ]

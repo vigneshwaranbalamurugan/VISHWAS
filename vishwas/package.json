@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@beam-australia/react-env": "^3.1.1",
     "@heroicons/react": "^2.1.5",
     "@nextui-org/navbar": "^2.0.36",
     "@nextui-org/react": "^2.4.6",
