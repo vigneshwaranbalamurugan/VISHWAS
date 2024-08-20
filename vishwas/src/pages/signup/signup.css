@@ -184,3 +184,22 @@ p a:hover {
     font-size: 14px;
   }
 }
+
+/* Error message styling */
+.error-message {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+/* Input field styling when there's an error */
+.form-control.error {
+  border-color: red;
+  background-color: #ffe6e6;
+}
+
+/* Optional: Styling for the form labels to indicate errors */
+label.error {
+  color: red;
+  font-weight: bold;
+}
