@@ -11,6 +11,7 @@ import Signup from './pages/signup/Signup'
 import Layout from './components/Layout'
 import Market from './pages/market/Market'
 import NewLoginDetails from './pages/signup/NewLoginDetails'
+import Contract from './pages/signup/contract'
 import P from './pages/profile/P'
 import CropDetails from './pages/market/components/CropDetails'
 import FarmerProfile from './pages/profile/Test'
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
         {path:"/signup",element:<Signup/>},
         {path:"/market",element:<Market/>},
         {path:"/nld",element:<NewLoginDetails/>},
+        {path:"/contract",element:<Contract/>},
         {path:"/profile",element:<P/>},
         {path:"/cropdetail/:id",element:<CropDetails/>},
         {path:"/test",element:<T/>},
