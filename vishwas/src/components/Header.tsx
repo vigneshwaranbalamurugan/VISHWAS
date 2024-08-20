@@ -2,7 +2,7 @@ import React from 'react';
 import '../input.css';
 import { Link } from 'react-router-dom';
 
-
+ 
 const Header = () => {
   return (
     <>
