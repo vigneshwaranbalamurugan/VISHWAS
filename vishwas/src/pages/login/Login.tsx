@@ -51,7 +51,7 @@ const Login = () => {
   };
 
   return (
-    <section className="login-section" style={{marginTop:'15vh'}}>
+    <section className="login-section">
   <div className="imagelogin-container"><img src={image} style={{width:'100%',height:'100%'}} alt='login'></img></div>
   <div className="login-container">
     <h2>Sign In</h2>

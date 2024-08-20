@@ -11,6 +11,8 @@ import Signup from './pages/signup/Signup'
 import Layout from './components/Layout'
 import Market from './pages/market/Market'
 import NewLoginDetails from './pages/signup/NewLoginDetails'
+import P from './pages/profile/P'
+
 
 const router = createBrowserRouter(
   [
@@ -24,6 +26,7 @@ const router = createBrowserRouter(
         {path:"/signup",element:<Signup/>},
         {path:"/market",element:<Market/>},
         {path:"/nld",element:<NewLoginDetails/>},
+        {path:"/profile",element:<P/>},
       ]
     }
   ]

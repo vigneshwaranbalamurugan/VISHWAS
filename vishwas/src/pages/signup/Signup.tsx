@@ -100,7 +100,7 @@ const Signup = () => {
 
   return (
 
-    <section className="signup-section" style={{ marginTop: '15vh' }}>
+    <section className="signup-section" >
       {isPopupOpen && (
         <OtpPopup
           onClose={() => setIsPopupOpen(false)}
