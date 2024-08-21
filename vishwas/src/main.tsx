@@ -3,6 +3,14 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
+
+import firebase from 'firebase/app';
+import firebase/firestore;
+import 'firebase/auth';
+
+import {useAuthState} from 'react-firebase-hooks/auth';
+import {useCollectionData} from 'react-firebase-hooks/firestore';
+
 import Error from './pages/Error'
 import Home from './pages/home/Home'
 import Login from './pages/login/Login'
@@ -16,6 +24,12 @@ import CropDetails from './pages/market/components/CropDetails'
 import T from './pages/profile/T'
 import Terms from './pages/Contract/Terms'
 import Chat from './pages/chat/Chat'
+
+
+
+firebase.initializeApp({
+  //your config
+})
 
 const router = createBrowserRouter(
   [
