@@ -12,7 +12,11 @@ import Signup from './pages/signup/Signup'
 import Layout from './components/Layout'
 import Market from './pages/market/Market'
 import NewLoginDetails from './pages/signup/NewLoginDetails'
-import Contract from './pages/signup/contract'
+
+import Contract from './pages/Contract/ContractForm'
+
+import P from './pages/profile/P'
+
 import CropDetails from './pages/market/components/CropDetails'
 // import FarmerProfile from './pages/profile/Test'
 import T from './pages/fprofile/T'
