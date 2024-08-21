@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Assured Contract Farming System for Stable Market Access",
   "main": "server.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "test": "npm start"
   },
@@ -34,6 +34,7 @@
     "nodemailer": "^6.9.14",
     "nodemon": "^3.1.4",
     "path": "^0.12.7",
+    "twilio": "^5.2.2",
     "url": "^0.11.4"
   }
 }

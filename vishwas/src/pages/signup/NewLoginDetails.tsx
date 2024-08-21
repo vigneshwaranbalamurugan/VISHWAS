@@ -184,8 +184,8 @@ const FarmerDetailsForm = () => {
               <input
                 type="text"
                 id="cv"
-                value={setVillage}
-                onChange={(e) => setLName(e.target.value)}
+                value={cv}
+                onChange={(e) => setVillage(e.target.value)}
                 required
                 className="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
@@ -316,13 +316,13 @@ const FarmerDetailsForm = () => {
             </div>
 
             <div className="flex items-center justify-between col-span-2">
-              <button
+              <a href='/market'><button
                 type="submit"
                 className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"   
 
               >
                 Submit
-              </button>
+              </button></a>
             </div>   
 
           </div>
