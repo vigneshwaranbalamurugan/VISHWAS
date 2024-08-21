@@ -1,5 +1,5 @@
 import React from 'react';
-import FarmerProfile from './Test'; // Assuming Test.tsx is renamed to FarmerProfile.tsx
+import FarmerProfile from './fpt'; // Assuming Test.tsx is renamed to FarmerProfile.tsx
 
 const farmerData = {
   name: "John Doe",
