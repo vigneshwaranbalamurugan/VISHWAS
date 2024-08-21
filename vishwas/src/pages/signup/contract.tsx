@@ -60,7 +60,7 @@ const OrderForm: React.FC = () => {
     contractorName: 'VISHWAS',
     commodity: 'Wheat',
     specifications: 'Shape-Oval\nColor-brown',
-    deliveryType: 'By owm',
+    deliveryType: 'By owner',
     estimatedPrice: 0,
     paymentType: '',
     methodOfCultivation: '',
