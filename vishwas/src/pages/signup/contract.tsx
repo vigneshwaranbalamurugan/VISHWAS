@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './contract.css'
 
 const states = [
     { value: 'Andhra Pradesh', districts: ['Anantapur', 'Chittoor', 'East Godavari', 'Guntur', 'Kadapa', 'Krishna', 'Kurnool', 'Nellore', 'Prakasam', 'Srikakulam', 'Visakhapatnam', 'Vizianagaram', 'West Godavari'] },
@@ -56,16 +57,16 @@ interface FormData {
 
 const OrderForm: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
-    contractorName: '',
-    commodity: '',
-    specifications: '',
-    deliveryType: '',
+    contractorName: 'VISHWAS',
+    commodity: 'Wheat',
+    specifications: 'Shape-Oval\nColor-brown',
+    deliveryType: 'By owm',
     estimatedPrice: 0,
     paymentType: '',
     methodOfCultivation: '',
-    cropName: '',
-    cropType: '',
-    category: '',
+    cropName: 'Wheat',
+    cropType: 'Sharbathi',
+    category: 'Food Crops',
     price: 0,
     quantity: 0,
     state: '',
@@ -117,156 +118,150 @@ const OrderForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Contractor Name:</label>
-        <input
-          type="text"
-          name="contractorName"
-          value={formData.contractorName}
-          onChange={handleChange}
-        />
-        {errors.contractorName && <p>{errors.contractorName}</p>}
-      </div>
-      <div>
-        <label>Commodity:</label>
-        <input
-          type="text"
-          name="commodity"
-          value={formData.commodity}
-          onChange={handleChange}
-        />
-        {errors.commodity && <p>{errors.commodity}</p>}
-      </div>
-      <div>
-        <label>Specifications:</label>
-        <textarea
-          name="specifications"
-          value={formData.specifications}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label>Delivery Type:</label>
-        <input
-          type="text"
-          name="deliveryType"
-          value={formData.deliveryType}
-          onChange={handleChange}
-        />
-        {errors.deliveryType && <p>{errors.deliveryType}</p>}
-      </div>
-      <div>
-        <label>Estimated Price:</label>
-        <input
-          type="number"
-          name="estimatedPrice"
-          value={formData.estimatedPrice}
-          onChange={handleChange}
-        />
-        {errors.estimatedPrice && <p>{errors.estimatedPrice}</p>}
-      </div>
-      <div>
-        <label>Type of Payment:</label>
-        <input
-          type="text"
-          name="paymentType"
-          value={formData.paymentType}
-          onChange={handleChange}
-        />
-        {errors.paymentType && <p>{errors.paymentType}</p>}
-      </div>
-      <div>
-        <label>Method of Cultivation:</label>
-        <input
-          type="text"
-          name="methodOfCultivation"
-          value={formData.methodOfCultivation}
-          onChange={handleChange}
-        />
-        {errors.methodOfCultivation && <p>{errors.methodOfCultivation}</p>}
-      </div>
-      <div>
-        <label>Crop Name:</label>
-        <input
-          type="text"
-          name="cropName"
-          value={formData.cropName}
-          onChange={handleChange}
-        />
-        {errors.cropName && <p>{errors.cropName}</p>}
-      </div>
-      <div>
-        <label>Crop Type:</label>
-        <input
-          type="text"
-          name="cropType"
-          value={formData.cropType}
-          onChange={handleChange}
-        />
-        {errors.cropType && <p>{errors.cropType}</p>}
-      </div>
-      <div>
-        <label>Category:</label>
-        <input
-          type="text"
-          name="category"
-          value={formData.category}
-          onChange={handleChange}
-        />
-        {errors.category && <p>{errors.category}</p>}
-      </div>
-      <div>
-        <label>Price:</label>
-        <input
-          type="number"
-          name="price"
-          value={formData.price}
-          onChange={handleChange}
-        />
-        {errors.price && <p>{errors.price}</p>}
-      </div>
-      <div>
-        <label>Quantity:</label>
-        <input
-          type="number"
-          name="quantity"
-          value={formData.quantity}
-          onChange={handleChange}
-        />
-        {errors.quantity && <p>{errors.quantity}</p>}
-      </div>
-      <div>
-        <label>State:</label>
-        <select name="state" value={formData.state} onChange={handleChange}>
-          <option value="">Select a state</option>
-          {states.map((state) => (
-            <option key={state.value} value={state.value}>
-              {state.value}
-            </option>
-          ))}
-        </select>
-        {errors.state && <p>{errors.state}</p>}
-      </div>
-      <div>
-        <label>District:</label>
-        <select
-          name="district"
-          value={formData.district}
-          onChange={handleChange}
-          disabled={!formData.state}
-        >
-          <option value="">Select a district</option>
-          {districts.map((district) => (
-            <option key={district} value={district}>
-              {district}
-            </option>
-          ))}
-        </select>
-        {errors.district && <p>{errors.district}</p>}
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+<form onSubmit={handleSubmit} className="contract-form">
+  <h1 className="form-title">Contract Form</h1>
+  <div className="form-group">
+    <label>Contractor Name:</label>
+    <input
+      type="text"
+      name="contractorName"
+      value={formData.contractorName}
+      onChange={handleChange}
+    />
+    {errors.contractorName && <p className="error-message">{errors.contractorName}</p>}
+    <label>Commodity:</label>
+    <input
+      type="text"
+      name="commodity"
+      value={formData.commodity}
+      onChange={handleChange}
+    />
+    {errors.commodity && <p className="error-message">{errors.commodity}</p>}
+    <label>Specifications:</label>
+    <textarea
+      name="specifications"
+      value={formData.specifications}
+      onChange={handleChange}
+    />
+
+    <label>Delivery Type:</label>
+    <input
+      type="text"
+      name="deliveryType"
+      value={formData.deliveryType}
+      onChange={handleChange}
+    />
+    {errors.deliveryType && <p className="error-message">{errors.deliveryType}</p>}
+ 
+    <label>Estimated Price:</label>
+    <input
+      type="number"
+      name="estimatedPrice"
+      value={formData.estimatedPrice}
+      onChange={handleChange}
+    />
+    {errors.estimatedPrice && <p className="error-message">{errors.estimatedPrice}</p>}
+ 
+    <label>Type of Payment:</label>
+    <input
+      type="text"
+      name="paymentType"
+      value={formData.paymentType}
+      onChange={handleChange}
+    />
+    {errors.paymentType && <p className="error-message">{errors.paymentType}</p>}
+ 
+    <label>Method of Cultivation:</label>
+    <input
+      type="text"
+      name="methodOfCultivation"
+      value={formData.methodOfCultivation}
+      onChange={handleChange}
+    />
+    {errors.methodOfCultivation && <p className="error-message">{errors.methodOfCultivation}</p>}
+ 
+    <label>Crop Name:</label>
+    <input
+      type="text"
+      name="cropName"
+      value={formData.cropName}
+      onChange={handleChange}
+    />
+    {errors.cropName && <p className="error-message">{errors.cropName}</p>}
+ 
+    <label>Crop Type:</label>
+    <input
+      type="text"
+      name="cropType"
+      value={formData.cropType}
+      onChange={handleChange}
+    />
+    {errors.cropType && <p className="error-message">{errors.cropType}</p>}
+ 
+    <label>Category:</label>
+    <input
+      type="text"
+      name="category"
+      value={formData.category}
+      onChange={handleChange}
+    />
+    {errors.category && <p className="error-message">{errors.category}</p>}
+  </div>
+  <div className="form-group">
+    <label>Price:</label>
+    <input
+      type="number"
+      name="price"
+      value={formData.price}
+      onChange={handleChange}
+    />
+    {errors.price && <p className="error-message">{errors.price}</p>}
+ 
+    <label>Quantity:</label>
+    <input
+      type="number"
+      name="quantity"
+      value={formData.quantity}
+      onChange={handleChange}
+    />
+    {errors.quantity && <p className="error-message">{errors.quantity}</p>}
+ 
+    <label>State:</label>
+    <select
+      name="state"
+      value={formData.state}
+      onChange={handleChange}
+    >
+      <option value="">Select a state</option>
+      {states.map((state) => (
+        <option key={state.value} value={state.value}>
+          {state.value}
+        </option>
+      ))}
+    </select>
+    {errors.state && <p className="error-message">{errors.state}</p>}
+  
+    <label>District:</label>
+    <select
+      name="district"
+      value={formData.district}
+      onChange={handleChange}
+      disabled={!formData.state}
+    >
+      <option value="">Select a district</option>
+      {districts.map((district) => (
+        <option key={district} value={district}>
+          {district}
+        </option>
+      ))}
+    </select>
+    {errors.district && <p className="error-message">{errors.district}</p>}
+  </div>
+  <button type="submit" className="submit-button">
+    Submit
+  </button>
+</form>
+
   );
 };
 

@@ -37,6 +37,7 @@ const Login = () => {
         console.log('Success:', data);
 
         alert("Login Successfully"); 
+        localStorage.setItem('islog','true');
         window.location.href='/market';      // Optionally, you can redirect the user or show a success message
       } else {
         const errorData = await response.json();

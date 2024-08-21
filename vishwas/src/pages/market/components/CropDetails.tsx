@@ -22,6 +22,7 @@ const CropDetails = () => {
   const methodOfCultivation = "Organic, sustainable farming methods";
 
   return (
+    <div>
     <div className="crop-details-container flex flex-col md:flex-row p-4">
       {/* Image Section */}
       <div className="flex-shrink-0 w-full md:w-1/3">
@@ -50,6 +51,14 @@ const CropDetails = () => {
         <p><strong>Collaborative Order:</strong> {collaborativeOrder}</p>
         <p><strong>Method of Cultivation:</strong> {methodOfCultivation}</p>
       </div>
+      
+    </div>
+    <div>
+     <center> <button style={{padding:'10px',backgroundColor:'green',color:'white',fontWeight:'bold'}}>Contact With Buyer</button></center>
+    </div>
+    <div style={{margin:'2rem'}}>
+     <center> <a href='/contract'><button style={{padding:'10px',backgroundColor:'green',color:'white',fontWeight:'bold'}}>Signin Contract</button></a></center>
+    </div>
     </div>
   );
 };
