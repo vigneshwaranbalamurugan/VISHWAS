@@ -15,9 +15,10 @@ import NewLoginDetails from './pages/signup/NewLoginDetails'
 import Contract from './pages/signup/contract'
 import CropDetails from './pages/market/components/CropDetails'
 // import FarmerProfile from './pages/profile/Test'
-import T from './pages/profile/T'
+import T from './pages/fprofile/T'
 import Terms from './pages/Contract/Terms'
 import Chat from './pages/chat/Chat'
+import CPROFILE from './pages/cprofile/cprofile'
 
 
 
@@ -41,6 +42,7 @@ const router = createBrowserRouter(
         {path:"/profile",element:<T/>},
         {path:"/terms",element:<Terms/>},
         {path:"/chat",element:<Chat/>},
+        {path:"/cprofile",element:<CPROFILE/>},
       ]
     }
   ]
