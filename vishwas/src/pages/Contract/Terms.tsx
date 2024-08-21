@@ -33,7 +33,15 @@ const TermsAndConditions: React.FC = () => {
     // Adding the content
     doc.setFontSize(12);
     doc.setFont('helvetica', 'normal');
-    const text = `By accessing and using the Vishwas, you agree to comply with and be bound by the following terms and conditions: The platform facilitates contract farming agreements between farmers and buyers, providing tools for transparent communication, secure contracts, and payment processing. Both parties must adhere to the agreed terms within the contracts, including pricing, delivery schedules, and payment timelines. The platform is not responsible for any breaches of contract or disputes that arise between users. Payments are held in escrow until all contract conditions are met. Users must provide accurate information and are responsible for their own actions on the platform. The platform reserves the right to suspend or terminate accounts for any violations of these terms. By using this platform, you acknowledge and accept these terms as legally binding.`;
+    const text = `By accessing and using the Vishwas platform, you agree to comply with and be bound by the following terms and conditions:\n\n
+  Contractor: Vishwas\n
+  Commodity: Wheat\n
+  Specifications:Shape-Oval\nColor-brown\n
+  Delivery Type: By own and by Installments\n
+  Estimated Price: 50000K\n
+  Type of Payment: Online Payment by Installments\n
+  Collaborative Order: No\n
+  Method of Cultivation: Organic, sustainable farming methods\n\nBy accessing and using the Vishwas, you agree to comply with and be bound by the following terms and conditions: The platform facilitates contract farming agreements between farmers and buyers, providing tools for transparent communication, secure contracts, and payment processing. Both parties must adhere to the agreed terms within the contracts, including pricing, delivery schedules, and payment timelines. The platform is not responsible for any breaches of contract or disputes that arise between users. Payments are held in escrow until all contract conditions are met. Users must provide accurate information and are responsible for their own actions on the platform. The platform reserves the right to suspend or terminate accounts for any violations of these terms. By using this platform, you acknowledge and accept these terms as legally binding.`;
     
     const textX = 15; // Left margin
     const textY = 50; // Starting Y position
@@ -48,6 +56,16 @@ const TermsAndConditions: React.FC = () => {
   return (
     <div className="p-8 max-w-3xl mx-auto">
       <h2 className="text-2xl font-semibold mb-4">Terms and Conditions</h2>
+      <p className="text-gray-700 mb-6">
+      <p style={{fontWeight:'bold'}}>Contractor:</p> Vishwas
+      <p style={{fontWeight:'bold'}}>Commodity:</p> Wheat
+      <p style={{fontWeight:'bold'}}>Specifications:</p>Shape-Oval\nColor-brown
+      <p style={{fontWeight:'bold'}}>Delivery Type:</p> By own and by Installments
+      <p style={{fontWeight:'bold'}}>Estimated Price:</p> 50000K
+      <p style={{fontWeight:'bold'}}>Type of Payment:</p> Online Payment by Installment
+      <p style={{fontWeight:'bold'}}>Collaborative Order: </p>No
+      <p style={{fontWeight:'bold'}}> Method of Cultivation:</p> Organic, sustainable farming methods      </p>
+
       <p className="text-gray-700 mb-6">
         By accessing and using the Vishwas, you agree to comply with and be bound by the following terms and conditions: The platform facilitates contract farming agreements between farmers and buyers, providing tools for transparent communication, secure contracts, and payment processing. Both parties must adhere to the agreed terms within the contracts, including pricing, delivery schedules, and payment timelines. The platform is not responsible for any breaches of contract or disputes that arise between users. Payments are held in escrow until all contract conditions are met. Users must provide accurate information and are responsible for their own actions on the platform. The platform reserves the right to suspend or terminate accounts for any violations of these terms. By using this platform, you acknowledge and accept these terms as legally binding.
       </p>

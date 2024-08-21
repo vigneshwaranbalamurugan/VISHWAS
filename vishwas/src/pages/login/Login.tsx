@@ -38,7 +38,7 @@ const Login = () => {
 
         alert("Login Successfully"); 
         localStorage.setItem('islog','true');
-        window.location.href='/market';      // Optionally, you can redirect the user or show a success message
+        window.location.href='/nld';      // Optionally, you can redirect the user or show a success message
       } else {
         const errorData = await response.json();
         alert(errorData.message || 'Failed to sign up');
