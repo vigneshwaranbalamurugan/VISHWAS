@@ -107,6 +107,7 @@ const OrderForm: React.FC = () => {
     if (validate()) {
       console.log('Form Data:', formData);
     }
+    window.location.href='/terms';  
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {

@@ -66,7 +66,7 @@ const Navbars = () => {
                 </NavbarContent>)}
             {log && <NavbarContent justify="end" style={{ marginRight: '26px' }}>
 
-                <NavbarItem>(<p style={{color:'white'}}>Welcome Farmer</p>)
+                <NavbarItem>(<a href='/test'><p style={{color:'white'}}>Welcome Farmer</p></a>)
                 </NavbarItem>
                 <NavbarItem>
                         <Button
