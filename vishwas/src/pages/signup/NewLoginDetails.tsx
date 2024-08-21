@@ -58,13 +58,12 @@ const farmingTypes = [
   { value: 'Silvopasture', label: 'Silvopasture', description: 'Combining forestry and grazing of domesticated animals in a mutually beneficial way.' },
 ];
 
-
 const FarmerDetailsForm = () => {
   const [fname, setFName] = useState('');
   const [lname, setLName] = useState('');
   const [selectedState, setSelectedState] = useState('');
   const [districts, setDistricts] = useState([]);
-  const [cv, setVillage] = useState([]);
+  const [cv, setVillage] = useState('');
   const [selectedDistrict, setSelectedDistrict] = useState('');
   // No mobile number state
   const [ftype, setFType] = useState('');
@@ -89,15 +88,28 @@ const FarmerDetailsForm = () => {
     setLands([...lands, { soilType: '', landSize: '', landLocation: '' }]);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Name:', fname, lname);
-    console.log('Date of Birth:', dateOfBirth);
-    console.log('Email:', email);
-    console.log('Location:', selectedState, selectedDistrict);
-    console.log('Farming Type:', ftype);
-    console.log('Lands:', lands);
+
+    // Prepare data to send to the backend
+    const formData = {
+      fname,
+      lname,
+      selectedState,
+      selectedDistrict,
+      cv,
+      ftype,
+      dateOfBirth,
+      email,
+      lands,
+    };
+
+    try {
+      const response = await axios.post('http://localhost:5000/api/farmers', formData);
+      console.log('Farmer data submitted successfully:', response.data);
+    } catch (error) {
+      console.error('Error submitting data:', error);
+    }
   };
 
   return (
@@ -106,7 +118,7 @@ const FarmerDetailsForm = () => {
         <h2 className="text-2xl font-bold mb-6 text-center">Farmer Details </h2>
         <form onSubmit={handleSubmit} className="px-8 pt-6 pb-8 mb-4">
           <div className="grid grid-cols-2 gap-4">
-            {/* First Name */}
+            {/* First Name
             <div className="form-group">
               <label htmlFor="fname" className="block text-gray-700 text-sm font-bold mb-2">
                 First Name:
@@ -120,7 +132,7 @@ const FarmerDetailsForm = () => {
                 className="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
-            {/* Last Name */}
+            {/* Last Name *
             <div className="form-group">
               <label htmlFor="lname" className="block text-gray-700 text-sm font-bold mb-2">
                 Last Name:
@@ -133,7 +145,7 @@ const FarmerDetailsForm = () => {
                 required
                 className="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
-            </div>
+            </div> */}
 
             {/* State */}
             <div className="form-group">
@@ -191,7 +203,7 @@ const FarmerDetailsForm = () => {
               />
             </div>
 
-            {/* Date of Birth */}
+            {/* Date of Birth
             <div className="form-group">
               <label htmlFor="dateOfBirth" className="block text-gray-700 text-sm font-bold mb-2">
                 Date of Birth:
@@ -206,7 +218,7 @@ const FarmerDetailsForm = () => {
               />
             </div>
 
-            {/* Email */}
+            {/* Email *
             <div className="form-group">
               <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
                 Email:
@@ -219,7 +231,7 @@ const FarmerDetailsForm = () => {
                 required
                 className="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
-            </div>
+            </div> */}
 
             {/* Farming Type */}
             <div className="form-group">
@@ -315,16 +327,20 @@ const FarmerDetailsForm = () => {
               </button>
             </div>
 
+            
             <div className="flex items-center justify-between col-span-2">
-              <a href='/market'><button
+            <div className="flex items-center justify-between col-span-2">
+              <button
                 type="submit"
+                onClick={() => window.location.href = '/profile'}
                 className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"   
 
               >
                 Submit
-              </button></a>
+              </button>
             </div>   
 
+          </div>
           </div>
         </form>
       </div>
