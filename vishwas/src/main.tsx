@@ -14,7 +14,7 @@ import NewLoginDetails from './pages/signup/NewLoginDetails'
 import Contract from './pages/signup/contract'
 import P from './pages/profile/P'
 import CropDetails from './pages/market/components/CropDetails'
-import FarmerProfile from './pages/profile/Test'
+// import FarmerProfile from './pages/profile/Test'
 import T from './pages/profile/T'
 import Terms from './pages/Contract/Terms'
 
