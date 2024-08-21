@@ -65,7 +65,9 @@ const CropDetails = () => {
         </div>
       </div>
 
+        <center>
       <div>
+
         <button
           onClick={handleClick}
           style={{
@@ -74,10 +76,11 @@ const CropDetails = () => {
             color: 'white',
             fontWeight: 'bold',
           }}
-        >
+          >
           Contact With Buyer
         </button>
       </div>
+          </center>
 
       <div style={{ margin: '2rem' }}>
         <center>
