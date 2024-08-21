@@ -19,11 +19,6 @@ import T from './pages/profile/T'
 import Terms from './pages/Contract/Terms'
 import Chat from './pages/chat/Chat'
 
-
-
-
-
-
 const router = createBrowserRouter(
   [
     {

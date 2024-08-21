@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import otpInputs from './otpInputcss.js'
+import './otpinput.css';
 
 const OtpPopup = ({ onClose, onVerify, phoneNumber }) => {
     const [otp, setOtp] = useState('');
@@ -41,19 +41,19 @@ const OtpPopup = ({ onClose, onVerify, phoneNumber }) => {
     };
 
     return (
-        <div className={otpInputs.overlay}>
-            <div className={otpInputs.popup}>
-                <h3 className={otpInputs.title}>Enter OTP</h3>
+        <div className="otp-overlay">
+            <div className="otp-popup">
+                <h3 className="otp-title">Enter OTP</h3>
                 <input
                     type="text"
                     value={otp}
                     onChange={handleChange}
                     maxLength={6}
-                    className={otpInputs.input}
+                    className="otp-input"
                 />
-                <div className={otpInputs.buttonContainer}>
-                    <button onClick={handleSubmit} className={otpInputs.button}>Submit</button>
-                    <button onClick={onClose} className={otpInputs.closeButton}>Close</button>
+                <div className="otp-button-container">
+                    <button onClick={handleSubmit} className="otp-button">Submit</button>
+                    <button onClick={onClose} className="otp-close-button">Close</button>
                 </div>
             </div>
         </div>
@@ -61,3 +61,4 @@ const OtpPopup = ({ onClose, onVerify, phoneNumber }) => {
 };
 
 export default OtpPopup;
+

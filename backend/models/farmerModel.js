@@ -40,6 +40,10 @@ const farmerSchema = new mongoose.Schema({
         required: true, 
         select: false
     },
+    isfilled:{
+        type:Boolean,
+        default:false,
+    },
     created_at: {
         type: Date,
         default: Date.now
