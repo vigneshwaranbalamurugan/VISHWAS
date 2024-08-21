@@ -15,6 +15,7 @@ import CropDetails from './pages/market/components/CropDetails'
 // import FarmerProfile from './pages/profile/Test'
 import T from './pages/profile/T'
 import Terms from './pages/Contract/Terms'
+import Chat from './pages/chat/Chat'
 
 const router = createBrowserRouter(
   [
@@ -32,6 +33,7 @@ const router = createBrowserRouter(
         {path:"/cropdetail/:id",element:<CropDetails/>},
         {path:"/profile",element:<T/>},
         {path:"/terms",element:<Terms/>},
+        // {path:"/chat",element:<Chat/>},
       ]
     }
   ]
