@@ -31,11 +31,7 @@ const Navbars = () => {
             </NavbarContent>
 
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
-                <NavbarItem>
-                    <Link color="foreground" href="/" style={{ fontSize, color: 'white' }}>
-                        Home
-                    </Link>
-                </NavbarItem>
+               
                 {log && (<NavbarItem>
                     <Link color="foreground" href="/market" style={{ fontSize, color: 'white' }}>
                         Market
