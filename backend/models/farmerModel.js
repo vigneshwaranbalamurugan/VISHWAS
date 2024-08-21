@@ -19,6 +19,7 @@ const farmerSchema = new mongoose.Schema({
         type: String,
         minlength: 10,
         maxlength: 10,
+        unique:true,
         required: true
     },
     email: {
@@ -26,10 +27,6 @@ const farmerSchema = new mongoose.Schema({
         lowercase: true,
         unique: true,
         default: null
-    },
-    age: {
-        type: Number,
-        default: null,
     },
     dateOfBirth: {
         type: Date,
