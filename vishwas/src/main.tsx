@@ -3,7 +3,6 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-
 import firebase from 'firebase/app';
 import firebase/firestore;
 import 'firebase/auth';
@@ -25,11 +24,26 @@ import T from './pages/profile/T'
 import Terms from './pages/Contract/Terms'
 import Chat from './pages/chat/Chat'
 
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBp0poIb8qDb3XB4_JgkGg32lrTXN2-J6s",
+  authDomain: "bhoomichat.firebaseapp.com",
+  projectId: "bhoomichat",
+  storageBucket: "bhoomichat.appspot.com",
+  messagingSenderId: "620460022149",
+  appId: "1:620460022149:web:61e43244ce938a64a94cec",
+  measurementId: "G-0P04GNWDCD"
+};
 
-firebase.initializeApp({
-  //your config
-})
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 const router = createBrowserRouter(
   [
