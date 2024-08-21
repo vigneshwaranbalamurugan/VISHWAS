@@ -1,6 +1,7 @@
 import Farmer from "../models/farmerModel.js";
 import { generateVerificationCode, verificationStore, verifiedNumber,sendSms } from "../utils/genrateMobOTP.js";
 
+
 export const requestOTP = async (req, res) => {
     try {
         const { phoneNumber } = req.body;
@@ -17,9 +18,9 @@ export const requestOTP = async (req, res) => {
         sendSms(phoneNumber,otp);
         res.status(201).json({ message: `OTP sent to your Mobile - ${phoneNumber}` });
     } catch (error) {
-       console.error('Error getting OTP:', error);
+        console.error('Error getting OTP:', error);
         res.status(500).json({ message: 'Internal Server Error' });
-    } 
+    }
 };
 
 export const verifyOTP = async (req, res) => {
@@ -67,7 +68,7 @@ export const registerFarmer = async (req, res) => {
             },
             mobileNumber: phoneNumber,
             email,
-            dateOfBirth,
+            dateOfBirth:dateOfBirth,
             password
         });
         await newFarmer.save();

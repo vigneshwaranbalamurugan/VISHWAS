@@ -29,8 +29,8 @@ const farmerSchema = new mongoose.Schema({
         default: null
     },
     dateOfBirth: {
-        type: Date,
-        default: new Date('0000-00-00')
+        type: String,
+        default:'00-00-0000'
     },
     password: {
         type: String,

@@ -101,7 +101,7 @@ const Signup = () => {
         console.log('Success:', data);
         alert(`${data.message}`);
         setIsPopupOpen(true);
-      }else{
+      } else {
         alert(`${data.message}`);
       }
     } catch (error) {
@@ -121,28 +121,41 @@ const Signup = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if(!validateForm())
-    {
-      return;
-    }
     if (formData.password !== formData.confirmPassword) {
       alert('Confirm Password does not match');
       return;
     }
 
     try {
+      const formattedDateOfBirth = formData.dateOfBirth ? new Date(formData.dateOfBirth).toISOString().split('T')[0] : '';
       const response = await fetch('http://localhost:5000/api/v1/farmer/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          phoneNumber: formData.phoneNumber,
+          email:formData.email,
+          dateOfBirth: formattedDateOfBirth,
+          password: formData.password,
+        }),
       });
       if (response.ok) {
         const data = await response.json();
         console.log('Success:', data);
 
         alert("Farmer Registered Successfully");
+        setFormData({
+          firstName: '',
+          lastName: '',
+          phoneNumber: '',
+          email: '',
+          dateOfBirth: '',
+          password: '',
+          confirmPassword: '',
+        });
       } else {
         const errorData = await response.json();
         alert(errorData.message || 'Failed to sign up');
@@ -285,7 +298,7 @@ const Signup = () => {
         </form>
       </div>
     </section>
-);
+  );
 };
 
 export default Signup;
