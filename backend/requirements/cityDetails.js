@@ -20,3 +20,15 @@ export const saveCity = async (req, res) => {
         res.status(500).json({ message: 'Internal Server Error' });
     }
 };
+
+export const getCity = async (req, res) => {
+    try {
+        const {state}=req.body;
+        const oldState = await State.findOne({ name: state });
+        const cities = await City.find({state:oldState._id});
+        return res.status(200).json({ cities });
+    } catch (error) {
+        console.error('Error getting states:', error);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
+};

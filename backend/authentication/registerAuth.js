@@ -14,8 +14,8 @@ export const requestOTP = async (req, res) => {
         }
         const otp = generateVerificationCode();
         console.log(otp);
-        verificationStore.set(phoneNumber, otp,"Signup");
-        sendSms(phoneNumber,otp);
+        verificationStore.set(phoneNumber, otp);
+        sendSms(phoneNumber,otp,"Signup");
         res.status(201).json({ message: `OTP sent to your Mobile - ${phoneNumber}` });
     } catch (error) {
         console.error('Error getting OTP:', error);

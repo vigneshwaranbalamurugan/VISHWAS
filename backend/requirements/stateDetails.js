@@ -20,3 +20,14 @@ export const saveState = async (req, res) => {
         res.status(500).json({ message: 'Internal Server Error' });
     }
 };
+
+
+export const getState = async (req, res) => {
+    try {
+        const states = await State.find({});
+        return res.status(200).json({ states });
+    } catch (error) {
+        console.error('Error getting states:', error);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
+};

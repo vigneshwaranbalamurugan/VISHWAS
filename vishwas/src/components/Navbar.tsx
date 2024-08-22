@@ -8,7 +8,7 @@ const Navbars = () => {
     const log = localStorage.getItem('islog');
 
     const handleLogout = () =>{
-        localStorage.removeItem('islog');
+        localStorage.clear();
         window.location.href='/login';
     };
     return (
