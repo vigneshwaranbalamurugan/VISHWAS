@@ -106,8 +106,8 @@ const OrderForm: React.FC = () => {
     e.preventDefault();
     if (validate()) {
       console.log('Form Data:', formData);
+      window.location.href='/terms';  
     }
-    window.location.href='/terms';  
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {

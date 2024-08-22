@@ -34,9 +34,12 @@ const farmerData = {
 
 function T() {
   return (
+    <center>
     <div className="container"> {/* Added a container class */}
+      
       <FarmerProfile {...farmerData} />
     </div>
+    </center>
   );
 }
 
