@@ -1,22 +1,33 @@
-import React from 'react';
-import { Contract } from './cpt';
+import React, { useState } from 'react';
+import { Contract,contractors } from './cpt';
+import ContractDetail from './ContractDetail'; // Import the ContractDetail component
 
-interface ContractorsListProps {
-  contractors: { contracts: Contract[] }[]; // Adjusted type to handle only contracts
-  onSelectContract: (contract: Contract) => void;
-}
+const ContractorsList: React.FC = () => {
+  const [selectedContract, setSelectedContract] = useState<Contract | null>(null);
 
-const ContractorsList: React.FC<ContractorsListProps> = ({ contractors, onSelectContract }) => {
-  // Flatten all contracts from all contractors into a single list
-  const allContracts = contractors.flatMap(contractor => contractor.contracts);
+  const handleContractClick = (contract: Contract) => {
+    setSelectedContract(contract); // Set the selected contract when clicked
+  };
+
+  const handleBack = () => {
+    setSelectedContract(null); // Go back to the list
+  };
+
+  const contractor = contractors[0]; // Assuming you're showing contracts for the first contractor
+
+  if (selectedContract) {
+    return <ContractDetail contract={selectedContract} onBack={handleBack} />;
+  }
 
   return (
-    <div>
+    <div className="clist-container">
+      <h1>{contractor.name} ({contractor.companyName})</h1>
+      <p>{contractor.location}</p>
       <h2>Contracts</h2>
-      <ul>
-        {allContracts.map(contract => (
-          <li key={contract.id} onClick={() => onSelectContract(contract)} style={{ cursor: 'pointer' }}>
-            <h5>{contract.title}</h5>
+      <ul className="clist">
+        {contractor.contracts.map((contract) => (
+          <li key={contract.id} className="clist-item" onClick={() => handleContractClick(contract)}>
+            <h3>{contract.title}</h3>
             <p>Status: {contract.status}</p>
           </li>
         ))}

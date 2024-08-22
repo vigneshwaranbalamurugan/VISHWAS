@@ -11,7 +11,7 @@ import Layout from './components/Layout'
 import Market from './pages/market/Market'
 import NewLoginDetails from './pages/signup/NewLoginDetails'
 import Contract from './pages/contract/ContractForm'
-
+import './locales/i18n';
 
 import CropDetails from './pages/market/components/CropDetails'
 import T from './pages/fprofile/Fprofile'
@@ -19,6 +19,7 @@ import Terms from './pages/contract/Terms'
 import Chat from './pages/chat/Chat'
 import CPROFILE from './pages/cprofile/cprofile'
 import DetailsOfContract from './pages/cprofile/contractm'
+
 
 import Future from './pages/cprofile/Future'
 
@@ -55,6 +56,7 @@ const router = createBrowserRouter(
         {path:"aauth",element:<AadhaarAuth/>},
 
 
+        
       ]
     }
   ]

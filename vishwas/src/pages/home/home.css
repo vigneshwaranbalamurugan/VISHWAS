@@ -1,0 +1,33 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Style buttons inside the home-container */
+.home-container button {
+  background-color: #007bff; /* Primary color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Button hover effect */
+.home-container button:hover {
+  background-color: #0056b3; /* Darker shade of the primary color */
+  transform: scale(1.05);
+}
+
+/* Button active effect */
+.home-container button:active {
+  background-color: #004494; /* Even darker shade */
+  transform: scale(0.95);
+}
