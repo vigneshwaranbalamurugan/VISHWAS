@@ -22,7 +22,7 @@ const Signup = () => {
     email: '',
     dateOfBirth: '',
     password: '',
-    confirmPassword: '',
+    confirmPassword: '', 
   });
 
   const [errors, setErrors] = useState<Partial<SignupFormValues>>({});

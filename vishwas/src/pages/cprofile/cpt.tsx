@@ -52,6 +52,18 @@ export interface Contract {
           status: "Completed",
           description: "Completed corn production and delivery for summer 2023.",
         },
+        {
+          id: 4,
+          title: "Autumn Rice 2024",
+          status: "Future",
+          description: "Future plan for rice production in autumn 2024.",
+        },
+        {
+          id: 5,
+          title: "Spring Wheat 2024",
+          status: "Future",
+          description: "Future plan for wheat production in spring 202.",
+        },
       ],
     },
     // Add more contractors if needed
