@@ -39,7 +39,7 @@ const Login = () => {
         alert("Login Successfully"); 
         localStorage.setItem('islog','true');
         localStorage.setItem('userid',data.userdetails.userid);
-        window.location.href='/nld';      // Optionally, you can redirect the user or show a success message
+        window.location.href='/farmerform';      // Optionally, you can redirect the user or show a success message
       } else {
         const errorData = await response.json();
         alert(errorData.message || 'Failed to sign up');

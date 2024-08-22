@@ -25,6 +25,7 @@ import Future from './pages/cprofile/Future'
 import Status from './pages/status/Status'
 import History from './pages/status/History'
 import Contracts from './pages/status/Contracts'
+import AadhaarAuth from './pages/signup/AadhaarAuth'
 
 const router = createBrowserRouter(
   [
@@ -51,6 +52,7 @@ const router = createBrowserRouter(
 
         {path:"/cprofile",element:<CPROFILE/>},
         {path:"/Future/:id",element:<Future/>},
+        {path:"aauth",element:<AadhaarAuth/>},
 
 
       ]

@@ -155,6 +155,9 @@
   .signup-verify-button{
     width: 100%;
   }
+  /* Left side image container */
+
+  
   .signup-section {
     flex-direction: column;
     width: 70vw;
