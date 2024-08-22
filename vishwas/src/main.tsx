@@ -19,6 +19,7 @@ import Terms from './pages/contract/Terms'
 import Chat from './pages/chat/Chat'
 import CPROFILE from './pages/cprofile/cprofile'
 import DetailsOfContract from './pages/cprofile/contractm'
+import Future from './pages/cprofile/Future'
 
 const router = createBrowserRouter(
   [
@@ -40,6 +41,7 @@ const router = createBrowserRouter(
         {path:"/terms",element:<Terms/>},
         {path:"/chat",element:<Chat/>},
         {path:"/cprofile",element:<CPROFILE/>},
+        {path:"/Future/:id",element:<Future/>},
       ]
     }
   ]
