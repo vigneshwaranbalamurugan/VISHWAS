@@ -2,7 +2,7 @@ import './index.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-
+import FarmerForm from './pages/signup/newlogin/newloginuser'
 import Error from './pages/Error'
 import Home from './pages/home/Home'
 import Login from './pages/login/Login'
@@ -40,6 +40,7 @@ const router = createBrowserRouter(
         {path:"/status",element:<Status/>},
         {path:"/history",element:<History/>},
         {path:"/contracts",element:<Contracts/>},
+        {path:"/farmerform",element:<FarmerForm/>},
         {path:"/cropdetail/:id",element:<CropDetails/>},
         {path:"/profile",element:<T/>},
         {path:"/terms",element:<Terms/>},
