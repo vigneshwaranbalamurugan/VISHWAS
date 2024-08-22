@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/vigneshwaranbalamurugan/SIH-2024#readme",
   "dependencies": {
+    "backend": "file:",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -25,6 +26,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "express-async-handler": "^1.2.0",
+    "firebase": "^10.13.0",
     "jose": "^5.6.3",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.8.0",

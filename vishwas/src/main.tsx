@@ -16,7 +16,7 @@ import Contract from './pages/contract/ContractForm'
 import CropDetails from './pages/market/components/CropDetails'
 import T from './pages/fprofile/Fprofile'
 import Terms from './pages/contract/Terms'
-import Chat from './pages/chat/Chat'
+//import Chat from './pages/chat/Chat'
 import CPROFILE from './pages/cprofile/cprofile'
 import DetailsOfContract from './pages/cprofile/contractm'
 import Status from './pages/status/Status'
@@ -43,8 +43,8 @@ const router = createBrowserRouter(
         {path:"/cropdetail/:id",element:<CropDetails/>},
         {path:"/profile",element:<T/>},
         {path:"/terms",element:<Terms/>},
-        {path:"/chat",element:<Chat/>},
-        {path:"/cprofile",element:<CPROFILE/>},
+        //{path:"/chat",element:<Chat/>},
+        {path:"/cprofile",element:<CPROFILE/>}
       ]
     }
   ]
