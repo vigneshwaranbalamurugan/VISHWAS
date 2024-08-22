@@ -1,5 +1,6 @@
 import React from 'react';
 import { contractors } from './cpt';
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'; // Use useNavigate instead of useHistory
 
 const CProfile = () => {
@@ -44,7 +45,9 @@ const CProfile = () => {
                       key={contract.id}
                       className={`w-full md:w-1/2 px-4 py-4 mb-4 ${contract.status === 'Active' ? 'bg-green-100' : 'bg-gray-200'} rounded-lg`}
                     >
-                      <h4 className="text-lg font-semibold text-gray-700">{contract.title}</h4>
+                      <Link to="/doc">
+                        <h4 className="text-lg font-semibold text-gray-700 hover:underline">{contract.title}</h4>
+                      </Link>
                       <p className={`text-sm ${contract.status === 'Active' ? 'text-green-600' : 'text-gray-600'} font-semibold`}>
                         Status: {contract.status}
                       </p>
