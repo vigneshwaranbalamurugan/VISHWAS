@@ -1,4 +1,5 @@
 import React from 'react';
+import dhoni from '../../assets/sfarmer.jpg';
 
 interface FarmerProfileProps {
   name: string;
@@ -51,8 +52,8 @@ const FarmerProfile: React.FC<FarmerProfileProps> = ({
       {/* Basic Farmer Information - Single Column Layout */}
       <div className="flex flex-col items-center justify-center mb-8">
         <img
-          className="h-80 w-80 object-cover rounded-full border-4 border-green-600"
-          src="https://i.ytimg.com/vi/9WKdtr_PR-Q/maxres2.jpg?sqp=-oaymwEoCIAKENAF8quKqQMcGADwAQH4Ac4FgAKACooCDAgAEAEYYyBlKDwwDw==&rs=AOn4CLDKw8nUgZn4YYpAyJ8VH16BzveeYA" // Adjust according to your image source
+          className="h-80 w-80 object-fill rounded-full border-4 border-green-600"
+          src={dhoni} // Adjust according to your image source
           alt="MS Dhoni"
         />
         <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-xl text-lg mt-6 col-span-2">

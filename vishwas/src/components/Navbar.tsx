@@ -24,9 +24,19 @@ const Navbars = () => {
         >
             <NavbarContent>
                 <NavbarBrand>
+                {/* <Link to='/'>
                     <p className="font-bold text-inherit" style={{ margin: 0, paddingLeft: '26px', fontSize, color: 'white' }}>
                         VISHWAS
                     </p>
+                </Link> */}
+                <Button
+                as={Link}
+                style={{ margin: 0, paddingLeft: '26px', fontSize: '1.5rem',fontWeight: 600, color: 'white' }}
+                href="/"
+                variant="flat"
+                >
+                VISHWAS
+                </Button>
                 </NavbarBrand>
             </NavbarContent>
 
