@@ -28,7 +28,7 @@ const AadhaarAuth: React.FC<AadhaarAuthProps> = ({ onSuccess }) => {
   };
 
   return (
-    <div className="aadhaar-auth flex flex-col items-center justify-center h-screen bg-green-600">
+    <div className="aadhaar-auth flex flex-col items-center justify-center h-screen bg-green-400">
       <img
         src="https://meripehchaan.gov.in/assets/img/logo/meripahchaan-main.png"
         alt="Meri Pehchan Logo"
