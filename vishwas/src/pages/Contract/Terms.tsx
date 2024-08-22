@@ -36,7 +36,8 @@ const TermsAndConditions: React.FC = () => {
     const text = `By accessing and using the Vishwas platform, you agree to comply with and be bound by the following terms and conditions:\n\n
   Contractor: Vishwas\n
   Commodity: Wheat\n
-  Specifications:Shape-Oval\nColor-brown\n
+  Specifications:Shape-Oval\n 
+  Color-brown\n
   Delivery Type: By own and by Installments\n
   Estimated Price: 50000K\n
   Type of Payment: Online Payment by Installments\n
