@@ -32,12 +32,51 @@ const Navbars = () => {
 
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
                
-                {log && (<NavbarItem>
-                    <Link color="foreground" href="/market" style={{ fontSize, color: 'white' }}>
-                        Market
-                    </Link>
-                </NavbarItem>)
-                }
+            {log && (
+  <NavbarItem>
+    {/* <Link color="foreground" href="/market" style={{ fontSize, color: 'white' }}>
+      Market
+    </Link> */}
+    <Button
+      as={Link}
+      style={{
+        color: 'white',
+        backgroundColor: '#82b440',
+        borderRadius: '5px',
+        height: 'auto',
+        fontSize,
+        padding: '7px 25px',
+        border: 'none', // Remove border for a cleaner look
+        boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.25)', // Add subtle shadow for depth
+      }}
+      href="/market"
+      variant="flat"
+    >
+      Market
+    </Button>
+  </NavbarItem>
+)}
+{log && (
+  <NavbarItem>
+    <Button
+      as={Link}
+      style={{
+        color: 'white',
+        backgroundColor: '#82b440',
+        borderRadius: '5px',
+        height: 'auto',
+        fontSize,
+        padding: '7px 25px',
+        border: 'none', // Remove border for a cleaner look
+        boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.25)', // Add subtle shadow for depth
+      }}
+      href="/contracts"
+      variant="flat"
+    >
+      Contracts
+    </Button>
+  </NavbarItem>
+)}
             </NavbarContent>
             {!log && (
                 <NavbarContent justify="end" style={{ marginRight: '26px' }}>
@@ -65,16 +104,6 @@ const Navbars = () => {
 
                 </NavbarContent>)}
             {log && <NavbarContent justify="end" style={{ marginRight: '26px' }}>
-            <NavbarItem>
-            <Button
-              as={Link}
-              style={{ color: 'white', backgroundColor: '#82b440', borderRadius: '5px', height: 'auto', fontSize, padding: '7px 25px' }}
-              href="/contracts"
-              variant="flat"
-            >
-              Contract
-            </Button>
-          </NavbarItem>
 
                 <NavbarItem><a href='/profile'><p style={{color:'white'}}>Welcome Farmer</p></a>
                 </NavbarItem>
