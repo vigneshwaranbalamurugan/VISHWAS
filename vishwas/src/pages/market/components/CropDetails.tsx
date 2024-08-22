@@ -91,6 +91,23 @@ const CropDetails = () => {
           </a>
         </center>
       </div>
+      <div style={{ margin: '2rem' }}>
+        <center>
+          {/* Removed unnecessary `<center>` element */}
+          <a href="/cprofile">
+            <button
+              style={{
+                padding: '10px',
+                backgroundColor: 'green',
+                color: 'white',
+                fontWeight: 'bold',
+              }}
+            >
+              Contractor Profile
+            </button>
+          </a>
+        </center>
+      </div>
     </div>
   );
 };
