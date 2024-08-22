@@ -55,19 +55,35 @@ const TermsAndConditions: React.FC = () => {
   };
 
   return (
-    <div className="p-8 max-w-3xl mx-auto">
-      <h2 className="text-2xl font-semibold mb-4">Terms and Conditions</h2>
-      <p className="text-gray-700 mb-6">
-      <p style={{fontWeight:'bold'}}>Contractor:</p> Vishwas
-      <p style={{fontWeight:'bold'}}>Commodity:</p> Wheat
-      <p style={{fontWeight:'bold'}}>Specifications:</p>Shape-Oval\nColor-brown
-      <p style={{fontWeight:'bold'}}>Delivery Type:</p> By own and by Installments
-      <p style={{fontWeight:'bold'}}>Estimated Price:</p> 50000K
-      <p style={{fontWeight:'bold'}}>Type of Payment:</p> Online Payment by Installment
-      <p style={{fontWeight:'bold'}}>Collaborative Order: </p>No
-      <p style={{fontWeight:'bold'}}> Method of Cultivation:</p> Organic, sustainable farming methods      </p>
+    <div className="p-8 max-w-3xl mx-auto bg-white rounded-xl shadow-lg transform transition duration-500 hover:scale-105">
+      <h2 className="text-3xl font-extrabold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-400">
+        Terms and Conditions
+      </h2>
 
-      <p className="text-gray-700 mb-6">
+      <p className="text-gray-700 text-lg mb-6">
+        By accessing and using the Vishwas, you agree to comply with and be bound by the following terms and conditions:
+      </p>
+
+      <div className="mb-6">
+        <p className="font-semibold text-xl">Contractor:</p>
+        <p className="text-gray-600 text-lg mb-2">Vishwas</p>
+        <p className="font-semibold text-xl">Commodity:</p>
+        <p className="text-gray-600 text-lg mb-2">Wheat</p>
+        <p className="font-semibold text-xl">Specifications:</p>
+        <p className="text-gray-600 text-lg mb-2">Shape-Oval, Color-brown</p>
+        <p className="font-semibold text-xl">Delivery Type:</p>
+        <p className="text-gray-600 text-lg mb-2">By own and by Installments</p>
+        <p className="font-semibold text-xl">Estimated Price:</p>
+        <p className="text-gray-600 text-lg mb-2">50000K</p>
+        <p className="font-semibold text-xl">Type of Payment:</p>
+        <p className="text-gray-600 text-lg mb-2">Online Payment by Installments</p>
+        <p className="font-semibold text-xl">Collaborative Order:</p>
+        <p className="text-gray-600 text-lg mb-2">No</p>
+        <p className="font-semibold text-xl">Method of Cultivation:</p>
+        <p className="text-gray-600 text-lg mb-2">Organic, sustainable farming methods</p>
+      </div>
+
+      <p className="text-gray-700 text-lg mb-6">
         By accessing and using the Vishwas, you agree to comply with and be bound by the following terms and conditions: The platform facilitates contract farming agreements between farmers and buyers, providing tools for transparent communication, secure contracts, and payment processing. Both parties must adhere to the agreed terms within the contracts, including pricing, delivery schedules, and payment timelines. The platform is not responsible for any breaches of contract or disputes that arise between users. Payments are held in escrow until all contract conditions are met. Users must provide accurate information and are responsible for their own actions on the platform. The platform reserves the right to suspend or terminate accounts for any violations of these terms. By using this platform, you acknowledge and accept these terms as legally binding.
       </p>
 
@@ -77,9 +93,9 @@ const TermsAndConditions: React.FC = () => {
           id="agree"
           checked={agreed}
           onChange={handleAgreementChange}
-          className="mr-2"
+          className="mr-2 h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded transition duration-500 ease-in-out transform hover:scale-110"
         />
-        <label htmlFor="agree" className="text-gray-800">
+        <label htmlFor="agree" className="text-gray-800 text-lg">
           I agree to these Terms and Conditions
         </label>
       </div>
@@ -89,9 +105,9 @@ const TermsAndConditions: React.FC = () => {
         disabled={!agreed}
         className={`${
           agreed
-            ? 'bg-blue-500 hover:bg-blue-600'
+            ? 'bg-gradient-to-r from-blue-500 to-teal-400 hover:from-teal-400 hover:to-blue-500 shadow-lg hover:shadow-2xl'
             : 'bg-gray-400 cursor-not-allowed'
-        } text-white py-2 px-4 rounded`}
+        } text-white py-2 px-6 rounded-lg text-lg transition duration-500 ease-in-out transform hover:scale-105`}
       >
         Proceed
       </button>
