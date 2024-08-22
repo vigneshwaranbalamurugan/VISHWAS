@@ -249,7 +249,7 @@ const FarmerForm = () => {
 
         <button type="button" onClick={addLand} className="nelod-add-land-btn">Add More Land</button>
       </div>
-      <button type="submit" disabled={!isVerified} className="nelod-submit-btn">Submit</button>
+     {isVerified && ( <button type="submit"  className="nelod-submit-btn">Submit</button>)}
     </form>
   );
 };

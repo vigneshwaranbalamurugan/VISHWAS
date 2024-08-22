@@ -41,6 +41,10 @@ const farmerSchema = new mongoose.Schema({
         type:Boolean,
         default:false,
     },
+    role:{
+        type:String,
+        default:"null"
+    },
     created_at: {
         type: Date,
         default: Date.now
