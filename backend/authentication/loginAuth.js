@@ -14,7 +14,8 @@ export const loginFarmer = async (req,res) =>{
             return res.status(401).json({ message: 'Invalid credentials' });
         }
         const userdetails={
-            useremail:userauth.mobileNumber
+            userid:userauth._id,
+            userdetailsfill:userauth.isfilled
         }
         return res.status(201).json({userdetails,message:'Login Sucessfully'});
     }catch (error) {

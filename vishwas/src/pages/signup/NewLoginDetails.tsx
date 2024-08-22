@@ -67,8 +67,6 @@ const FarmerDetailsForm = () => {
   const [selectedDistrict, setSelectedDistrict] = useState('');
   // No mobile number state
   const [ftype, setFType] = useState('');
-  const [dateOfBirth, setDateOfBirth] = useState('');
-  const [email, setEmail] = useState('');
   const [lands, setLands] = useState([
     { soilType: '', landSize: '', landLocation: '' },
   ]);

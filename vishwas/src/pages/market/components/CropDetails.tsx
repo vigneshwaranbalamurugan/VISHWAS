@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { CropDatas } from './CropData.js'; // Import your crop data
+import { Link } from 'react-router-dom';
 
 const CropDetails = () => {
   const { id } = useParams<{ id: string }>(); // Get the ID from URL parameters
@@ -23,15 +24,6 @@ const CropDetails = () => {
   const collaborativeOrder = "Collaborative";
   const methodOfCultivation = "Organic, sustainable farming methods";
 
-  const handleClick = () => {
-    // Choose one of the following approaches based on your preference:
-
-    // 1. Redirect using useNavigate (removes anchor tag)
-    navigate('/chat'); // Replace '/chat' with the actual chat route
-
-    // 2. Redirect using anchor tag (keeps anchor tag functionality)
-    // window.location.href = '/chat'; // Replace '/chat' with the actual chat route
-  };
 
   return (
     <div>
@@ -67,9 +59,8 @@ const CropDetails = () => {
 
         <center>
       <div>
-
+        <Link to='/chat'>
         <button
-          onClick={handleClick}
           style={{
             padding: '10px',
             backgroundColor: 'green',
@@ -79,6 +70,7 @@ const CropDetails = () => {
           >
           Contact With Buyer
         </button>
+            </Link>
       </div>
           </center>
 
