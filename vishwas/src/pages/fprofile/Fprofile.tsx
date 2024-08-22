@@ -7,7 +7,11 @@ const farmerData = {
   contact: {
     phone: "022-67254873",
     email: "mahiranchi@yahoo.co.in",
-    socialMedia: ["https://www.facebook.com/johndoe/", "https://www.instagram.com/johndoe_farm/"],
+    socialMedia: [
+      { platform: "Facebook", url: "https://www.facebook.com/MSDhoni/" },
+      { platform: "Twitter", url: "https://www.instagram.com/mahi7781" },
+      { platform: "Instagram", url: "https://twitter.com/MSDhoni" },
+    ],
   },
   farmSize: 150,
   yearsOfExperience: 25,

@@ -6,7 +6,7 @@ interface FarmerProfileProps {
   contact: {
     phone: string;
     email: string;
-    socialMedia: string[];
+    socialMedia: { platform: string; url: string }[]; // Updated type to include platform and URL
   };
   farmSize: number;
   yearsOfExperience: number;
@@ -61,8 +61,17 @@ const FarmerProfile: React.FC<FarmerProfileProps> = ({
           <p className="text-gray-700"><strong>Location:</strong> {location}</p>
           <p className="text-gray-700"><strong>Phone:</strong> {contact.phone}</p>
           <p className="text-gray-700"><strong>Email:</strong> {contact.email}</p>
-          <p className="text-gray-700"><strong>Social Media:</strong> {contact.socialMedia.join(', ')}</p>
-          <p className="text-gray-700"><strong>Farm Size:</strong> {farmSize} acres</p>
+          <p className="text-gray-700"><strong>Social Media:</strong></p>
+          <ul className="list-disc list-inside">
+            {contact.socialMedia.map((social, index) => (
+              <li key={index}>
+                <a href={social.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                  {social.platform}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p className="text-gray-700 mt-4"><strong>Farm Size:</strong> {farmSize} acres</p>
           <p className="text-gray-700"><strong>Years of Experience:</strong> {yearsOfExperience} years</p>
           <p className="text-gray-700"><strong>Certifications:</strong> {certifications.join(', ')}</p>
           <p className="text-gray-700"><strong>Farming Methods:</strong> {farmingMethods}</p>

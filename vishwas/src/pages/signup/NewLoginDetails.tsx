@@ -65,11 +65,10 @@ const FarmerDetailsForm = () => {
   const [districts, setDistricts] = useState([]);
   const [cv, setVillage] = useState('');
   const [selectedDistrict, setSelectedDistrict] = useState('');
-  // No mobile number state
   const [ftype, setFType] = useState('');
-  const [lands, setLands] = useState([
-    { soilType: '', landSize: '', landLocation: '' },
-  ]);
+  const [lands, setLands] = useState([{ soilType: '', landSize: '', landLocation: '' }]);
+  const [dateOfBirth, setDateOfBirth] = useState('');
+  const [email, setEmail] = useState('');
 
   useEffect(() => {
     const matchedState = states.find((state) => state.value === selectedState);
@@ -113,10 +112,10 @@ const FarmerDetailsForm = () => {
   return (
     <div className="flex justify-center items-center bg-gray-100">
       <div className="w-full h-full rounded overflow-hidden shadow-md bg-white">
-        <h2 className="text-2xl font-bold mb-6 text-center">Farmer Details </h2>
+        <h2 className="text-2xl font-bold mb-6 text-center">Farmer Details</h2>
         <form onSubmit={handleSubmit} className="px-8 pt-6 pb-8 mb-4">
           <div className="grid grid-cols-2 gap-4">
-            {/* First Name
+            {/* First Name */}
             <div className="form-group">
               <label htmlFor="fname" className="block text-gray-700 text-sm font-bold mb-2">
                 First Name:
@@ -130,7 +129,7 @@ const FarmerDetailsForm = () => {
                 className="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
-            {/* Last Name *
+            {/* Last Name */}
             <div className="form-group">
               <label htmlFor="lname" className="block text-gray-700 text-sm font-bold mb-2">
                 Last Name:
@@ -143,7 +142,7 @@ const FarmerDetailsForm = () => {
                 required
                 className="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
-            </div> */}
+            </div>
 
             {/* State */}
             <div className="form-group">
@@ -186,14 +185,15 @@ const FarmerDetailsForm = () => {
                 ))}
               </select>
             </div>
-            {/* District */}
+
+            {/* Village */}
             <div className="form-group">
-              <label htmlFor="cv" className="block text-gray-700 text-sm font-bold mb-2">
-                City/Village :
+              <label htmlFor="village" className="block text-gray-700 text-sm font-bold mb-2">
+                Village:
               </label>
               <input
                 type="text"
-                id="cv"
+                id="village"
                 value={cv}
                 onChange={(e) => setVillage(e.target.value)}
                 required
@@ -201,43 +201,13 @@ const FarmerDetailsForm = () => {
               />
             </div>
 
-            {/* Date of Birth
-            <div className="form-group">
-              <label htmlFor="dateOfBirth" className="block text-gray-700 text-sm font-bold mb-2">
-                Date of Birth:
-              </label>
-              <input
-                type="date"
-                id="dateOfBirth"
-                value={dateOfBirth}
-                onChange={(e) => setDateOfBirth(e.target.value)}
-                required
-                className="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              />
-            </div>
-
-            {/* Email *
-            <div className="form-group">
-              <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
-                Email:
-              </label>
-              <input
-                type="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              />
-            </div> */}
-
             {/* Farming Type */}
             <div className="form-group">
-              <label htmlFor="ftype" className="block text-gray-700 text-sm font-bold mb-2">
+              <label htmlFor="farming-type" className="block text-gray-700 text-sm font-bold mb-2">
                 Farming Type:
               </label>
               <select
-                id="ftype"
+                id="farming-type"
                 value={ftype}
                 onChange={(e) => setFType(e.target.value)}
                 required
@@ -252,83 +222,104 @@ const FarmerDetailsForm = () => {
               </select>
             </div>
 
-            {/* Dynamic Land Details */}
-            {lands.map((land, index) => (
-              <div key={index} className="grid grid-cols-2 gap-4 border p-4 rounded-lg bg-gray-50">
-                <h3 className="font-bold text-lg mb-4 col-span-2">Land {index + 1}</h3>
-
-                {/* Type of Soil */}
-                <div className="form-group">
-                  <label
-                    htmlFor={`soilType-${index}`}
-                    className="block text-gray-700 text-sm font-bold mb-2"
-                  >
-                    Type of Soil:
-                  </label>
-                  <input
-                    type="text"
-                    id={`soilType-${index}`}
-                    value={land.soilType}
-                    onChange={(e) => handleLandChange(index, 'soilType', e.target.value)}
-                    required
-                    className="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-7700 leading-tight focus:outline-none focus:shadow-outline"
-                  />
-                </div>
-
-                {/* Size of Land */}
-                <div className="form-group">
-                  <label
-                    htmlFor={`landSize-${index}`}
-                    className="block text-gray-700 text-sm font-bold mb-2"
-                  >
-                    Size of Land:
-                  </label>
-                  <input
-                    type="text"
-                    id={`landSize-${index}`}
-                    value={land.landSize}
-                    onChange={(e) => handleLandChange(index, 'landSize', e.target.value)}
-                    required
-                    className="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  />
-                </div>
-
-                {/* Location of Land */}
-                <div className="form-group">
-                  <label
-                    htmlFor={`landLocation-${index}`}
-                    className="block text-gray-700 text-sm font-bold mb-2"
-                  >
-                    Location of Land:
-                  </label>
-                  <input
-                    type="text"
-                    id={`landLocation-${index}`}
-                    value={land.landLocation}
-                    onChange={(e) => handleLandChange(index, 'landLocation', e.target.value)}
-                    required
-                    className="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  />
-                </div>
-              </div>
-            ))}
-
-            <div className="flex items-center justify-between   
- mb-6 col-span-2">
-              <button
-                type="button"
-                onClick={addLand}
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              >
-                Add   
- Another Land
-              </button>
+            {/* Date of Birth */}
+            <div className="form-group">
+              <label htmlFor="dob" className="block text-gray-700 text-sm font-bold mb-2">
+                Date of Birth:
+              </label>
+              <input
+                type="date"
+                id="dob"
+                value={dateOfBirth}
+                onChange={(e) => setDateOfBirth(e.target.value)}
+                required
+                className="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
             </div>
 
-            
-            <div className="flex items-center justify-between col-span-2">
-            <div className="flex items-center justify-between col-span-2">
-              <button
+            {/* Email */}
+            <div className="form-group">
+              <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
+                Email:
+              </label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+          </div>
+
+          {/* Land Details */}
+          <div className="mt-6">
+            <h3 className="text-xl font-bold mb-4">Land Details</h3>
+            {lands.map((land, index) => (
+              <div key={index} className="border p-4 mb-4 rounded-md">
+                <div className="grid grid-cols-3 gap-4 mb-4">
+                  <div className="form-group">
+                    <label htmlFor={`soilType-${index}`} className="block text-gray-700 text-sm font-bold mb-2">
+                      Soil Type:
+                    </label>
+                    <input
+                      type="text"
+                      id={`soilType-${index}`}
+                      value={land.soilType}
+                      onChange={(e) => handleLandChange(index, 'soilType', e.target.value)}
+                      required
+                      className="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor={`landSize-${index}`} className="block text-gray-700 text-sm font-bold mb-2">
+                      Land Size:
+                    </label>
+                    <input
+                      type="text"
+                      id={`landSize-${index}`}
+                      value={land.landSize}
+                      onChange={(e) => handleLandChange(index, 'landSize', e.target.value)}
+                      required
+                      className="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor={`landLocation-${index}`} className="block text-gray-700 text-sm font-bold mb-2">
+                      Land Location:
+                    </label>
+                    <input
+                      type="text"
+                      id={`landLocation-${index}`}
+                      value={land.landLocation}
+                      onChange={(e) => handleLandChange(index, 'landLocation', e.target.value)}
+                      required
+                      className="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    />
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setLands(lands.filter((_, i) => i !== index))}
+                  className="bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none focus:shadow-outline"
+                >
+                  Remove Land
+                </button>
+              </div>
+            ))}
+            <button
+              type="button"
+              onClick={addLand}
+              className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none focus:shadow-outline"
+            >
+              Add Land
+            </button>
+          </div>
+
+          {/* Submit Button */}
+          <div className="flex items-center justify-center mt-8">
+          <button
                 type="submit"
                 onClick={() => window.location.href = '/profile'}
                 className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"   
@@ -336,9 +327,6 @@ const FarmerDetailsForm = () => {
               >
                 Submit
               </button>
-            </div>   
-
-          </div>
           </div>
         </form>
       </div>
