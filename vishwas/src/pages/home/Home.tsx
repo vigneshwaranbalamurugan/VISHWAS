@@ -55,25 +55,10 @@ const Home: React.FC = () => {
           </Link>
         </div>
       </div>
-<<<<<<< Updated upstream
-      <div className="mt-4">
-        <h2 className="text-lg font-semibold mb-2">Why Choose Us?</h2>
-        <ul className="list-disc">
-          <li>Meri Pehchan verification for credibility</li>
-          <li>Razorpay escrow account for secure payments</li>
-          <li>In-built chat application for communication</li>
-          <li>Real-time status updates</li>
-        </ul>
-      </div>
-      <div className="mt-4">
-        <Link to="/signup" className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
-          Get Started
-        </Link>
-      </div>
-=======
->>>>>>> Stashed changes
     </div>
   );
 };
 
 export default Home;
+
+
