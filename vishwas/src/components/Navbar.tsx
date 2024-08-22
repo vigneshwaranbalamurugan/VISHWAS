@@ -65,6 +65,16 @@ const Navbars = () => {
 
                 </NavbarContent>)}
             {log && <NavbarContent justify="end" style={{ marginRight: '26px' }}>
+            <NavbarItem>
+            <Button
+              as={Link}
+              style={{ color: 'white', backgroundColor: '#82b440', borderRadius: '5px', height: 'auto', fontSize, padding: '7px 25px' }}
+              href="/contracts"
+              variant="flat"
+            >
+              Contract
+            </Button>
+          </NavbarItem>
 
                 <NavbarItem><a href='/profile'><p style={{color:'white'}}>Welcome Farmer</p></a>
                 </NavbarItem>

@@ -19,6 +19,9 @@ import Terms from './pages/contract/Terms'
 import Chat from './pages/chat/Chat'
 import CPROFILE from './pages/cprofile/cprofile'
 import DetailsOfContract from './pages/cprofile/contractm'
+import Status from './pages/status/Status'
+import History from './pages/status/History'
+import Contracts from './pages/status/Contracts'
 
 const router = createBrowserRouter(
   [
@@ -34,7 +37,9 @@ const router = createBrowserRouter(
         {path:"/nld",element:<NewLoginDetails/>},
         {path:"/contract",element:<Contract/>},
         {path:"/doc",element:<DetailsOfContract/>},
-        
+        {path:"/status",element:<Status/>},
+        {path:"/history",element:<History/>},
+        {path:"/contracts",element:<Contracts/>},
         {path:"/cropdetail/:id",element:<CropDetails/>},
         {path:"/profile",element:<T/>},
         {path:"/terms",element:<Terms/>},
