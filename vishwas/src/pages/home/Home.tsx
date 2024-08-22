@@ -38,7 +38,7 @@ const Home: React.FC = () => {
         </ul>
       </div>
       <div className="mt-4">
-        <Link to="/register" className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
+        <Link to="/signup" className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
           Get Started
         </Link>
       </div>
