@@ -13,18 +13,14 @@ const AadhaarAuth: React.FC<AadhaarAuthProps> = ({ onSuccess }) => {
   };
 
   const handleAadhaarSubmit = () => {
-    // Simulate API call to Meri Pehchan (replace with actual API call)
     console.log(`Submitted Aadhaar number: ${aadhaarNumber}`);
     setIsOtpStep(true);
-
-    // Hypothetical success callback (replace with actual logic)
     onSuccess?.(aadhaarNumber);
   };
 
   const handleOtpSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log('Submitted OTP'); // Simulate OTP verification (replace with actual logic)
-    // Handle successful OTP verification (redirect to protected content, etc.)
+    console.log('Submitted OTP'); 
   };
 
   return (

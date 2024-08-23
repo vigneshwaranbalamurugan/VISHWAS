@@ -39,6 +39,7 @@ const Login = () => {
         alert("Login Successfully"); 
         localStorage.setItem('islog','true');
         localStorage.setItem('userid',data.userdetails.userid);
+        localStorage.setItem('role',data.userdetails.userRole);
         window.location.href='/farmerform';      // Optionally, you can redirect the user or show a success message
       } else {
         const errorData = await response.json();

@@ -66,7 +66,7 @@ const Home: React.FC = () => {
         </div>
         <div className="mt-8 text-center">
           <Link
-            to="/register"
+            to="/signup"
             className="inline-block bg-green-500 text-white text-lg px-6 py-3 rounded-full shadow-lg hover:bg-green-600 transition-all"
           >
             {t('get_started')}

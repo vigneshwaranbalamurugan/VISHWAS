@@ -15,7 +15,8 @@ export const loginFarmer = async (req,res) =>{
         }
         const userdetails={
             userid:userauth._id,
-            userdetailsfill:userauth.isfilled
+            userdetailsfill:userauth.isfilled,
+            userRole:userauth.role
         }
         return res.status(201).json({userdetails,message:'Login Sucessfully'});
     }catch (error) {
