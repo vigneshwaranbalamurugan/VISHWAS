@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as blazeface from '@tensorflow-models/blazeface';
 import '@tensorflow/tfjs';
+import './Facedetection.css'
 
 const FaceRecognition: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -9,10 +10,11 @@ const FaceRecognition: React.FC = () => {
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
   const [model, setModel] = useState<blazeface.BlazeFaceModel | null>(null);
   const [isFaceDetected, setIsFaceDetected] = useState<boolean>(false);
+  const [faceBox, setFaceBox] = useState<{ x: number, y: number, width: number, height: number } | null>(null);
 
   const saveImage = (canvas: HTMLCanvasElement) => {
     const dataURL = canvas.toDataURL('image/png');
-    setCapturedImage(dataURL); // Set captured image data URL to display
+    setCapturedImage(dataURL);
   };
 
   const captureImage = () => {
@@ -20,13 +22,40 @@ const FaceRecognition: React.FC = () => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext('2d');
 
-    if (ctx && video && canvas) {
-      ctx.drawImage(video, 0, 0, canvas.width, canvas.height); // Draw the entire video frame onto the canvas
-      saveImage(canvas); // Save the entire canvas as an image
+    if (ctx && video && canvas && faceBox) {
+        // Adjust the padding to capture more of the head and upper body
+        const extraPadding = 100; // Increase this value to capture more area
+        const x = Math.max(faceBox.x - extraPadding, 0);
+        const y = Math.max(faceBox.y - extraPadding, 0);
+        const width = faceBox.width + extraPadding * 2;
+        const height = faceBox.height + extraPadding * 2;
+
+        canvas.width = width;
+        canvas.height = height;
+
+        const faceCanvas = document.createElement('canvas');
+        faceCanvas.width = width;
+        faceCanvas.height = height;
+        const faceCtx = faceCanvas.getContext('2d');
+
+        if (faceCtx) {
+            faceCtx.drawImage(
+                video,
+                x,
+                y,
+                width,
+                height,
+                0,
+                0,
+                width,
+                height
+            );
+            saveImage(faceCanvas);
+        }
     } else {
-      setError("Error accessing video or canvas.");
+        setError("Error accessing video or canvas.");
     }
-  };
+};
 
   useEffect(() => {
     const loadModel = async () => {
@@ -46,68 +75,62 @@ const FaceRecognition: React.FC = () => {
         });
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
-          videoRef.current.play();
         }
       } catch (err) {
-        console.error("Error accessing the camera:", err);
-        setError("Could not access the camera. Please make sure it is not in use by another application and that you have granted the necessary permissions.");
+        console.error("Error accessing camera:", err);
+        setError("Failed to access camera.");
       }
     };
 
-    const detectFaces = () => {
-      const runDetection = async () => {
+    const detectFace = async () => {
+      if (model && videoRef.current) {
         const video = videoRef.current;
-        const canvas = canvasRef.current;
-        const ctx = canvas?.getContext('2d');
+        const predictions = await model.estimateFaces(video, false);
 
-        if (model && video && ctx && canvas) {
-          ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-          const predictions = await model.estimateFaces(video, false);
+        if (predictions.length > 0) {
+          const { topLeft, bottomRight } = predictions[0];
+          const [x1, y1] = topLeft as [number, number];
+          const [x2, y2] = bottomRight as [number, number];
 
-          if (predictions.length > 0) {
-            setIsFaceDetected(true); // Face detected
-            predictions.forEach((prediction) => {
-              const topLeft = prediction.topLeft as [number, number];
-              const bottomRight = prediction.bottomRight as [number, number];
-
-              const x = Math.round(topLeft[0]);
-              const y = Math.round(topLeft[1]);
-              const width = Math.round(bottomRight[0] - x);
-              const height = Math.round(bottomRight[1] - y);
-
-              ctx.beginPath();
-              ctx.rect(x, y, width, height);
-              ctx.strokeStyle = 'blue';
-              ctx.lineWidth = 2;
-              ctx.stroke();
-            });
-          } else {
-            setIsFaceDetected(false); // No face detected
-          }
+          setFaceBox({
+            x: x1,
+            y: y1,
+            width: x2 - x1,
+            height: y2 - y1,
+          });
+          setIsFaceDetected(true);
+          setError(null);
+        } else {
+          setIsFaceDetected(false);
+          setError("No face detected. Please try again.");
         }
-        requestAnimationFrame(runDetection);
-      };
-
-      requestAnimationFrame(runDetection); // Start the loop for detection
+      }
     };
 
-    loadModel().then(setupCamera).then(detectFaces); // Chain the calls to ensure order
+    loadModel();
+    setupCamera();
+
+    const intervalId = setInterval(detectFace, 100);
+
+    return () => clearInterval(intervalId);
   }, [model]);
 
   return (
-    <div>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <video ref={videoRef} autoPlay width="640" height="480" style={{ display: 'block' }} />
-      <canvas ref={canvasRef} width="640" height="480" style={{ display: 'none' }} />
-      <button onClick={captureImage} disabled={!isFaceDetected}>
-        Capture
-      </button>
-      {capturedImage && (
-        <div>
-          <h2>Captured Image</h2>
-          <img src={capturedImage} alt="Captured body" />
+    <div className="face-container">
+      <div className="face-video-container">
+        {error && <div className="face-error-message">{error}</div>}
+        <video ref={videoRef} autoPlay muted />
+        <canvas ref={canvasRef} style={{ display: 'none' }} />
+        <div className="face-button-container">
+          <button onClick={captureImage} disabled={!isFaceDetected}>
+            Capture
+          </button>
         </div>
-      )}
+      </div>
+      <div className="face-image-container">
+        <h2>Your Image</h2>
+        {capturedImage && <img src={capturedImage} alt="Captured face" />}
+      </div>
     </div>
   );
 };

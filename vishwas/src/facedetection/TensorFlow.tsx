@@ -7,15 +7,18 @@ const FaceDetection: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   const saveImage = (canvas: HTMLCanvasElement, x: number, y: number, width: number, height: number) => {
-    const offScreenCanvas = document.createElement('canvas');
-    const offScreenCtx = offScreenCanvas.getContext('2d');
+    const passportWidth = 600;
+    const passportHeight = 600;
 
-    offScreenCanvas.width = width;
-    offScreenCanvas.height = height;
+    const faceCanvas = document.createElement('canvas');
+    faceCanvas.width = passportWidth;
+    faceCanvas.height = passportHeight;
+    const faceCtx = faceCanvas.getContext('2d');
 
-    if (offScreenCtx) {
-      offScreenCtx.drawImage(canvas, x, y, width, height, 0, 0, width, height);
-      const dataURL = offScreenCanvas.toDataURL('image/png');
+    if (faceCtx) {
+      // Resize the detected face to passport photo dimensions
+      faceCtx.drawImage(canvas, x, y, width, height, 0, 0, passportWidth, passportHeight);
+      const dataURL = faceCanvas.toDataURL('image/png');
 
       const link = document.createElement('a');
       link.href = dataURL;
@@ -56,13 +59,15 @@ const FaceDetection: React.FC = () => {
                 const width = Math.round(bottomRight[0] - x);
                 const height = Math.round(bottomRight[1] - y);
 
+                // Adjust bounding box to include more of the head and upper body if needed
+                const extraPadding = 20; // Adjust padding as needed
                 ctx.beginPath();
-                ctx.rect(x, y, width, height);
+                ctx.rect(x - extraPadding, y - extraPadding, width + extraPadding * 2, height + extraPadding * 2);
                 ctx.strokeStyle = 'blue';
                 ctx.lineWidth = 2;
                 ctx.stroke();
 
-                saveImage(canvas, x, y, width, height);
+                saveImage(canvas, x - extraPadding, y - extraPadding, width + extraPadding * 2, height + extraPadding * 2);
               });
             }
             requestAnimationFrame(runDetection);
