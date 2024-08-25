@@ -2,56 +2,27 @@ import React, { useEffect, useRef, useState } from 'react';
 import * as blazeface from '@tensorflow-models/blazeface';
 import '@tensorflow/tfjs';
 
-const FaceDetection: React.FC = () => {
+const FaceRecognition: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
   const [model, setModel] = useState<blazeface.BlazeFaceModel | null>(null);
+  const [isFaceDetected, setIsFaceDetected] = useState<boolean>(false);
 
-  const saveImage = (canvas: HTMLCanvasElement, x: number, y: number, width: number, height: number) => {
-    const offScreenCanvas = document.createElement('canvas');
-    const offScreenCtx = offScreenCanvas.getContext('2d');
-
-    offScreenCanvas.width = width;
-    offScreenCanvas.height = height;
-
-    if (offScreenCtx) {
-      offScreenCtx.drawImage(canvas, x, y, width, height, 0, 0, width, height);
-      const dataURL = offScreenCanvas.toDataURL('image/png');
-      setCapturedImage(dataURL); // Set captured image data URL to display
-    }
+  const saveImage = (canvas: HTMLCanvasElement) => {
+    const dataURL = canvas.toDataURL('image/png');
+    setCapturedImage(dataURL); // Set captured image data URL to display
   };
 
-  const captureImage = async () => {
+  const captureImage = () => {
     const video = videoRef.current;
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext('2d');
 
-    if (ctx && video && canvas && model) {
-      ctx.drawImage(video, 0, 0, canvas.width, canvas.height); // Draw the video frame onto the canvas
-      const predictions = await model.estimateFaces(video, false); // Estimate faces in the video frame
-
-      if (predictions.length > 0) {
-        predictions.forEach((prediction) => {
-          const topLeft = prediction.topLeft as [number, number];
-          const bottomRight = prediction.bottomRight as [number, number];
-
-          const x = Math.round(topLeft[0]);
-          const y = Math.round(topLeft[1]);
-          const width = Math.round(bottomRight[0] - x);
-          const height = Math.round(bottomRight[1] - y);
-
-          // Ensure the width and height are sufficient
-          if (width > 50 && height > 50) {
-            saveImage(canvas, x, y, width, height); // Save the face image
-          } else {
-            setError("Face too small to capture. Please ensure the face is clearly visible.");
-          }
-        });
-      } else {
-        setError("No faces detected.");
-      }
+    if (ctx && video && canvas) {
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height); // Draw the entire video frame onto the canvas
+      saveImage(canvas); // Save the entire canvas as an image
     } else {
       setError("Error accessing video or canvas.");
     }
@@ -83,24 +54,62 @@ const FaceDetection: React.FC = () => {
       }
     };
 
-    loadModel();
-    setupCamera();
-  }, []);
+    const detectFaces = () => {
+      const runDetection = async () => {
+        const video = videoRef.current;
+        const canvas = canvasRef.current;
+        const ctx = canvas?.getContext('2d');
+
+        if (model && video && ctx && canvas) {
+          ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+          const predictions = await model.estimateFaces(video, false);
+
+          if (predictions.length > 0) {
+            setIsFaceDetected(true); // Face detected
+            predictions.forEach((prediction) => {
+              const topLeft = prediction.topLeft as [number, number];
+              const bottomRight = prediction.bottomRight as [number, number];
+
+              const x = Math.round(topLeft[0]);
+              const y = Math.round(topLeft[1]);
+              const width = Math.round(bottomRight[0] - x);
+              const height = Math.round(bottomRight[1] - y);
+
+              ctx.beginPath();
+              ctx.rect(x, y, width, height);
+              ctx.strokeStyle = 'blue';
+              ctx.lineWidth = 2;
+              ctx.stroke();
+            });
+          } else {
+            setIsFaceDetected(false); // No face detected
+          }
+        }
+        requestAnimationFrame(runDetection);
+      };
+
+      requestAnimationFrame(runDetection); // Start the loop for detection
+    };
+
+    loadModel().then(setupCamera).then(detectFaces); // Chain the calls to ensure order
+  }, [model]);
 
   return (
     <div>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <video ref={videoRef} autoPlay width="640" height="480" style={{ display: 'block' }} />
       <canvas ref={canvasRef} width="640" height="480" style={{ display: 'none' }} />
-      <button onClick={captureImage}>Capture</button>
+      <button onClick={captureImage} disabled={!isFaceDetected}>
+        Capture
+      </button>
       {capturedImage && (
         <div>
-          <h2>Captured Face</h2>
-          <img src={capturedImage} alt="Captured face" />
+          <h2>Captured Image</h2>
+          <img src={capturedImage} alt="Captured body" />
         </div>
       )}
     </div>
   );
 };
 
-export default FaceDetection;
+export default FaceRecognition;
