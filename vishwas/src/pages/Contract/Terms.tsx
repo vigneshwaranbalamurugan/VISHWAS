@@ -55,13 +55,13 @@ const TermsAndConditions: React.FC = () => {
   };
 
   return (
-    <div className="p-8 max-w-3xl mx-auto bg-white rounded-xl shadow-lg transform transition duration-500 hover:scale-105">
+    <div className="p-8 max-w-3xl mx-auto bg-white rounded-xl shadow-lg transform transition duration-500 hover:scale-105 mt-10 min-h-screen flex flex-col justify-center">
       <h2 className="text-3xl font-extrabold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-400">
         Terms and Conditions
       </h2>
 
       <p className="text-gray-700 text-lg mb-6">
-        By accessing and using the Vishwas, you agree to comply with and be bound by the following terms and conditions:
+        By accessing and using the Vishwas platform, you agree to comply with and be bound by the following terms and conditions:
       </p>
 
       <div className="mb-6">
@@ -83,8 +83,8 @@ const TermsAndConditions: React.FC = () => {
         <p className="text-gray-600 text-lg mb-2">Organic, sustainable farming methods</p>
       </div>
 
-      <p className="text-gray-700 text-lg mb-6">
-        By accessing and using the Vishwas, you agree to comply with and be bound by the following terms and conditions: The platform facilitates contract farming agreements between farmers and buyers, providing tools for transparent communication, secure contracts, and payment processing. Both parties must adhere to the agreed terms within the contracts, including pricing, delivery schedules, and payment timelines. The platform is not responsible for any breaches of contract or disputes that arise between users. Payments are held in escrow until all contract conditions are met. Users must provide accurate information and are responsible for their own actions on the platform. The platform reserves the right to suspend or terminate accounts for any violations of these terms. By using this platform, you acknowledge and accept these terms as legally binding.
+      <p className="text-gray-700 text-lg mb-6" style={{ textAlign: 'justify' }}>
+        By accessing and using the Vishwas platform, you agree to comply with and be bound by the following terms and conditions: The platform facilitates contract farming agreements between farmers and buyers, providing tools for transparent communication, secure contracts, and payment processing. Both parties must adhere to the agreed terms within the contracts, including pricing, delivery schedules, and payment timelines. The platform is not responsible for any breaches of contract or disputes that arise between users. Payments are held in escrow until all contract conditions are met. Users must provide accurate information and are responsible for their own actions on the platform. The platform reserves the right to suspend or terminate accounts for any violations of these terms. By using this platform, you acknowledge and accept these terms as legally binding.
       </p>
 
       <div className="mb-4 flex items-center">
