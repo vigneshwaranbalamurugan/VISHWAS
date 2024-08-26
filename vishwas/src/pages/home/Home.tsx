@@ -79,7 +79,7 @@ const Home: React.FC = () => {
       {/* Central Section with Two Cards */}
       <div className="container mx-auto my-12 grid grid-cols-1 md:grid-cols-2 gap-8">
         <div
-          className="p-8 bg-gray-100 rounded-lg shadow-lg transform transition-all duration-300 hover:bg-green-200 hover:scale-105 active:bg-green-300 hover:shadow-2xl cursor-pointer"
+          className="p-8 bg-green-100 rounded-lg shadow-lg transform transition-all duration-300 hover:bg-green-400 hover:scale-105 active:bg-green-300 hover:shadow-2xl cursor-pointer"
           style={{ height: '150px' }}
           onClick={handleCard1Click}
         >
@@ -88,7 +88,7 @@ const Home: React.FC = () => {
         </div>
 
         <div
-          className="p-8 bg-gray-100 rounded-lg shadow-lg transform transition-all duration-300 hover:bg-green-200 hover:scale-105 active:bg-green-300 hover:shadow-2xl cursor-pointer"
+          className="p-8 bg-green-100 rounded-lg shadow-lg transform transition-all duration-300 hover:bg-green-400 hover:scale-105 active:bg-green-300 hover:shadow-2xl cursor-pointer"
           style={{ height: '150px' }}
           onClick={handleCard2Click}
         >
