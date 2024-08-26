@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import '../../locales/i18n';
 import { useTranslation } from 'react-i18next';
 
 const Home: React.FC = () => {
   const { t, i18n } = useTranslation();
-  const [showVideos, setShowVideos] = useState(false);
+  const navigate = useNavigate();
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
   };
 
-  const handleCardClick = () => {
-    setShowVideos(!showVideos);
+  const handleCard1Click = () => {
+    navigate('/video-page');
+  };
+
+  const handleCard2Click = () => {
+    navigate('/another-page');
   };
 
   return (
@@ -72,35 +76,24 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      {/* Central Section with Three Cards */}
-      <div className="container mx-auto my-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Central Section with Two Cards */}
+      <div className="container mx-auto my-12 grid grid-cols-1 md:grid-cols-2 gap-8">
         <div
-          className="p-6 bg-gray-100 rounded-lg shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
-          onClick={handleCardClick}
+          className="p-8 bg-gray-100 rounded-lg shadow-lg transform transition-all duration-300 hover:bg-green-200 hover:scale-105 active:bg-green-300 hover:shadow-2xl cursor-pointer"
+          style={{ height: '150px' }}
+          onClick={handleCard1Click}
         >
-          <h2 className="text-2xl font-semibold mb-4 text-center">{t('Tutorial video')}</h2>
-          <p className="text-center">{t('card_description_1')}</p>
-
-          {/* Show videos when the card is clicked */}
-          {showVideos && (
-            <div className="mt-4">
-              <video className="w-full rounded-lg shadow-lg mb-4" controls>
-                <source src="/path/to/video1.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              
-            </div>
-          )}
+          <h2 className="text-2xl font-semibold mb-4 text-center">{t('Demo Video')}</h2>
+          <p className="text-center">{t('Click to navigate to a video page')}</p>
         </div>
 
-        <div className="p-6 bg-gray-100 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-          <h2 className="text-2xl font-semibold mb-4 text-center">{t('card_title_2')}</h2>
-          <p className="text-center">{t('card_description_2')}</p>
-        </div>
-
-        <div className="p-6 bg-gray-100 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-          <h2 className="text-2xl font-semibold mb-4 text-center">{t('card_title_3')}</h2>
-          <p className="text-center">{t('card_description_3')}</p>
+        <div
+          className="p-8 bg-gray-100 rounded-lg shadow-lg transform transition-all duration-300 hover:bg-green-200 hover:scale-105 active:bg-green-300 hover:shadow-2xl cursor-pointer"
+          style={{ height: '150px' }}
+          onClick={handleCard2Click}
+        >
+          <h2 className="text-2xl font-semibold mb-4 text-center">{t('About')}</h2>
+          <p className="text-center">{t('Click to navigate to another page')}</p>
         </div>
       </div>
 
