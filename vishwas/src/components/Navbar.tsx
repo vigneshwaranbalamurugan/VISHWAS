@@ -18,6 +18,7 @@ const Navbars = () => {
                 height: navbarHeight,
                 top: 0,
                 left: 0,
+                position: 'fixed',
                 width: '100%',
                 zIndex: 1000 // Ensure it stays above other content
             }}

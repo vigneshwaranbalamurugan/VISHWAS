@@ -1,9 +1,12 @@
 .login-section {
   display: flex;
+  position: relative;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
   height: 80vh;
   width: 80vw;
-  margin: auto;
   border-radius: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -14,10 +17,10 @@
   flex: 1;
   background-image: url('../../assets/farmer1.png');
   background-size: cover;
-  border-radius: 10px;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 8px 0 0 8px;
+  height: 100%;
 }
 
 .login-container {

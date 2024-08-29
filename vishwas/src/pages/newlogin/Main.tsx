@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import Identification from "./Identification";
 import PersonalInfo from "./personalInfo";
+import LandDetails from "./landDetails";
 import { GlobalNLContex } from "../../context/nlGlobalContext";
 import Button from "./Button";
-import LandDetails from "./landDetails";
 
 const Main = () => {
   const {
@@ -10,19 +11,50 @@ const Main = () => {
     setCompleted,
     setCurrentStep,
     completed,
-    name,
+    firstName,
+    lastName,
+    setValidFirstName,
+    setValidLastName,
     email,
-    number,
+    gender,
+    setValidGender,
+    validGender,
+    validEmail,
+    age,
+    validAge,
+    setValidAge,
+    setValidEmail,
     setFormCompeleted,
     formCompeleted,
   } = useContext(GlobalNLContex);
-  currentStep === 1 ? setCompleted(false) : setCompleted(true);
+
+  useEffect(() => {
+    setCompleted(currentStep !== 1);
+  }, [currentStep, setCompleted]);
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   const nextStep = (e) => {
     e.preventDefault();
-    if (name.length >= 1 && email.length >= 1 && number.length >= 1) { 
-      setCurrentStep(currentStep + 1);
+    if (firstName.length <=2) {
+      setValidFirstName(false);
+    }else{
+      setValidFirstName(true);
     }
+    if (lastName.length <1) {
+      setValidLastName(false);
+    }else{
+      setValidLastName(true);
+    }
+    if(gender==="")
+    {
+      setValidGender(false);
+    }
+    setValidEmail(emailRegex.test(email));
+    setValidAge(age>=18);
+    // if (firstName.length > 2 && lastName.length>=1 && validEmail && validGender && validAge) {
+      setCurrentStep(currentStep + 1);
+    // }
   };
 
   const goBack = (e) => {
@@ -42,10 +74,11 @@ const Main = () => {
           action="#"
           className="md:mx-16 md:my-0 mx-6 my-6 py-0 md:py-10 relative h-full"
         >
-          {currentStep === 1 ? <PersonalInfo /> : null}
-          {currentStep === 2 ? <LandDetails /> : null}
+          {currentStep === 1 ? <Identification /> : null}
+          {currentStep === 2 ? <PersonalInfo /> : null}
+          {currentStep === 3 ? <LandDetails /> : null}
           {formCompeleted ? null : (
-            <footer className=" absolute md:block hidden w-full p-3 left-0 right-0 bottom-0">
+            <footer className=" relative md:block hidden w-full p-3 left-0 right-0 bottom-0">
               <div className="flex">
                 <div className="mr-auto">
                   {completed ? (
@@ -53,17 +86,17 @@ const Main = () => {
                       text={"Go Back"}
                       onClick={goBack}
                       className={
-                        "bg-transparent text-gray-400 hover:text-primary-marineBlue"
+                        "bg-primary-lightBlue text-black hover:text-primary-marineBlue"
                       }
                     />
                   ) : null}
                 </div>
                 <div className="text-right">
                   <Button
-                    text={currentStep === 4 ? "Confirm" : "Next Step"}
-                    onClick={currentStep === 4 ? submitForm : nextStep}
+                    text={currentStep === 5 ? "Confirm" : "Next Step"}
+                    onClick={currentStep === 5 ? submitForm : nextStep}
                     className={
-                      currentStep === 4
+                      currentStep === 5
                         ? "bg-primary-purplishBlue text-white"
                         : "bg-primary-marineBlue text-white"
                     }
@@ -89,10 +122,10 @@ const Main = () => {
                 </div>
                 <div className="text-right">
                   <Button
-                    text={currentStep === 4 ? "Confirm" : "Next Step"}
-                    onClick={currentStep === 4 ? submitForm : nextStep}
+                    text={currentStep === 5 ? "Confirm" : "Next Step"}
+                    onClick={currentStep === 5 ? submitForm : nextStep}
                     className={
-                      currentStep === 4
+                      currentStep === 5
                         ? "bg-primary-purplishBlue text-white"
                         : "bg-primary-marineBlue text-white"
                     }

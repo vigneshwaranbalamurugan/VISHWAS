@@ -5,12 +5,8 @@ import FormControl from "./formControl";
 
 const LandDetails = () => {
   const {
-    name,
-    setName,
     email,
-    setEmail,
-    number,
-    setNumber,
+    setEmail
   } = useContext(GlobalNLContex);
  
 
@@ -26,20 +22,13 @@ const LandDetails = () => {
         </h3>
 
         <div className="md:mt-7 mt-5 space-y-4">
-          <FormControl
-            label={"Name"}
-            type={"text"}
-            id={"name"}
-            placeholder={"e.g. Stephen King"}
-            onchange={setName('hi')}
-            value={name}
-          />
+          
           <FormControl
             label={"Email Address"}
             type={"email"}
             id={"email"}
             placeholder={"e.g. stephenking@lorem.com"}
-            onchange={setEmail('email')}
+            onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
         </div>

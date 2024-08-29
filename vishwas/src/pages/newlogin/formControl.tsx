@@ -6,7 +6,10 @@ const FormControl = ({
   label,
   placeholder,
   value,
-  onchange,
+  onChange,
+  disabled = false,
+  valid,
+  errorLabel
 }) => {
   return (
     <>
@@ -18,16 +21,29 @@ const FormControl = ({
             </label>
           </div>
         </div>
+       
         <input
           id={id}
           className={
-         "w-full p-2 rounded-lg text-lg text-primary-strawberryRed outline-none focus:border-primary-strawberryRed duration-700 border border-primary-strawberryRed"
-          }
+            valid
+            ? "w-full p-2 rounded-lg text-lg text-primary-marineBlue outline-none focus:border-primary-purplishBlue duration-700 border border-secondary-lightGray"
+            : "w-full p-2 rounded-lg text-lg text-primary-strawberryRed outline-none focus:border-primary-strawberryRed duration-700 border border-primary-strawberryRed"          }
           type={type}
           placeholder={placeholder}
           value={value}
-          onChange={onchange}
+          onChange={onChange}
+          disabled={disabled}
         />
+         {valid ? null : (
+            <div>
+              <label
+                className="text-primary-strawberryRed font-medium"
+                htmlFor={id}
+              >
+                {errorLabel}
+              </label>
+            </div>
+          )}
       </div>
     </>
   );

@@ -1,0 +1,88 @@
+.face-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+    padding: 20px;
+}
+
+.profile-heading {
+    font-weight: bold; /* Make the heading bold */
+    font-size: 24px; /* Increase font size */
+    margin-bottom: 1rem; /* Add some margin below the heading */
+}
+
+.face-image-container {
+    margin-top: 1rem; /* Adjust margin */
+    text-align: left; /* Align text to the left */
+    width: 100%; /* Ensure it takes full width */
+}
+
+.profile-pic-container {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+.captured-image-popup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+}
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-pic-placeholder {
+    font-size: 16px;
+    color: #999;
+}
+
+.face-button-container {
+    margin-top: 1rem; /* Adjust margin */
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top of other content */
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+}
+
+.popup-content video {
+    width: 320px;
+    height: 240px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+}
+
+.popup-button-container {
+    margin-top: 10px;
+}
+
+.popup-button-container button {
+    margin: 5px;
+}

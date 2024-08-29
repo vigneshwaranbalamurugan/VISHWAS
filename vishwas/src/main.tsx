@@ -9,6 +9,7 @@ import Login from './pages/login/Login'
 import Signup from './pages/signup/Signup'
 import Layout from './components/Layout'
 import NewLogin from './pages/newlogin/newLogin'
+import FaceRecognition from './facedetection/facedetection'
 import './locales/i18n';
 
 const router = createBrowserRouter(
@@ -21,7 +22,8 @@ const router = createBrowserRouter(
         {index:true, element:<Home />},
         {path:"/login",element:<Login/>},
         {path:"/signup",element:<Signup/>},
-        {path:"/sidebar",element:<NewLogin/>}
+        {path:"/sidebar",element:<NewLogin/>},
+        {path:"/face",element:<FaceRecognition/>}
       ]
     }
   ]
