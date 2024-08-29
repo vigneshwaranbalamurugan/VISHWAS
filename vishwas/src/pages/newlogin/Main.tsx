@@ -24,6 +24,7 @@ const Main = () => {
     validAge,
     setValidAge,
     setValidEmail,
+    validAadhaar,
     setFormCompeleted,
     formCompeleted,
   } = useContext(GlobalNLContex);
@@ -36,29 +37,32 @@ const Main = () => {
 
   const nextStep = (e) => {
     e.preventDefault();
-    if(currentStep==2){
-    if (firstName.length <=2) {
-      setValidFirstName(false);
-    }else{
-      setValidFirstName(true);
-    }
-    if (lastName.length <1) {
-      setValidLastName(false);
-    }else{
-      setValidLastName(true);
-    }
-    if(gender==="")
-    {
-      setValidGender(false);
-    }
-    setValidEmail(emailRegex.test(email));
-    setValidAge(age>=18);
-     if (firstName.length > 2 && lastName.length>=1 && validEmail && validGender && validAge) {
+    if (currentStep == 1 && validAadhaar) {
       setCurrentStep(currentStep + 1);
-     }}
-     else{
-      setCurrentStep(currentStep + 1);
-     }
+    }else if(currentStep == 1 && !validAadhaar){
+    alert("Please verify Aadhaar");
+    }
+    if (currentStep == 2) {
+      if (firstName.length <= 2) {
+        setValidFirstName(false);
+      } else {
+        setValidFirstName(true);
+      }
+      if (lastName.length < 1) {
+        setValidLastName(false);
+      } else {
+        setValidLastName(true);
+      }
+      if (gender === "") {
+        setValidGender(false);
+      }
+      setValidEmail(emailRegex.test(email));
+      setValidAge(age >= 18);
+      if (firstName.length > 2 && lastName.length >= 1 && validEmail && validGender && validAge) {
+        setCurrentStep(currentStep + 1);
+      }
+    }
+   
   };
 
   const goBack = (e) => {

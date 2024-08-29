@@ -134,7 +134,7 @@ const FaceRecognition: React.FC = () => {
                 setError("Failed to load face detection model.");
             }
         };
-
+    
         const setupCamera = async () => {
             try {
                 const stream = await navigator.mediaDevices.getUserMedia({ video: true });
@@ -147,31 +147,28 @@ const FaceRecognition: React.FC = () => {
                 setError("Failed to access camera.");
             }
         };
-
+    
         const stopCamera = () => {
-            const stream = streamRef.current;
-            if (stream) {
-                const tracks = stream.getTracks();
+            if (streamRef.current) {
+                const tracks = streamRef.current.getTracks();
                 tracks.forEach(track => track.stop());
-                streamRef.current = null; // Clear the reference
-                console.log('off');
+                streamRef.current = null;
             }
             if (videoRef.current) {
                 videoRef.current.srcObject = null;
             }
         };
-
-        
+    
         const detectFace = async () => {
             if (model && videoRef.current) {
                 const video = videoRef.current;
                 const predictions = await model.estimateFaces(video, false);
-
+    
                 if (predictions.length > 0) {
                     const { topLeft, bottomRight } = predictions[0];
                     const [x1, y1] = topLeft as [number, number];
                     const [x2, y2] = bottomRight as [number, number];
-
+    
                     setFaceBox({
                         x: x1,
                         y: y1,
@@ -185,16 +182,24 @@ const FaceRecognition: React.FC = () => {
                 }
             }
         };
-        
+    
         loadModel();
+    
         if (showPopup) {
             setupCamera();
             const intervalId = setInterval(detectFace, 100);
-            return () => clearInterval(intervalId);
-        }else {
+            return () => {
+                clearInterval(intervalId);
+                stopCamera();
+            };
+        } else {
             stopCamera();
-        }    
-    }, [showPopup,model]);
+        }
+    
+        return () => {
+            stopCamera();
+        };
+    }, [showPopup, model]);
 
     return (
         <div>
@@ -210,7 +215,7 @@ const FaceRecognition: React.FC = () => {
                     </div>
                 </div>
                 <div className="face-button-container">
-                    <button onClick={() => setShowPopup(true)} >
+                    <button onClick={() => setShowPopup(true)} className='bg-green-500 py-3 outline-none px-5 rounded-lg duration-700 text-white'>
                         Capture
                     </button>
                 </div>
