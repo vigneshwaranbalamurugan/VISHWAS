@@ -55,7 +55,8 @@ const Identification = () => {
     setValidAadhaar(false);
   }
 
-  const handleGetAadharOtp = async () => {
+  const handleGetAadharOtp = async (event) => {
+    event.preventDefault(); 
     if (aadhaar.length != 12) {
       return;
     }

@@ -6,23 +6,23 @@ const Sidebar = () => {
   const { currentStep, setCurrentStep, name, email, number, setValidName, setValidEmail, setValidNumber, setFormCompeleted } = useContext(GlobalNLContex)
 
   const changeStep = (id) => {
-    if (name.length < 1) {
-      setValidName(false);
-    }
-     if (email.length < 1) {
-      setValidEmail(false);
-    }
-     if (number.length < 1) {
-      setValidNumber(false);
-    }
+    // if (name.length < 1) {
+    //   setValidName(false);
+    // }
+    //  if (email.length < 1) {
+    //   setValidEmail(false);
+    // }
+    //  if (number.length < 1) {
+    //   setValidNumber(false);
+    // }
 
-    if (name.length >= 1 && email.length >= 1 && number.length >= 1) {
-      setValidName(true);
-      setValidEmail(true);
-      setValidNumber(true);
+    // if (name.length >= 1 && email.length >= 1 && number.length >= 1) {
+    //   setValidName(true);
+    //   setValidEmail(true);
+    //   setValidNumber(true);
       setCurrentStep(id);
-    }
-    setFormCompeleted(false)
+    // }
+    // setFormCompeleted(false)
   }
 
   return (

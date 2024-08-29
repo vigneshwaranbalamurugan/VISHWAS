@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import Identification from "./Identification";
 import PersonalInfo from "./personalInfo";
 import LandDetails from "./landDetails";
+import LocationDetails from "./LocationDetails";
 import { GlobalNLContex } from "../../context/nlGlobalContext";
 import Button from "./Button";
 
@@ -39,8 +40,8 @@ const Main = () => {
     e.preventDefault();
     if (currentStep == 1 && validAadhaar) {
       setCurrentStep(currentStep + 1);
-    }else if(currentStep == 1 && !validAadhaar){
-    alert("Please verify Aadhaar");
+    } else if (currentStep == 1 && !validAadhaar) {
+      alert("Please verify Aadhaar");
     }
     if (currentStep == 2) {
       if (firstName.length <= 2) {
@@ -62,7 +63,7 @@ const Main = () => {
         setCurrentStep(currentStep + 1);
       }
     }
-   
+
   };
 
   const goBack = (e) => {
@@ -84,7 +85,8 @@ const Main = () => {
         >
           {currentStep === 1 ? <Identification /> : null}
           {currentStep === 2 ? <PersonalInfo /> : null}
-          {currentStep === 3 ? <LandDetails /> : null}
+          {currentStep === 3 ? <LocationDetails /> : null}
+          {currentStep === 4 ? <LandDetails /> : null}
           {formCompeleted ? null : (
             <footer className=" relative md:block hidden w-full p-3 left-0 right-0 bottom-0">
               <div className="flex">
@@ -105,7 +107,7 @@ const Main = () => {
                     onClick={currentStep === 5 ? submitForm : nextStep}
                     className={
                       currentStep === 5
-                        ? "bg-primary-purplishBlue text-white"
+                        ? "bg-green-500 text-white"
                         : "bg-primary-marineBlue text-white"
                     }
                   />

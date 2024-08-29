@@ -20,7 +20,10 @@ const FaceRecognition: React.FC = () => {
         setCapturedImage(dataURL);
     };
 
-
+    const handleopenCamera = (e) =>{
+        e.preventDefault();
+        setShowPopup(true);
+    }
     const calculateSharpness = (faceCanvas: HTMLCanvasElement): number => {
         const faceCtx = faceCanvas.getContext('2d');
         const faceData = faceCtx?.getImageData(0, 0, faceCanvas.width, faceCanvas.height);
@@ -215,7 +218,7 @@ const FaceRecognition: React.FC = () => {
                     </div>
                 </div>
                 <div className="face-button-container">
-                    <button onClick={() => setShowPopup(true)} className='bg-green-500 py-3 outline-none px-5 rounded-lg duration-700 text-white'>
+                    <button onClick={handleopenCamera} className='bg-green-500 py-3 outline-none px-5 rounded-lg duration-700 text-white'>
                         Capture
                     </button>
                 </div>

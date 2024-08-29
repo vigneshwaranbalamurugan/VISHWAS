@@ -12,12 +12,19 @@ export const GlobalNLProvider = ({ children }) => {
   const [email, setEmail] = useState("");
   const [validEmail, setValidEmail] = useState(true);
   const [age, setAge] = useState("");
-  const [aadhaar,setAadhaar]=useState("");
-  const [validAadhaar,setValidAadhaar]=useState(false);
+  const [aadhaar, setAadhaar] = useState("");
+  const [validAadhaar, setValidAadhaar] = useState(false);
   const [validAge, setValidAge] = useState(true);
   const [validGender, setValidGender] = useState(true);
   const [dob, setDob] = useState("");
   const [gender, setGender] = useState("");
+  const [states, setStates] = useState([]);
+  const [districts, setDistricts] = useState([]);
+  const [selectedState, setSelectedState] = useState('');
+  const [selectedDistrict, setSelectedDistrict] = useState('');
+  const [pincode, setPincode] = useState('');
+  const [lantitude,setLantidude] = useState('');
+  const [longitude,setLongitude] = useState('');
   const [formCompeleted, setFormCompeleted] = useState(false);
 
   return (
@@ -29,7 +36,7 @@ export const GlobalNLProvider = ({ children }) => {
         setCompleted,
         firstName,
         setFirstName,
-        validFirstName, 
+        validFirstName,
         setValidFirstName,
         lastName,
         setLastName,
@@ -53,6 +60,20 @@ export const GlobalNLProvider = ({ children }) => {
         setDob,
         gender,
         setGender,
+        states,
+        setStates,
+        districts,
+        setDistricts,
+        selectedState,
+        pincode,
+        setPincode,
+        setSelectedState,
+        selectedDistrict, 
+        setSelectedDistrict,
+        lantitude,
+        setLantidude,
+        longitude,
+        setLongitude,
         formCompeleted,
         setFormCompeleted,
       }}

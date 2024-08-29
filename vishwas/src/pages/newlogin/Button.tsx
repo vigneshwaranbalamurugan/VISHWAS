@@ -1,9 +1,9 @@
 import React from "react";
 
-const Button = ({ text, className, onClick, disabled = false }) => {
+const Button = ({ text, className, onClick, disabled=false,type = "button"}) => {
   return (
     <>
-      <button onClick={onClick} className={`py-3 outline-none px-5 rounded-lg duration-700 ${className}`} disabled={disabled}>
+      <button type={type} onClick={onClick} className={`py-3 outline-none px-5 rounded-lg duration-700 ${className}`} disabled={disabled} >
         {text}
       </button>
     </>
