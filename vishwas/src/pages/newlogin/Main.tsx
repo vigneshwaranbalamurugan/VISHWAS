@@ -36,6 +36,7 @@ const Main = () => {
 
   const nextStep = (e) => {
     e.preventDefault();
+    if(currentStep==2){
     if (firstName.length <=2) {
       setValidFirstName(false);
     }else{
@@ -52,9 +53,12 @@ const Main = () => {
     }
     setValidEmail(emailRegex.test(email));
     setValidAge(age>=18);
-    // if (firstName.length > 2 && lastName.length>=1 && validEmail && validGender && validAge) {
+     if (firstName.length > 2 && lastName.length>=1 && validEmail && validGender && validAge) {
       setCurrentStep(currentStep + 1);
-    // }
+     }}
+     else{
+      setCurrentStep(currentStep + 1);
+     }
   };
 
   const goBack = (e) => {

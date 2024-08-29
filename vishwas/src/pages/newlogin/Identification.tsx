@@ -2,11 +2,15 @@
 import React, { useContext } from "react";
 import { GlobalNLContex } from "../../context/nlGlobalContext";
 import FaceRecognition from "../../facedetection/facedetection";
+import FormControl from "./formControl";
+import Button from "./Button";
 
 const Identification = () => {
   const {
-    gender,
-    setGender,
+    aadhaar,
+    setAadhaar,
+    validAadhaar,
+    setValidAadhaar
   } = useContext(GlobalNLContex);
 
 
@@ -23,7 +27,22 @@ const Identification = () => {
         <div className="md:mt-7 mt-5 space-y-4">
 
           <FaceRecognition />
-        </div>
+          <FormControl
+            label={"Aadhaar Number"}
+            type={"number"}
+            id={"aadhaar"}
+            placeholder={"e.g. 123456789123"}
+            onChange={(e)=>setAadhaar(e.target.value)}
+            value={aadhaar}
+            valid={validAadhaar}
+            errorLabel={"This field is required and must be in minimum length 3"}
+          />  
+          <Button
+            text={"Verify Aadhaar"}
+            className={"button"}
+            onClick={(e)=>setAadhaar('1')}
+          /> 
+           </div>
       </div>
     </>
   );

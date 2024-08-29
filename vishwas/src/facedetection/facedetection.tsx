@@ -13,6 +13,7 @@ const FaceRecognition: React.FC = () => {
     const [model, setModel] = useState<blazeface.BlazeFaceModel | null>(null);
     const [isFaceDetected, setIsFaceDetected] = useState<boolean>(false);
     const [faceBox, setFaceBox] = useState<{ x: number, y: number, width: number, height: number } | null>(null);
+    const streamRef = useRef(null);
 
     const saveImage = (canvas: HTMLCanvasElement) => {
         const dataURL = canvas.toDataURL('image/png');
@@ -137,6 +138,7 @@ const FaceRecognition: React.FC = () => {
         const setupCamera = async () => {
             try {
                 const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                streamRef.current = stream;
                 if (videoRef.current) {
                     videoRef.current.srcObject = stream;
                 }
@@ -146,6 +148,20 @@ const FaceRecognition: React.FC = () => {
             }
         };
 
+        const stopCamera = () => {
+            const stream = streamRef.current;
+            if (stream) {
+                const tracks = stream.getTracks();
+                tracks.forEach(track => track.stop());
+                streamRef.current = null; // Clear the reference
+                console.log('off');
+            }
+            if (videoRef.current) {
+                videoRef.current.srcObject = null;
+            }
+        };
+
+        
         const detectFace = async () => {
             if (model && videoRef.current) {
                 const video = videoRef.current;
@@ -169,19 +185,21 @@ const FaceRecognition: React.FC = () => {
                 }
             }
         };
-
+        
         loadModel();
-        setupCamera();
-
-        const intervalId = setInterval(detectFace, 100);
-
-        return () => clearInterval(intervalId);
-    }, [model]);
+        if (showPopup) {
+            setupCamera();
+            const intervalId = setInterval(detectFace, 100);
+            return () => clearInterval(intervalId);
+        }else {
+            stopCamera();
+        }    
+    }, [showPopup,model]);
 
     return (
         <div>
             <div className="face-container">
-                <h2 className="profile-heading">Your Profile Picture</h2>
+                <h2 className="profile-heading text-primary-marineBlue">Your Profile Picture</h2>
                 <div className="face-image-container">
                     <div className="profile-pic-container">
                         {capturedImage ? (

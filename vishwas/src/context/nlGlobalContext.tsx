@@ -12,6 +12,8 @@ export const GlobalNLProvider = ({ children }) => {
   const [email, setEmail] = useState("");
   const [validEmail, setValidEmail] = useState(true);
   const [age, setAge] = useState("");
+  const [aadhaar,setAadhaar]=useState("");
+  const [validAadhaar,setValidAadhaar]=useState(true);
   const [validAge, setValidAge] = useState(true);
   const [validGender, setValidGender] = useState(true);
   const [dob, setDob] = useState("");
@@ -40,7 +42,11 @@ export const GlobalNLProvider = ({ children }) => {
         age,
         setAge,
         validAge,
+        aadhaar,
+        setAadhaar,
         setValidAge,
+        validAadhaar,
+        setValidAadhaar,
         validGender,
         setValidGender,
         dob,
