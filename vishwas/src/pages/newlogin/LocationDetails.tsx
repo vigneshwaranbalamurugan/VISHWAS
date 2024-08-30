@@ -20,6 +20,9 @@ const LocationDetails = () => {
         setLantidude,
         longitude,
         setLongitude,
+        address,
+        setAddress,
+        locationValid
     } = useContext(GlobalNLContex);
 
     const getLocation = () => {
@@ -28,7 +31,7 @@ const LocationDetails = () => {
                 (position) => {
                     const { longitude, latitude } = position.coords;
                     setLongitude(longitude.toFixed(6));
-                    setLantidude(latitude.toFixed(6)); 
+                    setLantidude(latitude.toFixed(6));
                 },
                 (error) => {
                     switch (error.code) {
@@ -127,7 +130,7 @@ const LocationDetails = () => {
                         placeholder={"e.g. 636202"}
                         onChange={(e) => { setPincode(e.target.value) }}
                         value={pincode}
-                        valid={pincode.length == 6 || pincode.length == 0}
+                        valid={pincode.length == 6 || locationValid}
                         errorLabel={"This field is required and must be in length 6"}
                     />
                     <FormControl
@@ -137,7 +140,7 @@ const LocationDetails = () => {
                         placeholder={"e.g. 13.067439"}
                         onChange={(e) => { setLongitude(e.target.value) }}
                         value={longitude}
-                        valid={longitude.length >= 3 || longitude.length == 0}
+                        valid={longitude.length >= 3 || locationValid}
                         errorLabel={"This field is required and must be in length 3"}
                         disabled={true}
                     />
@@ -148,7 +151,7 @@ const LocationDetails = () => {
                         placeholder={"e.g. 80.237617"}
                         onChange={(e) => { setLantidude(e.target.value) }}
                         value={lantitude}
-                        valid={lantitude.length >= 3 || lantitude.length == 0}
+                        valid={lantitude.length >= 3 || locationValid}
                         errorLabel={"This field is required and must be in length 3"}
                         disabled={true}
                     />
@@ -159,13 +162,13 @@ const LocationDetails = () => {
                     />
                     <FormControl
                         label={"Address"}
-                        type={"number"}
-                        id={"Latitude"}
-                        placeholder={"e.g. 80.237617"}
-                        onChange={(e) => { setLantidude(e.target.value) }}
-                        value={lantitude}
-                        valid={lantitude.length >= 3 || lantitude.length == 0}
-                        errorLabel={"This field is required and must be in length 3"}
+                        type={"text"}
+                        id={"address"}
+                        placeholder={"e.g. 123 Main St, Springfield"}
+                        onChange={(e) => { setAddress(e.target.value) }}
+                        value={address}
+                        valid={address.length > 0 || locationValid}
+                        errorLabel={"This field is required and cannot be empty"}
                     />
                 </div>
 

@@ -25,6 +25,8 @@ export const GlobalNLProvider = ({ children }) => {
   const [pincode, setPincode] = useState('');
   const [lantitude,setLantidude] = useState('');
   const [longitude,setLongitude] = useState('');
+  const [address, setAddress] = useState('');
+  const [locationValid,setlocationValid] = useState(true);
   const [formCompeleted, setFormCompeleted] = useState(false);
 
   return (
@@ -74,6 +76,10 @@ export const GlobalNLProvider = ({ children }) => {
         setLantidude,
         longitude,
         setLongitude,
+        address, 
+        setAddress,
+        locationValid,
+        setlocationValid,
         formCompeleted,
         setFormCompeleted,
       }}

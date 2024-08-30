@@ -49,7 +49,8 @@ const FaceRecognition: React.FC = () => {
 
         return variance;
     };
-    const captureImage = async () => {
+    const captureImage = async (e) => {
+        e.preventDefault();
         const video = videoRef.current;
         const canvas = canvasRef.current;
         const ctx = canvas?.getContext('2d');
