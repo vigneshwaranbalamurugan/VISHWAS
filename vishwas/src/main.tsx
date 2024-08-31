@@ -55,7 +55,7 @@ const router = createBrowserRouter(
 
         {path:"/cprofile",element:<CPROFILE/>},
         {path:"/Future/:id",element:<Future/>},
-        {path:"aauth",element:<AadhaarAuth/>},
+        {path:"/aauth",element:<AadhaarAuth/>},
 
         {path:"/face",element:<FaceDetection />},
 
