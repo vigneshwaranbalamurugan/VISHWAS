@@ -1,6 +1,19 @@
 import React from "react";
 
-const FormControl = ({
+interface FormControlProps {
+  type: string; 
+  id: string; 
+  label: string; 
+  placeholder?: string; 
+  value: string; 
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  disabled?: boolean;
+  valid?: boolean;
+  errorLabel?: string; 
+}
+
+// Functional component with TypeScript
+const FormControl: React.FC<FormControlProps> = ({
   type,
   id,
   label,

@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState,useContext } from 'react';
+import {GlobalNLContex} from '../context/nlGlobalContext'
 import * as blazeface from '@tensorflow-models/blazeface';
 import * as tf from '@tensorflow/tfjs';
 import '@tensorflow/tfjs';
@@ -9,11 +10,15 @@ const FaceRecognition: React.FC = () => {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const [showPopup, setShowPopup] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const [capturedImage, setCapturedImage] = useState<string | null>(null);
     const [model, setModel] = useState<blazeface.BlazeFaceModel | null>(null);
     const [isFaceDetected, setIsFaceDetected] = useState<boolean>(false);
     const [faceBox, setFaceBox] = useState<{ x: number, y: number, width: number, height: number } | null>(null);
     const streamRef = useRef(null);
+    const {
+        capturedImage,
+        setCapturedImage
+      } = useContext(GlobalNLContex);
+
 
     const saveImage = (canvas: HTMLCanvasElement) => {
         const dataURL = canvas.toDataURL('image/png');

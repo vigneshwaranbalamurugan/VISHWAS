@@ -1,6 +1,20 @@
 import React from "react";
 
-const Button = ({ text, className, onClick, disabled=false,type = "button"}) => {
+interface ButtonControlProps {
+  text: string;
+  className: string;
+  onClick?: () => void;
+  disabled?: boolean;
+  type?: "button" | "submit" | "reset";
+}
+
+const Button: React.FC<ButtonControlProps> = ({
+  text,
+  className,
+  onClick,
+  disabled = false,
+  type = "button",
+}) => {
   return (
     <>
       <button type={type} onClick={onClick} className={`py-3 outline-none px-5 rounded-lg duration-700 ${className}`} disabled={disabled} >

@@ -27,7 +27,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <aside className="sidebar-bg bg-mobile relative top-10 left-5 right-0 md:relative md:h-[100%] md:h-full p-8 overflow-hidden md:rounded-xl gap-4 md:gap-0 w-screen md:w-[100%] flex flex-row md:flex-col items-start md:justify-start justify-center">
+      <aside className="sidebar-bg bg-mobile  relative top-10 left-5 right-0 md:relative md:h-[100%] md:h-full p-8 overflow-hidden md:rounded-xl gap-4 md:gap-0 w-screen md:w-[100%] flex flex-row md:flex-col items-start md:justify-start justify-center">
         {data.map((data, index) => {
           const { id, step, title } = data;
 

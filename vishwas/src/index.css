@@ -16,6 +16,7 @@
   --secondary-lightGray:#DD8A22;
   --secondary-mongolia: hsl(217, 100%, 97%);
   --secondary-alabaster: hsl(0, 0%, 0%);
+  --secondary-summary:hsl(210, 1%, 65%);
 }
 
 .bg-primary-marineBlue {

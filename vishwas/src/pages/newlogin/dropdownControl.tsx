@@ -1,6 +1,20 @@
 import React from "react";
 
-const DbControl = ({
+interface DbControlProps {
+    id: string; 
+    label: string;
+    value: string | number; 
+    onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+    valid?: boolean;
+    errorLabel?: string;
+    options?: Array<{
+        name: Key | null | undefined; value: string | number; label: string 
+}>;
+    name?: string;
+    disabled?: boolean;
+}
+
+const DbControl: React.FC<DbControlProps> = ({
     id,
     label,
     value,
@@ -8,14 +22,16 @@ const DbControl = ({
     valid,
     errorLabel,
     options = [],
-    name,
-    disabled=false
+    disabled = false
 }) => {
     return (
         <div className="flex flex-col gap-1">
             <div className="flex">
                 <div className="mr-auto">
-                    <label className="text-primary-marineBlue font-medium" htmlFor={id}>
+                    <label
+                        className="text-primary-marineBlue font-medium"
+                        htmlFor={id} 
+                    >
                         {label}
                     </label>
                 </div>
@@ -33,8 +49,8 @@ const DbControl = ({
             >
                 <option value="">Select {label}</option>
                 {options.map(option => (
-                    <option key={option[name]} value={option[name]}>
-                        {option[name]}
+                    <option key={option.name} value={option.name}>
+                        {option.name}
                     </option>
                 ))}
             </select>
@@ -42,7 +58,7 @@ const DbControl = ({
                 <div>
                     <label
                         className="text-primary-strawberryRed font-medium"
-                        htmlFor={id}
+                        htmlFor={id} 
                     >
                         {errorLabel}
                     </label>

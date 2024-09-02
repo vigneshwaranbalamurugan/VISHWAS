@@ -3,6 +3,7 @@ import Identification from "./Identification";
 import PersonalInfo from "./personalInfo";
 import LandDetails from "./landDetails";
 import LocationDetails from "./LocationDetails";
+import Summary from "./Summary";
 import { GlobalNLContex } from "../../context/nlGlobalContext";
 import Button from "./Button";
 
@@ -26,6 +27,7 @@ const Main = () => {
     setValidAge,
     setValidEmail,
     validAadhaar,
+    capturedImage,
     setFormCompeleted,
     formCompeleted,
   } = useContext(GlobalNLContex);
@@ -38,10 +40,10 @@ const Main = () => {
 
   const nextStep = (e) => {
     e.preventDefault();
-    if (currentStep == 1 && validAadhaar) {
+    if (currentStep == 1 && validAadhaar && capturedImage) {
       setCurrentStep(currentStep + 1);
-    } else if (currentStep == 1 && !validAadhaar) {
-      alert("Please verify Aadhaar");
+    } else if (currentStep == 1 && (!validAadhaar|| !capturedImage)) {
+      alert("Please verify Aadhaar and Profile");
     }
     if (currentStep == 2) {
       if (firstName.length <= 2) {
@@ -87,6 +89,7 @@ const Main = () => {
           {currentStep === 2 ? <PersonalInfo /> : null}
           {currentStep === 3 ? <LocationDetails /> : null}
           {currentStep === 4 ? <LandDetails /> : null}
+          {currentStep === 5 ? <Summary /> : null}
           {formCompeleted ? null : (
             <footer className=" relative md:block hidden w-full p-3 left-0 right-0 bottom-0">
               <div className="flex">
