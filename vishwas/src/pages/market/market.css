@@ -1,78 +1,119 @@
+/* Container Styles for Search and Filters */
+.search-filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center items horizontally */
+  padding: 16px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative; /* To position the search bar */
+}
+
+/* Search Bar Styles */
+.search-bar {
+  flex: 1;
+  max-width: 600px; /* Set a maximum width for the search bar */
+  margin: 0 auto; /* Center the search bar */
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Filter and Sort Dropdowns */
+.filters-sort {
+  display: flex;
+  flex-direction: column; /* Align items in a column */
+  align-items: flex-start; /* Align items to the start */
+  gap: 8px; /* Space between dropdowns */
+  position: absolute; /* Absolute positioning for the filter dropdowns */
+  top: 80px; /* Adjust the position below the search bar */
+  left: 16px; /* Align to the left side */
+}
+
+.filters-sort select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 0.2rem;
+  font-size: 1rem;
+}
+
 /* Crop Card Styles */
 .crop-card {
-  min-width: 300px; /* Minimum width of the card */
-  height: 300px; /* Height of the card */
-  border: 1px solid #fbf9f9; /* Lighter border color */
-  display: flex; /* Flexbox layout */
-  flex-direction: column; /* Arrange items in a column */
-  border-radius: 2.2rem; /* Rounded corners */
-  overflow: hidden; /* Hide overflowing content */
-  margin: 10px; /* Increased margin around the card */
-  background-color: #d0ecfa; /* Lita Blue */
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition */
-  box-shadow: 0 30px 20px rgba(119, 243, 148, 0.1); /* Subtle shadow */
+  min-width: 250px;
+  height: 250px;
+  border: 1px solid #fbf9f9;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.8rem;
+  overflow: hidden;
+  margin: 8px;
+  background-color: #d0fad6;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 20px 15px rgba(119, 243, 148, 0.1);
 }
 
 .crop-card:hover {
-  transform: translateY(-5px); /* Slight lift effect on hover */
-  box-shadow: 0 8px 16px rgba(95, 228, 83, 0.2); /* Enhanced shadow on hover */
-  background-color: #9ccc65; /* Sandal Green on hover */
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(95, 228, 83, 0.2);
+  background-color: #9ccc65;
 }
 
 /* Image Styles within Card */
 .crop-card-image {
-  height: 150px; /* Height of the image */
-  object-fit: cover; /* Cover the image within the container */
-  width: 100%; /* Full width */
-  transition: opacity 0.3s ease; /* Smooth transition for image */
+  height: 125px;
+  object-fit: cover;
+  width: 100%;
+  transition: opacity 0.3s ease;
 }
 
 .crop-card:hover .crop-card-image {
-  opacity: 0.9; /* Slightly fade image on hover */
+  opacity: 0.9;
 }
 
 /* Content Styles within Card */
 .crop-card-content {
-  flex-grow: 1; /* Allow content to grow */
-  padding: 15px; /* Increased padding around content */
-  text-align: center; /* Center text alignment */
-  color: #333; /* Default text color */
-  transition: color 0.3s ease; /* Smooth transition for text color */
+  flex-grow: 1;
+  padding: 10px;
+  text-align: center;
+  color: #333;
+  transition: color 0.3s ease;
 }
 
 .crop-card:hover .crop-card-content {
-  color: #fff; /* Change text color on hover */
+  color: #fff;
 }
 
 .crop-card-content h3 {
-  font-size: 1.4rem; /* Increase font size for title */
-  font-weight: bold; /* Bold title */
-  color: inherit; /* Inherit color from parent */
-  margin-bottom: 10px; /* Space below title */
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: inherit;
+  margin-bottom: 8px;
 }
 
 .crop-card-content h3:hover {
-  color: #f0f3f0; /* Slightly lighter color for title on hover */
+  color: #f0f3f0;
 }
 
 .crop-card-content p {
-  font-size: 1.1rem; /* Increase font size for description */
-  color: inherit; /* Inherit color from parent */
-  margin-bottom: 15px; /* Space below description */
+  font-size: 1rem;
+  color: inherit;
+  margin-bottom: 10px;
 }
 
 /* Container Styles for Crop Cards */
 .crop-card-container {
-  display: grid; /* Grid layout */
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive columns */
-  grid-gap: 20px; /* Increased gap between cards */
-  align-items: start; /* Align items to the start */
-  justify-content: center; /* Center the grid */
-  padding: 20px; /* Increased padding around the container */
-  background-color: #f9f9f9; /* Light background color for container */
-}
-
-/* Add a container shadow for better visual separation */
-.crop-card-container {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for the container */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 16px;
+  align-items: start;
+  justify-content: center;
+  padding: 16px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
