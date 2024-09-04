@@ -1,5 +1,5 @@
 
-import React, { useContext, useState } from "react";
+import  { useContext, useState } from "react";
 import { GlobalNLContex } from "../../context/nlGlobalContext";
 import FaceRecognition from "../../facedetection/facedetection";
 import FormControl from "./formControl";
@@ -50,12 +50,12 @@ const Identification = () => {
     setOtpSend(false);
     setOtp("");
   }
-  const setAadharLogic =(e) =>{
+  const setAadharLogic = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAadhaar(e.target.value);
     setValidAadhaar(false);
-  }
+};
 
-  const handleGetAadharOtp = async (event) => {
+  const handleGetAadharOtp = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault(); 
     if (aadhaar.length != 12) {
       return;

@@ -3,7 +3,7 @@ import React from "react";
 interface ButtonControlProps {
   text: string;
   className: string;
-  onClick?: () => void;
+  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
 }

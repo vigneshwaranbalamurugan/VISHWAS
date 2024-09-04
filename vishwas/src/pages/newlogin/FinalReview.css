@@ -1,0 +1,105 @@
+
+  .final-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .final-review-card {
+    border: 1px solid #e1e5eb;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .final-section-title {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 15px;
+  }
+
+  .final-colon {
+    margin-right: 1rem; 
+    color: #333; 
+  }
+
+  .final-info-row {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e1e5eb;
+    width: 100%;
+    box-sizing: border-box; 
+  }
+  
+  .final-info-row:last-child {
+    border-bottom: none;
+  }
+  
+  .final-label {
+    font-weight: bold;
+    color: #333;
+    flex: 0 0 100px; 
+    margin-right: 10vw; 
+  }
+  
+  .final-value {
+    flex: 1; 
+    color: #666;
+    text-align: left; 
+  }
+  .final-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .final-edit-button, .final-submit-button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .final-edit-button {
+    background-color: #f0ad4e;
+    color: #fff;
+  }
+  
+  .final-edit-button:hover {
+    background-color: #ec971f;
+  }
+  
+  .final-submit-button {
+    background-color: #5bc0de;
+    color: #fff;
+  }
+  
+  .final-submit-button:hover {
+    background-color: #31b0d5;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .final-review-container {
+      padding: 20px;
+    }
+    
+    .final-info-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .final-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .final-edit-button, .final-submit-button {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  

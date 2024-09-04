@@ -162,7 +162,7 @@ const LocationDetails = () => {
                     />
                     <FormControl
                         label={"Address"}
-                        type={"text"}
+                        type={"textarea"}
                         id={"address"}
                         placeholder={"e.g. 123 Main St, Springfield"}
                         onChange={(e) => { setAddress(e.target.value) }}
