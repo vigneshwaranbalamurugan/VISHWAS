@@ -239,3 +239,18 @@ label.error {
   }
 }
 
+.password-input-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.eye-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  outline: none;
+  padding: 0;
+}
