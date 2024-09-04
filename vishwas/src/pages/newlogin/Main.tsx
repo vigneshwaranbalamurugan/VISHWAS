@@ -5,6 +5,7 @@ import LandDetails from "./landDetails";
 import LocationDetails from "./LocationDetails";
 import Summary from "./Summary";
 import { GlobalNLContex } from "../../context/nlGlobalContext";
+import { FormContext } from "../../context/LandDetailsContext";
 import Button from "./Button";
 
 const Main = () => {
@@ -32,17 +33,98 @@ const Main = () => {
     formCompeleted,
   } = useContext(GlobalNLContex);
 
+  const {
+    capturedImage,
+    aadhaar,
+    firstName,
+    lastName,
+    email,
+    gender,
+    age,
+    dob,
+    selectedState,
+    pincode,
+    selectedDistrict,
+    lantitude,
+    longitude,
+    address,
+
+} = useContext(GlobalNLContex);
+
+const {
+    formDetails
+} = useContext(FormContext);
+
   useEffect(() => {
     setCompleted(currentStep !== 1);
   }, [currentStep, setCompleted]);
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+  const sendFarmerData = async () => {
+    const farmerData = {
+      personalIdentification: {
+        photo: capturedImage,
+        aadhaarNumber: aadhaar,
+      },
+      personalInfo: {
+        firstName,
+        lastName,
+        email,
+        gender,
+        age,
+        dob,
+      },
+      locationInfo: {
+        state: selectedState,
+        district: selectedDistrict,
+        pincode,
+        longitude,
+        latitude: lantitude,
+        address,
+      },
+      landDetails: {
+        farmSize: formDetails.farmSize,
+        yearsOfExperience: formDetails.yearsOfExperience,
+        farmingMethods: formDetails.farmingMethods,
+        irrigationMethods: formDetails.irrigation,
+        pesticideMethods: formDetails.pesticide,
+        lands: formDetails.lands.map(land => ({
+          surveyNumber: land.surveyNumber,
+          subdivisionNumber: land.subdivisionNumber,
+          soilType: land.soilType,
+          landSize: land.landSize,
+          location: land.location,
+          landImage: land.file,
+        })),
+      },
+    };
+
+    try {
+      const response = await fetch('http://localhost:5000/api/farmer/store-farmer-data', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(farmerData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to save farmer data');
+      }
+
+      const result = await response.json();
+      console.log('Farmer data saved successfully:', result);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
   const nextStep = (e) => {
     e.preventDefault();
     if (currentStep == 1 && validAadhaar && capturedImage) {
       setCurrentStep(currentStep + 1);
-    } else if (currentStep == 1 && (!validAadhaar|| !capturedImage)) {
+    } else if (currentStep == 1 && (!validAadhaar || !capturedImage)) {
       alert("Please verify Aadhaar and Profile");
     }
     if (currentStep == 2) {
@@ -107,7 +189,7 @@ const Main = () => {
                 <div className="text-right">
                   <Button
                     text={currentStep === 5 ? "Confirm" : "Next Step"}
-                    onClick={currentStep === 5 ? submitForm : nextStep}
+                    onClick={currentStep === 5 ? sendFarmerData : nextStep}
                     className={
                       currentStep === 5
                         ? "bg-green-500 text-white"
