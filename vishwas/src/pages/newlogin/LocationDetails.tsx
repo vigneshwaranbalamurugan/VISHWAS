@@ -22,7 +22,7 @@ const LocationDetails = () => {
         setLongitude,
         address,
         setAddress,
-        locationValid
+        locationValid,
     } = useContext(GlobalNLContex);
 
     const getLocation = () => {
@@ -110,7 +110,7 @@ const LocationDetails = () => {
                         errorLabel="Please select a state"
                         options={states}
                         name={"name"}
-                        valid={true}
+                        valid={selectedState!=="" || locationValid}
                     />
                     <DbControl
                         id="District"
@@ -120,7 +120,7 @@ const LocationDetails = () => {
                         errorLabel="Please select a district"
                         options={districts}
                         name={"name"}
-                        valid={true}
+                        valid={selectedDistrict!==""||locationValid}
                         disabled={selectedState == ""}
                     />
                     <FormControl
@@ -167,8 +167,8 @@ const LocationDetails = () => {
                         placeholder={"e.g. 123 Main St, Springfield"}
                         onChange={(e) => { setAddress(e.target.value) }}
                         value={address}
-                        valid={address.length > 0 || locationValid}
-                        errorLabel={"This field is required and cannot be empty"}
+                        valid={address.length > 10 || locationValid}
+                        errorLabel={"This field is required and cannot be empty also length minimum 10"}
                     />
                 </div>
 

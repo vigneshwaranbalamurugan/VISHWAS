@@ -31,6 +31,8 @@ const Main = () => {
     capturedImage,
     setFormCompeleted,
     formCompeleted,
+    locationValid,
+    validateLocation,
     aadhaar,
     dob,
     selectedState,
@@ -53,51 +55,32 @@ const {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   const sendFarmerData = async () => {
-    const farmerData = {
-      personalIdentification: {
-        photo: capturedImage,
-        aadhaarNumber: aadhaar,
-      },
-      personalInfo: {
-        firstName,
-        lastName,
-        email,
-        gender,
-        age,
-        dob,
-      },
-      locationInfo: {
-        state: selectedState,
-        district: selectedDistrict,
-        pincode,
-        longitude,
-        latitude: lantitude,
-        address,
-      },
-      landDetails: {
-        farmSize: formDetails.farmSize,
-        yearsOfExperience: formDetails.yearsOfExperience,
-        farmingMethods: formDetails.farmingMethods,
-        irrigationMethods: formDetails.irrigation,
-        pesticideMethods: formDetails.pesticide,
-        lands: formDetails.lands.map(land => ({
-          surveyNumber: land.surveyNumber,
-          subdivisionNumber: land.subdivisionNumber,
-          soilType: land.soilType,
-          landSize: land.landSize,
-          location: land.location,
-          landImage: land.file,
-        })),
-      },
+    const data = {
+      firstName,
+      lastName,
+      email,
+      gender,
+      age,
+      capturedImage,
+      aadhaar,
+      dob,
+      selectedState,
+      pincode,
+      selectedDistrict,
+      lantitude,
+      longitude,
+      address,
+      formDetails
     };
+  
 
     try {
-      const response = await fetch('http://localhost:5000/api/farmer/store-farmer-data', {
+      const response = await fetch('http://localhost:5000/api/v1/farmer/store-farmer-data', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(farmerData),
+        body: JSON.stringify(data),
       });
 
       if (!response.ok) {
@@ -135,6 +118,12 @@ const {
       setValidEmail(emailRegex.test(email));
       setValidAge(age >= 18);
       if (firstName.length > 2 && lastName.length >= 1 && validEmail && validGender && validAge) {
+        setCurrentStep(currentStep + 1);
+      }
+    }
+    if (currentStep == 3) {
+     const valid = validateLocation();
+      if (valid) {
         setCurrentStep(currentStep + 1);
       }
     }

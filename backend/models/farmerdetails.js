@@ -1,11 +1,18 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const FarmerSchema = new mongoose.Schema({
+  mobileNumber: {
+    type: String,
+    minlength: 10,
+    maxlength: 10,
+    unique: true,
+    required: true
+  },
   personalIdentification: {
-    photo: {
-      type: String,
-      required: true,
-    },
+    // photo: {
+    //   type: String,
+    //   required: true,
+    // },
     aadhaarNumber: {
       type: String,
       required: true,
@@ -33,7 +40,7 @@ const FarmerSchema = new mongoose.Schema({
       required: true,
     },
     dob: {
-      type: Date,
+      type: String,
       required: true,
     },
   },
@@ -88,31 +95,33 @@ const FarmerSchema = new mongoose.Schema({
       {
         surveyNumber: {
           type: String,
-          required: true,
+          // required: true,
         },
         subdivisionNumber: {
           type: String,
-          required: true,
+          // required: true,
         },
         soilType: {
           type: String,
-          required: true,
+          // required: true,
         },
         landSize: {
           type: String,
-          required: true,
+          // required: true,
         },
         location: {
           type: String,
-          required: true,
+          // required: true,
         },
-        landImage: {
-          type: String,
-          required: true,
-        },
+        // landImage: {
+        //   type: String,
+        //   required: true,
+        // },
       },
     ],
   },
 });
 
-module.exports = mongoose.model('Farmer', FarmerSchema);
+const FarmerDetails = mongoose.model('FarmerDetail', FarmerSchema);
+
+export default FarmerDetails;

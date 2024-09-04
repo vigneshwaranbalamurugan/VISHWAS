@@ -130,9 +130,22 @@ const Summary: React.FC<FinalReviewProps> = () => {
                         value={formDetails.irrigation}
                     />
                     <FinalInfoRow
-                        label={"Irrigation"}
-                        value={formDetails.irrigation}
+                        label={"Pesticide"}
+                        value={formDetails.pesticide}
                     />
+                    {formDetails.lands.map((land, index) => (
+                        <div key={index} className="land-info">
+                            <h3 className="text-primary-marineBlue text-2xl mt-2">
+                               Land {index+1}
+                            </h3>
+                            <FinalInfoRow label="Survey Number" value={land.surveyNumber} />
+                            <FinalInfoRow label="Subdivision Number" value={land.subdivisionNumber} />
+                            <FinalInfoRow label="Soil Type" value={land.soilType} />
+                            <FinalInfoRow label="Land Size" value={land.landSize} />
+                            <FinalInfoRow label="Land Location" value={land.landLocation} />
+                            <FinalInfoRow label="File" value={<img src={land.filePreviewUrl || 'No URL'} alt="Land Image" style={{ width: '200px', height: '200px', borderRadius: '10px', border: '2px solid #ddd' }} />} />
+                        </div>
+                    ))}
                 </div>
 
             </div>

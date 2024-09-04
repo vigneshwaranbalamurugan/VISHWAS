@@ -54,6 +54,7 @@ interface GlobalNLContextType {
   setlocationValid: Dispatch<SetStateAction<boolean>>;
   formCompeleted: boolean;
   setFormCompeleted: Dispatch<SetStateAction<boolean>>;
+  validateLocation: () => void;
 }
 
 // Create the context with a default value
@@ -72,7 +73,7 @@ export const GlobalNLProvider: React.FC<{ children: ReactNode }> = ({ children }
   const [age, setAge] = useState<string>("");
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
   const [aadhaar, setAadhaar] = useState<string>("");
-  const [validAadhaar, setValidAadhaar] = useState<boolean>(true);
+  const [validAadhaar, setValidAadhaar] = useState<boolean>(false);
   const [validAge, setValidAge] = useState<boolean>(true);
   const [validGender, setValidGender] = useState<boolean>(true);
   const [dob, setDob] = useState<string>("");
@@ -87,6 +88,30 @@ export const GlobalNLProvider: React.FC<{ children: ReactNode }> = ({ children }
   const [address, setAddress] = useState<string>('');
   const [locationValid, setlocationValid] = useState<boolean>(true);
   const [formCompeleted, setFormCompeleted] = useState<boolean>(false);
+
+  const validateLocation = (): boolean => {
+    let isValid = true;
+    
+    if (!selectedState || !selectedDistrict) {
+      isValid = false;
+    }
+  
+    if (pincode.length !== 6 || isNaN(Number(pincode))) {
+      isValid = false;
+    }
+  
+    if (!lantitude || !longitude) {
+      isValid = false;
+    }
+  
+    if (!address) {
+      isValid = false;
+    }
+  
+    setlocationValid(isValid);
+  
+    return isValid;
+  };
 
   return (
     <GlobalNLContex.Provider
@@ -141,6 +166,7 @@ export const GlobalNLProvider: React.FC<{ children: ReactNode }> = ({ children }
         setAddress,
         locationValid,
         setlocationValid,
+        validateLocation,
         formCompeleted,
         setFormCompeleted,
       }}

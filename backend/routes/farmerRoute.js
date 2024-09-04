@@ -2,7 +2,7 @@ import express from 'express';
 import { registerFarmer, requestOTP, verifyOTP } from "../authentication/registerAuth.js";
 import { loginFarmer } from '../authentication/loginAuth.js';
 import { getAadhaarOTP, verifyAadhaarOTP } from '../controllers/verifyAadhar.js';
-import { storeFarmerData } from '../controllers/farmerController.js'; 
+import { storeFarmerData } from '../controllers/farmerDetails.js'; 
 const farmerRouter = express.Router();
 
 farmerRouter.post('/request-otp', requestOTP);
