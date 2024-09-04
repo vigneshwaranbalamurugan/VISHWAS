@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { CiSearch } from "react-icons/ci";
 
 const categories = {
   'Food Crops': ['Rice', 'Wheat', 'Corn'],
   'Fiber Crops': ['Cotton', 'Hemp', 'Flax'],
   'Feed Crops': ['Alfalfa', 'Soybean', 'Barley'],
-  'Industrial Crops': ['Rubber', 'Jute', 'Kenaf']
+  'Industrial Crops': ['Rubber', 'Jute', 'Kenaf'],
 };
 
 const quantities = ['10-50 kg', '100 kg', '200 kg', '500 kg', 'above'];
@@ -14,59 +13,42 @@ const CategoryFilter = ({ onFilter }: { onFilter: (filters: any) => void }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [selectedQuantity, setSelectedQuantity] = useState<string>('');
   const [selectedLocation, setSelectedLocation] = useState<string>('');
-  const [searchQuery, setSearchQuery] = useState<string>('');
   const [priceRange, setPriceRange] = useState<string>('');
 
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
-    onFilter({ category, quantity: selectedQuantity, location: selectedLocation, searchQuery, priceRange });
+    onFilter({ category, quantity: selectedQuantity, location: selectedLocation, priceRange });
   };
 
   const handleQuantityChange = (quantity: string) => {
     setSelectedQuantity(quantity);
-    onFilter({ category: selectedCategory, quantity, location: selectedLocation, searchQuery, priceRange });
+    onFilter({ category: selectedCategory, quantity, location: selectedLocation, priceRange });
   };
 
   const handleLocationChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const location = event.target.value;
     setSelectedLocation(location);
-    onFilter({ category: selectedCategory, quantity: selectedQuantity, location, searchQuery, priceRange });
-  };
-
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const query = event.target.value;
-    setSearchQuery(query);
-    onFilter({ category: selectedCategory, quantity: selectedQuantity, location: selectedLocation, searchQuery: query, priceRange });
+    onFilter({ category: selectedCategory, quantity: selectedQuantity, location, priceRange });
   };
 
   const handlePriceRangeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const range = event.target.value;
     setPriceRange(range);
-    onFilter({ category: selectedCategory, quantity: selectedQuantity, location: selectedLocation, searchQuery, priceRange: range });
+    onFilter({ category: selectedCategory, quantity: selectedQuantity, location, priceRange: range });
   };
 
   return (
-    <div className="relative pt-16 p-4 bg-gray-100 w-64 z-10">
-      {/* Search Bar */}
-      <div className="flex items-center mb-4">
-        <input
-          type="text"
-          placeholder="Search..."
-          value={searchQuery}
-          onChange={handleSearchChange}
-          className="p-2 border border-gray-300 rounded-lg w-full h-12 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-        />
-        <CiSearch className="ml-2 h-10 w-10 text-blue-700 hover:text-blue-500 transition-colors duration-300 ease-in-out" />
-      </div>
-
+    <div>
       <h2 className="text-lg font-medium mb-4">Filter</h2>
 
       <div className="mb-4">
         <h3 className="text-gray-600 mb-2">Categories</h3>
-        {Object.keys(categories).map(category => (
+        {Object.keys(categories).map((category) => (
           <button
             key={category}
-            className={`block w-full text-left p-2 mb-2 rounded ${selectedCategory === category ? 'bg-blue-500 text-white' : 'bg-blue-100'}`}
+            className={`block w-full text-left p-2 mb-2 rounded ${
+              selectedCategory === category ? 'bg-blue-500 text-white' : 'bg-blue-100'
+            }`}
             onClick={() => handleCategoryChange(category)}
           >
             {category}
@@ -82,8 +64,10 @@ const CategoryFilter = ({ onFilter }: { onFilter: (filters: any) => void }) => {
           value={selectedQuantity}
         >
           <option value="">Select Quantity</option>
-          {quantities.map(quantity => (
-            <option key={quantity} value={quantity}>{quantity}</option>
+          {quantities.map((quantity) => (
+            <option key={quantity} value={quantity}>
+              {quantity}
+            </option>
           ))}
         </select>
       </div>
