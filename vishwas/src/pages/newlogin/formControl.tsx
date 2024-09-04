@@ -1,7 +1,7 @@
 import React from "react";
 
 interface FormControlProps {
-  type: string; 
+  type: 'text' | 'textarea'|'number';
   id: string; 
   label: string; 
   placeholder?: string; 
@@ -34,19 +34,31 @@ const FormControl: React.FC<FormControlProps> = ({
             </label>
           </div>
         </div>
-       
+        {type === 'textarea' ? (
+        <textarea
+          id={id}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          className={ valid
+            ? "w-full p-5 rounded-lg text-lg text-primary-marineBlue outline-none focus:border-primary-purplishBlue duration-700 border border-secondary-lightGray"
+            : "w-full p-5 rounded-lg text-lg text-primary-strawberryRed outline-none focus:border-primary-strawberryRed duration-700 border border-primary-strawberryRed"}
+        />
+      ) : (
         <input
           id={id}
           className={
             valid
-            ? "w-full p-2 rounded-lg text-lg text-primary-marineBlue outline-none focus:border-primary-purplishBlue duration-700 border border-secondary-lightGray"
-            : "w-full p-2 rounded-lg text-lg text-primary-strawberryRed outline-none focus:border-primary-strawberryRed duration-700 border border-primary-strawberryRed"          }
+              ? "w-full p-2 rounded-lg text-lg text-primary-marineBlue outline-none focus:border-primary-purplishBlue duration-700 border border-secondary-lightGray"
+              : "w-full p-2 rounded-lg text-lg text-primary-strawberryRed outline-none focus:border-primary-strawberryRed duration-700 border border-primary-strawberryRed"
+          }
           type={type}
           placeholder={placeholder}
           value={value}
           onChange={onChange}
-          disabled={disabled}
+          disabled={disabled} 
         />
+      )}
          {valid ? null : (
             <div>
               <label
@@ -63,3 +75,4 @@ const FormControl: React.FC<FormControlProps> = ({
 };
 
 export default FormControl;
+

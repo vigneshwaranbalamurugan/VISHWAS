@@ -8,8 +8,10 @@ interface DbControlProps {
     valid?: boolean;
     errorLabel?: string;
     options?: Array<{
-        name: Key | null | undefined; value: string | number; label: string 
-}>;
+        name: string | undefined; 
+        value: string | number; 
+        label: string 
+    }>;
     name?: string;
     disabled?: boolean;
 }
