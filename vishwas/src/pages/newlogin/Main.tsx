@@ -31,16 +31,7 @@ const Main = () => {
     capturedImage,
     setFormCompeleted,
     formCompeleted,
-  } = useContext(GlobalNLContex);
-
-  const {
-    capturedImage,
     aadhaar,
-    firstName,
-    lastName,
-    email,
-    gender,
-    age,
     dob,
     selectedState,
     pincode,
