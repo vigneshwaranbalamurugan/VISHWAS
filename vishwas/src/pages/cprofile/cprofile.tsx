@@ -2,12 +2,13 @@ import React from 'react';
 import { contractors } from './cpt';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'; // Use useNavigate instead of useHistory
+import CrequestForm from '../contractor/CrequestForm';
 
 const CProfile = () => {
   const navigate = useNavigate(); // useNavigate hook for navigation
 
   const handleFutureContractsClick = () => {
-    navigate('/Future/1'); // Navigate to the future contracts page
+    navigate('/future'); // Navigate to the future contracts page
   };
 
   return (
@@ -59,7 +60,7 @@ const CProfile = () => {
             </div>
           </div>
         ))}
-        {/* Future Contracts Button */}
+        
         <div className="text-center">
           <button
             onClick={handleFutureContractsClick}

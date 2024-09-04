@@ -27,7 +27,7 @@ import Status from './pages/status/Status'
 import History from './pages/status/History'
 import Contracts from './pages/status/Contracts'
 import AadhaarAuth from './pages/signup/AadhaarAuth'
-
+import CrequestForm from './pages/contractor/CrequestForm'
 import FaceDetection from './facedetection/face-api';
 
 const router = createBrowserRouter(
@@ -54,10 +54,11 @@ const router = createBrowserRouter(
         {path:"/chat",element:<Chat/>},
 
         {path:"/cprofile",element:<CPROFILE/>},
-        {path:"/Future/:id",element:<Future/>},
+        {path:"/Future",element:<CrequestForm/>},
         {path:"/aauth",element:<AadhaarAuth/>},
 
         {path:"/face",element:<FaceDetection />},
+        
 
 
         
