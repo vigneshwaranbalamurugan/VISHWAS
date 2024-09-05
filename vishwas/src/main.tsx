@@ -6,6 +6,7 @@ import FarmerForm from './pages/signup/newlogin/newloginuser'
 import Error from './pages/Error'
 import Home from './pages/home/Home'
 import Login from './pages/login/Login'
+import Logincf from './pages/login/logincf'
 import Signup from './pages/signup/Signup'
 import Layout from './components/Layout'
 import Market from './pages/market/Market'
@@ -39,6 +40,7 @@ const router = createBrowserRouter(
       children:[
         {index:true, element:<Home />},
         {path:"/login",element:<Login/>},
+        {path:"/lcf",element:<Logincf/>},
         {path:"/signup",element:<Signup/>},
         {path:"/market",element:<Market/>},
         {path:"/nld",element:<NewLoginDetails/>},
