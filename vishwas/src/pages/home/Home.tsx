@@ -51,30 +51,72 @@ const Home: React.FC = () => {
           </div>
         </div>
       </div>
-
-      {/* Content Sections */}
+          {/* What is Vishwas Section */}
       <div className="container mx-auto p-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-            <h2 className="text-3xl font-semibold mb-4">{t('for_farmers')}</h2>
+        <div className="flex flex-col md:flex-row items-center bg-white rounded-lg shadow-lg">
+          <img
+            src="src/assets/crop1.jpg" // Replace with the path to your image
+            alt="What is Vishwas"
+            className="w-full md:w-1/2 rounded-t-lg md:rounded-l-lg object-cover"
+            style={{ height: '300px' }}
+          />
+          <div className="p-6 w-full md:w-1/2">
+            <h2 className="text-3xl font-semibold mb-4">What is Vishwas?</h2>
+            <p className="text-lg text-gray-700 mb-4">
+              Vishwas is a trusted platform that connects farmers and buyers, providing reliable services to ensure secure transactions, contract management, and collaboration opportunities. It empowers farmers to reach a wider market while giving buyers access to quality products directly from the source.
+            </p>
             <ul className="list-disc list-inside space-y-2">
-              <li>{t('connect_with_buyers')}</li>
-              <li>{t('manage_contracts')}</li>
-              <li>{t('secure_payments')}</li>
-              <li>{t('collaborate')}</li>
-            </ul>
-          </div>
-          <div className="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-            <h2 className="text-3xl font-semibold mb-4">{t('for_buyers')}</h2>
-            <ul className="list-disc list-inside space-y-2">
-              <li>{t('find_reliable_farmers')}</li>
-              <li>{t('purchase_products')}</li>
-              <li>{t('secure_options')}</li>
-              <li>{t('track_order')}</li>
+              <li>Building trust between farmers and buyers</li>
+              <li>Ensuring fair and secure deals</li>
+              <li>Providing a transparent platform for agricultural transactions</li>
             </ul>
           </div>
         </div>
       </div>
+      {/* Content Sections */}
+      <div className="container mx-auto p-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* For Farmers Section */}
+          <div className="flex flex-col md:flex-row items-center bg-white rounded-lg shadow-lg">
+            <img
+              src="src/assets/crop1.jpg" // Replace with the path to your image
+              alt="For Farmers"
+              className="w-full md:w-1/2 rounded-t-lg md:rounded-l-lg object-cover"
+              style={{ height: '300px' }}
+            />
+            <div className="p-6 w-full md:w-1/2">
+              <h2 className="text-3xl font-semibold mb-4">{t('for_farmers')}</h2>
+              <ul className="list-disc list-inside space-y-2">
+                <li>{t('connect_with_buyers')}</li>
+                <li>{t('manage_contracts')}</li>
+                <li>{t('secure_payments')}</li>
+                <li>{t('collaborate')}</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* For Buyers Section */}
+          <div className="flex flex-col md:flex-row items-center bg-white rounded-lg shadow-lg">
+            <img
+              src="src/assets/crop2.jpg" // Replace with the path to your image
+              alt="For Buyers"
+              className="w-full md:w-1/2 rounded-t-lg md:rounded-l-lg object-cover"
+              style={{ height: '300px' }}
+            />
+            <div className="p-6 w-full md:w-1/2">
+              <h2 className="text-3xl font-semibold mb-4">{t('for_buyers')}</h2>
+              <ul className="list-disc list-inside space-y-2">
+                <li>{t('find_reliable_farmers')}</li>
+                <li>{t('purchase_products')}</li>
+                <li>{t('secure_options')}</li>
+                <li>{t('track_order')}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     
 
       {/* Central Section with Two Cards */}
       <div className="container mx-auto my-12 grid grid-cols-1 md:grid-cols-2 gap-8">
