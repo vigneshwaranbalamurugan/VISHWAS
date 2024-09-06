@@ -20,6 +20,7 @@ import Terms from './pages/contract/Terms'
 import Chat from './pages/chat/Chat'
 import CPROFILE from './pages/cprofile/cprofile'
 import DetailsOfContract from './pages/cprofile/contractm'
+import FarmerDetails from './pages/market/components/Farmerreq'
 
 
 import Future from './pages/cprofile/Future'
@@ -60,6 +61,7 @@ const router = createBrowserRouter(
         {path:"/aauth",element:<AadhaarAuth/>},
 
         {path:"/face",element:<FaceDetection />},
+        {path:"/fr",element:<FarmerDetails />},
         
 
 
