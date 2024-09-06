@@ -36,7 +36,7 @@
 }
 
 .menu-header button:hover {
-  color: #007bff; /* Updated hover color */
+  color: #76b562; /* Updated hover color */
 }
 
 /* Sorting Menu within Side Menu */
@@ -74,7 +74,7 @@
 }
 
 .search-bar input:focus {
-  border-color: #007bff;
+  border-color: #b5cf57;
 }
 
 /* Updated Crop Card Styles */
@@ -95,7 +95,7 @@
 .crop-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  background-color: #007bff;
+  background-color: #1fb060;
 }
 
 /* Image Styles within Card */
@@ -148,4 +148,338 @@
   padding: 16px;
   background-color: #f9f9f9;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Side Hover Menu */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100%;
+  background-color: #2c3e50; /* Darker background for a modern look */
+  box-shadow: 2px 0 10px rgba(200, 193, 193, 0.3);
+  overflow-y: auto;
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.5s ease-in-out;
+  transform: translateX(-100%);
+  z-index: 1001;
+  opacity: 0.9;
+  padding: 20px;
+}
+
+.side-menu.open {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Menu Header */
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  animation: slideInDown 0.5s ease-in-out;
+}
+
+.menu-header button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ecf0f1;
+  padding: 10px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.menu-header button:hover {
+  color: #f39c12;
+  transform: rotate(180deg); /* Rotate on hover */
+}
+
+/* Keyframe for sliding down effect */
+@keyframes slideInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Sorting Menu within Side Menu */
+.side-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-menu ul li {
+  margin-bottom: 10px;
+  animation: fadeIn 1s ease-in-out forwards;
+  opacity: 0;
+}
+
+.side-menu ul li:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.side-menu ul li:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.side-menu ul li:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.side-menu ul li:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+.side-menu ul li > .sorting-menu {
+  padding: 10px;
+  color: #bdc3c7;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.side-menu ul li:hover > .sorting-menu {
+  color: #fff;
+  background-color: #d3d7da;
+  padding-left: 20px; /* Slight padding shift on hover */
+  border-radius: 5px;
+}
+
+/* Keyframe for fading in effect */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Extra: Adding a subtle background animation */
+@keyframes backgroundPulse {
+  0% {
+    background-color: #f5f9f2;
+  }
+ 
+  100% {
+    background-color: #f6f9f3;
+  }
+}
+
+.side-menu {
+  animation: backgroundPulse 5s infinite;
+}
+/* Sidebar styling */
+.side-menu {
+  width: 300px; /* Width of the sidebar */
+  height: 100vh; /* Full height of the sidebar */
+  position: fixed; /* Fixed position */
+  left: -300px; /* Initially hidden */
+  top: 0;
+  background-color: #f4f4f4; /* Sidebar background color */
+  transition: left 0.3s ease-in-out; /* Smooth transition for the sidebar */
+  z-index: 10; /* Ensure the sidebar is on top */
+}
+
+.side-menu.open {
+  left: 0; /* Move sidebar into view */
+}
+
+/* Main content adjustment */
+.flex-1 {
+  margin-left: 0; /* Initially no margin */
+  transition: margin-left 0.3s ease-in-out; /* Smooth transition for the content */
+}
+
+.side-menu.open + .flex-1 {
+  margin-left: 300px; /* Push the content when the sidebar is open */
+}
+
+/* Search filter container */
+.search-filter-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Crop cards grid */
+.crop-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.crop-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.crop-card:hover {
+  transform: scale(1.05);
+}
+
+.crop-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+/* Crop cards grid */
+.crop-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.crop-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Align content vertically */
+  justify-content: space-between; /* Push the content to top and bottom */
+  transition: transform 0.3s ease;
+  height: 100%; /* Ensure all cards have equal height */
+}
+
+.crop-card:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.crop-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.crop-card-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.crop-card-content h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.crop-card-content p {
+  margin: 0.5rem 0;
+  color: #666;
+}
+
+.crop-card-content p:last-child {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: bold;
+  margin-top: auto; /* Push the price to the bottom */
+}
+/* Updated Side Hover Menu */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100%;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.5s ease-in-out;
+  transform: translateX(-100%);
+  z-index: 1001;
+  padding: 20px;
+  opacity: 0.9; /* Slight opacity */
+}
+
+.side-menu.open {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Exit Button Styles */
+.menu-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.menu-header button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ecf0f1; /* Light color for better visibility */
+  padding: 10px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.menu-header button:hover {
+  color: #f39c12; /* Change color on hover */
+  transform: rotate(180deg); /* Rotate on hover */
+}
+
+/* Menu Items */
+.side-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.side-menu ul li {
+  margin-bottom: 15px;
+}
+
+.side-menu ul li .sorting-menu {
+  color: #bdc3c7; /* Subtle color */
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.side-menu ul li:hover .sorting-menu {
+  color: #f39c12; /* Highlighted text on hover */
+}
+
+/* Keyframes for Entry Animation */
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.side-menu {
+  animation: slideInLeft 0.5s ease-in-out;
+}
+
+/* Close the sidebar button */
+.menu-header .close-btn {
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  transition: color 0.3s ease;
+}
+
+.menu-header .close-btn:hover {
+  color: #f39c12;
+  transform: scale(1.2);
 }
