@@ -122,146 +122,179 @@ const OrderForm: React.FC = () => {
 <form onSubmit={handleSubmit} className="contract-form">
   <h1 className="form-title">Contract Form</h1>
   <div className="form-group">
-    <label>Contractor Name:</label>
-    <input
-      type="text"
-      name="contractorName"
-      value={formData.contractorName}
-      onChange={handleChange}
-    />
-    {errors.contractorName && <p className="error-message">{errors.contractorName}</p>}
-    <label>Commodity:</label>
-    <input
-      type="text"
-      name="commodity"
-      value={formData.commodity}
-      onChange={handleChange}
-    />
-    {errors.commodity && <p className="error-message">{errors.commodity}</p>}
-    <label>Specifications:</label>
-    <textarea
-      name="specifications"
-      value={formData.specifications}
-      onChange={handleChange}
-    />
+      {/* Contractor Name */}
+  <label className="form-label">Contractor Name:</label>
+  <input
+    type="text"
+    name="contractorName"
+    value={formData.contractorName}
+    onChange={handleChange}
+    className="form-input"
+  />
+  {errors.contractorName && <span className="error-text">{errors.contractorName}</span>}
 
-    <label>Delivery Type:</label>
-    <input
-      type="text"
-      name="deliveryType"
-      value={formData.deliveryType}
-      onChange={handleChange}
-    />
-    {errors.deliveryType && <p className="error-message">{errors.deliveryType}</p>}
- 
-    <label>Estimated Price:</label>
-    <input
-      type="number"
-      name="estimatedPrice"
-      value={formData.estimatedPrice}
-      onChange={handleChange}
-    />
-    {errors.estimatedPrice && <p className="error-message">{errors.estimatedPrice}</p>}
- 
-    <label>Type of Payment:</label>
-    <input
-      type="text"
-      name="paymentType"
-      value={formData.paymentType}
-      onChange={handleChange}
-    />
-    {errors.paymentType && <p className="error-message">{errors.paymentType}</p>}
- 
-    <label>Method of Cultivation:</label>
-    <input
-      type="text"
-      name="methodOfCultivation"
-      value={formData.methodOfCultivation}
-      onChange={handleChange}
-    />
-    {errors.methodOfCultivation && <p className="error-message">{errors.methodOfCultivation}</p>}
- 
-    <label>Crop Name:</label>
-    <input
-      type="text"
-      name="cropName"
-      value={formData.cropName}
-      onChange={handleChange}
-    />
-    {errors.cropName && <p className="error-message">{errors.cropName}</p>}
- 
-    <label>Crop Type:</label>
-    <input
-      type="text"
-      name="cropType"
-      value={formData.cropType}
-      onChange={handleChange}
-    />
-    {errors.cropType && <p className="error-message">{errors.cropType}</p>}
- 
-    <label>Category:</label>
-    <input
-      type="text"
-      name="category"
-      value={formData.category}
-      onChange={handleChange}
-    />
-    {errors.category && <p className="error-message">{errors.category}</p>}
-  </div>
-  <div className="form-group">
-    <label>Price:</label>
-    <input
-      type="number"
-      name="price"
-      value={formData.price}
-      onChange={handleChange}
-    />
-    {errors.price && <p className="error-message">{errors.price}</p>}
- 
-    <label>Quantity:</label>
-    <input
-      type="number"
-      name="quantity"
-      value={formData.quantity}
-      onChange={handleChange}
-    />
-    {errors.quantity && <p className="error-message">{errors.quantity}</p>}
- 
-    <label>State:</label>
-    <select
-      name="state"
-      value={formData.state}
-      onChange={handleChange}
-    >
-      <option value="">Select a state</option>
-      {states.map((state) => (
-        <option key={state.value} value={state.value}>
-          {state.value}
-        </option>
-      ))}
-    </select>
-    {errors.state && <p className="error-message">{errors.state}</p>}
-  
-    <label>District:</label>
-    <select
-      name="district"
-      value={formData.district}
-      onChange={handleChange}
-      disabled={!formData.state}
-    >
-      <option value="">Select a district</option>
-      {districts.map((district) => (
-        <option key={district} value={district}>
-          {district}
-        </option>
-      ))}
-    </select>
-    {errors.district && <p className="error-message">{errors.district}</p>}
-  </div>
+  {/* Commodity */}
+  <label className="form-label">Commodity:</label>
+  <input
+    type="text"
+    name="commodity"
+    value={formData.commodity}
+    onChange={handleChange}
+    className="form-input"
+  />
+  {errors.commodity && <span className="error-text">{errors.commodity}</span>}
+
+  {/* Specifications */}
+  <label className="form-label">Specifications:</label>
+  <textarea
+    name="specifications"
+    value={formData.specifications}
+    onChange={handleChange}
+    className="form-input"
+  />
+  {errors.specifications && <span className="error-text">{errors.specifications}</span>}
+
+  {/* Delivery Type */}
+  <label className="form-label">Delivery Type:</label>
+  <input
+    type="text"
+    name="deliveryType"
+    value={formData.deliveryType}
+    onChange={handleChange}
+    className="form-input"
+  />
+  {errors.deliveryType && <span className="error-text">{errors.deliveryType}</span>}
+
+  {/* Estimated Price */}
+  <label className="form-label">Estimated Price:</label>
+  <input
+    type="number"
+    name="estimatedPrice"
+    value={formData.estimatedPrice}
+    onChange={handleChange}
+    className="form-input"
+  />
+  {errors.estimatedPrice && <span className="error-text">{errors.estimatedPrice}</span>}
+
+  {/* Payment Type */}
+  <label className="form-label">Payment Type:</label>
+  <input
+    type="text"
+    name="paymentType"
+    value={formData.paymentType}
+    onChange={handleChange}
+    className="form-input"
+  />
+  {errors.paymentType && <span className="error-text">{errors.paymentType}</span>}
+
+  {/* Method of Cultivation */}
+  <label className="form-label">Method of Cultivation:</label>
+  <input
+    type="text"
+    name="methodOfCultivation"
+    value={formData.methodOfCultivation}
+    onChange={handleChange}
+    className="form-input"
+  />
+  {errors.methodOfCultivation && <span className="error-text">{errors.methodOfCultivation}</span>}
+
+  {/* Crop Name */}
+  <label className="form-label">Crop Name:</label>
+  <input
+    type="text"
+    name="cropName"
+    value={formData.cropName}
+    onChange={handleChange}
+    className="form-input"
+  />
+  {errors.cropName && <span className="error-text">{errors.cropName}</span>}
+
+  {/* Crop Type */}
+  <label className="form-label">Crop Type:</label>
+  <input
+    type="text"
+    name="cropType"
+    value={formData.cropType}
+    onChange={handleChange}
+    className="form-input"
+  />
+  {errors.cropType && <span className="error-text">{errors.cropType}</span>}
+
+  {/* Category */}
+  <label className="form-label">Category:</label>
+  <input
+    type="text"
+    name="category"
+    value={formData.category}
+    onChange={handleChange}
+    className="form-input"
+  />
+  {errors.category && <span className="error-text">{errors.category}</span>}
+
+  {/* Price */}
+  <label className="form-label">Price:</label>
+  <input
+    type="number"
+    name="price"
+    value={formData.price}
+    onChange={handleChange}
+    className="form-input"
+  />
+  {errors.price && <span className="error-text">{errors.price}</span>}
+
+  {/* Quantity */}
+  <label className="form-label">Quantity:</label>
+  <input
+    type="number"
+    name="quantity"
+    value={formData.quantity}
+    onChange={handleChange}
+    className="form-input"
+  />
+  {errors.quantity && <span className="error-text">{errors.quantity}</span>}
+
+  {/* State */}
+  <label className="form-label">State:</label>
+  <select
+    name="state"
+    value={formData.state}
+    onChange={handleChange}
+    className="form-input"
+  >
+    <option value="">Select State</option>
+    {states.map((state) => (
+      <option key={state.value} value={state.value}>
+        {state.value}
+      </option>
+    ))}
+  </select>
+  {errors.state && <span className="error-text">{errors.state}</span>}
+
+  {/* District */}
+  <label className="form-label">District:</label>
+  <select
+    name="district"
+    value={formData.district}
+    onChange={handleChange}
+    className="form-input"
+    disabled={!formData.state}
+  >
+    <option value="">Select District</option>
+    {districts.map((district) => (
+      <option key={district} value={district}>
+        {district}
+      </option>
+    ))}
+  </select>
+  {errors.district && <span className="error-text">{errors.district}</span>}
+
+  {/* Submit Button */}
   <button type="submit" className="submit-button">
     Submit
   </button>
+  </div>
 </form>
+
 
   );
 };
