@@ -25,7 +25,6 @@
   font-size: 1rem;
 }
 
-/* Filter and Sort Dropdowns */
 .filters-sort {
   display: flex;
   flex-direction: column; /* Align items in a column */
@@ -43,7 +42,6 @@
   font-size: 1rem;
 }
 
-/* Crop Card Styles */
 .crop-card {
   min-width: 250px;
   height: 250px;
@@ -64,7 +62,6 @@
   background-color: #9ccc65;
 }
 
-/* Image Styles within Card */
 .crop-card-image {
   height: 125px;
   object-fit: cover;
@@ -76,7 +73,6 @@
   opacity: 0.9;
 }
 
-/* Content Styles within Card */
 .crop-card-content {
   flex-grow: 1;
   padding: 10px;
@@ -106,7 +102,6 @@
   margin-bottom: 10px;
 }
 
-/* Container Styles for Crop Cards */
 .crop-card-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
