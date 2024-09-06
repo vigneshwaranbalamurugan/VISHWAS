@@ -17,7 +17,7 @@ const CrequestForm: React.FC = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/api/farmer/futurecon', { // Replace with your backend URL
+      const response = await fetch('http://localhost:5000/api/v1/farmer/futurecon', { // Replace with your backend URL
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
