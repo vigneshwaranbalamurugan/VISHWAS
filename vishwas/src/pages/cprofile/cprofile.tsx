@@ -1,7 +1,7 @@
 import React from 'react';
 import { contractors } from './cpt';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'; // Use useNavigate instead of useHistory
+import Tabs from './Contracttabs';
 
 const CProfile = () => {
   const navigate = useNavigate(); // useNavigate hook for navigation
@@ -17,48 +17,41 @@ const CProfile = () => {
         {contractors.map((contractor) => (
           <div
             key={contractor.id}
-            className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col md:flex-row border-t-4 border-blue-500 mx-4 my-8"
+            className="bg-white shadow-lg rounded-lg overflow-hidden border-t-4 border-blue-500 mx-4 my-8"
           >
-            <img
-              className="h-80 w-full object-cover md:w-80"
-              src='https://media.licdn.com/dms/image/v2/C5103AQH8t-edTph6KA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1559281100146?e=2147483647&v=beta&t=3wgz8XhSC3kJuc5skSoctICrWB7l2yNxBNeh0yYD2Zg'
-              alt={contractor.name}
-            />
-            <div className="p-8 flex-1">
-              <h2 className="text-3xl font-semibold text-gray-800">{contractor.name}</h2>
-              <p className="text-gray-600 mt-4">
-                <strong>Company:</strong> {contractor.companyName}
-              </p>
-              <div className="mt-4">
-                <p className="text-gray-600">
-                  <strong>Phone:</strong> {contractor.contactInfo.phone}
+            {/* Contractor Details */}
+            <div className="flex flex-col md:flex-row">
+              <img
+                className="h-80 w-full object-cover md:w-80"
+                src='https://media.licdn.com/dms/image/v2/C5103AQH8t-edTph6KA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1559281100146?e=2147483647&v=beta&t=3wgz8XhSC3kJuc5skSoctICrWB7l2yNxBNeh0yYD2Zg'
+                alt={contractor.name}
+              />
+              <div className="p-8 flex-1">
+                <h2 className="text-3xl font-semibold text-gray-800">{contractor.name}</h2>
+                <p className="text-gray-600 mt-4">
+                  <strong>Company:</strong> {contractor.companyName}
                 </p>
-                <p className="text-gray-600">
-                  <strong>Email:</strong> {contractor.contactInfo.email}
-                </p>
-              </div>
-              <div className="mt-6">
-                <h3 className="text-2xl font-semibold text-gray-800 mb-4">Contracts</h3>
-                <div className="flex flex-wrap -mx-2">
-                  {contractor.contracts.map((contract) => (
-                    <div
-                      key={contract.id}
-                      className={`w-full md:w-1/2 px-4 py-4 mb-4 ${contract.status === 'Active' ? 'bg-green-100' : 'bg-gray-200'} rounded-lg`}
-                    >
-                      <Link to="/doc">
-                        <h4 className="text-lg font-semibold text-gray-700 hover:underline">{contract.title}</h4>
-                      </Link>
-                      <p className={`text-sm ${contract.status === 'Active' ? 'text-green-600' : 'text-gray-600'} font-semibold`}>
-                        Status: {contract.status}
-                      </p>
-                      <p className="text-gray-600">{contract.description}</p>
-                    </div>
-                  ))}
+                <div className="mt-4">
+                  <p className="text-gray-600">
+                    <strong>Phone:</strong> {contractor.contactInfo.phone}
+                  </p>
+                  <p className="text-gray-600">
+                    <strong>Email:</strong> {contractor.contactInfo.email}
+                  </p>
                 </div>
               </div>
             </div>
+
+            {/* Tabs Section below Contractor Details */}
           </div>
         ))}
+
+        
+          {/* Tabs card displayed under contractor info */}
+          <Tabs />
+          
+       
+
         {/* Future Contracts Button */}
         <div className="text-center">
           <button
