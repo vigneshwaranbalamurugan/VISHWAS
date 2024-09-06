@@ -58,9 +58,6 @@ const router = createBrowserRouter(
         {path:"/aauth",element:<AadhaarAuth/>},
 
         {path:"/face",element:<FaceDetection />},
-
-
-        
       ]
     }
   ]
