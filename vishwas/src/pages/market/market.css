@@ -274,3 +274,212 @@
 .side-menu {
   animation: backgroundPulse 5s infinite;
 }
+/* Sidebar styling */
+.side-menu {
+  width: 300px; /* Width of the sidebar */
+  height: 100vh; /* Full height of the sidebar */
+  position: fixed; /* Fixed position */
+  left: -300px; /* Initially hidden */
+  top: 0;
+  background-color: #f4f4f4; /* Sidebar background color */
+  transition: left 0.3s ease-in-out; /* Smooth transition for the sidebar */
+  z-index: 10; /* Ensure the sidebar is on top */
+}
+
+.side-menu.open {
+  left: 0; /* Move sidebar into view */
+}
+
+/* Main content adjustment */
+.flex-1 {
+  margin-left: 0; /* Initially no margin */
+  transition: margin-left 0.3s ease-in-out; /* Smooth transition for the content */
+}
+
+.side-menu.open + .flex-1 {
+  margin-left: 300px; /* Push the content when the sidebar is open */
+}
+
+/* Search filter container */
+.search-filter-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Crop cards grid */
+.crop-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.crop-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.crop-card:hover {
+  transform: scale(1.05);
+}
+
+.crop-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+/* Crop cards grid */
+.crop-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.crop-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Align content vertically */
+  justify-content: space-between; /* Push the content to top and bottom */
+  transition: transform 0.3s ease;
+  height: 100%; /* Ensure all cards have equal height */
+}
+
+.crop-card:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.crop-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.crop-card-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.crop-card-content h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.crop-card-content p {
+  margin: 0.5rem 0;
+  color: #666;
+}
+
+.crop-card-content p:last-child {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: bold;
+  margin-top: auto; /* Push the price to the bottom */
+}
+/* Updated Side Hover Menu */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100%;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.5s ease-in-out;
+  transform: translateX(-100%);
+  z-index: 1001;
+  padding: 20px;
+  opacity: 0.9; /* Slight opacity */
+}
+
+.side-menu.open {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Exit Button Styles */
+.menu-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.menu-header button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ecf0f1; /* Light color for better visibility */
+  padding: 10px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.menu-header button:hover {
+  color: #f39c12; /* Change color on hover */
+  transform: rotate(180deg); /* Rotate on hover */
+}
+
+/* Menu Items */
+.side-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.side-menu ul li {
+  margin-bottom: 15px;
+}
+
+.side-menu ul li .sorting-menu {
+  color: #bdc3c7; /* Subtle color */
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.side-menu ul li:hover .sorting-menu {
+  color: #f39c12; /* Highlighted text on hover */
+}
+
+/* Keyframes for Entry Animation */
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.side-menu {
+  animation: slideInLeft 0.5s ease-in-out;
+}
+
+/* Close the sidebar button */
+.menu-header .close-btn {
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  transition: color 0.3s ease;
+}
+
+.menu-header .close-btn:hover {
+  color: #f39c12;
+  transform: scale(1.2);
+}
