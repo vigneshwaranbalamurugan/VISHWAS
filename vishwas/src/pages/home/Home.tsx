@@ -146,7 +146,7 @@ const Home: React.FC = () => {
       <div className="w-full md:w-1/2 p-4">
         <div className="bg-white rounded-lg shadow-lg">
           <img
-            src="src/assets/crop1.jpg"
+            src="src/assets/f2.jpg.jpg"
             alt="For Farmers"
             className="object-cover w-full rounded-t-lg"
             style={{ height: '300px' }}
@@ -225,7 +225,7 @@ const Home: React.FC = () => {
       {/* Content Card on the left side */}
       <div className="w-full md:w-1/2 p-4">
         <div className="bg-white rounded-lg shadow-lg p-6">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">{t('for_buyers')}</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">{t('For Contractor')}</h2>
           <ul className="list-none space-y-3 text-gray-600">
             <li className="flex items-center">
               <svg
@@ -287,7 +287,7 @@ const Home: React.FC = () => {
       <div className="w-full md:w-1/2 p-4">
         <div className="bg-white rounded-lg shadow-lg">
           <img
-            src="src/assets/crop2.jpg"
+            src="src/assets/b2.jpg"
             alt="For Buyers"
             className="object-cover w-full rounded-t-lg"
             style={{ height: '300px' }}
