@@ -9,10 +9,10 @@ const FarmerSchema = new mongoose.Schema({
     required: true
   },
   personalIdentification: {
-    // photo: {
-    //   type: String,
-    //   required: true,
-    // },
+    photo: {
+      type: String,
+      required: true,
+    },
     aadhaarNumber: {
       type: String,
       required: true,
@@ -83,11 +83,11 @@ const FarmerSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
-    irrigationMethods: {
+    irrigation: {
       type: String,
       required: true,
     },
-    pesticideMethods: {
+    pesticide: {
       type: String,
       required: true,
     },
@@ -95,28 +95,24 @@ const FarmerSchema = new mongoose.Schema({
       {
         surveyNumber: {
           type: String,
-          // required: true,
+          required: true,
         },
         subdivisionNumber: {
           type: String,
-          // required: true,
+          required: true,
         },
         soilType: {
           type: String,
-          // required: true,
+          required: true,
         },
         landSize: {
           type: String,
-          // required: true,
+          required: true,
         },
-        location: {
+        landLocation: {
           type: String,
-          // required: true,
-        },
-        // landImage: {
-        //   type: String,
-        //   required: true,
-        // },
+          required: true,
+        }
       },
     ],
   },

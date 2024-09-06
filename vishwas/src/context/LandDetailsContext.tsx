@@ -83,10 +83,11 @@ const FormProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
       landLocation: '',
       file: null,
     };
-
+    
     setFormDetails(prevDetails => ({
       ...prevDetails,
       lands: [...prevDetails.lands, newLand],
+      isVerified:false
     }));
   };
 
@@ -120,6 +121,7 @@ const FormProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     <FormContext.Provider
       value={{
         formDetails,
+        setFormDetails,
         updateFormDetails,
         updateFormDetailss,
         addLand,

@@ -55,7 +55,10 @@ const {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   const sendFarmerData = async () => {
+    const mobileNumber=localStorage.getItem('mobile');
+    console.log(mobileNumber);
     const data = {
+      mobileNumber,
       firstName,
       lastName,
       email,
@@ -88,6 +91,7 @@ const {
       }
 
       const result = await response.json();
+      alert('Farmer data saved successfully');
       console.log('Farmer data saved successfully:', result);
     } catch (error) {
       console.error('Error:', error);

@@ -40,6 +40,11 @@ const Login = () => {
         localStorage.setItem('islog','true');
         localStorage.setItem('userid',data.userdetails.userid);
         localStorage.setItem('role',data.userdetails.userRole);
+        localStorage.setItem('mobile',formData.mobileNumber);
+        if(!data.userdetails.userdetailsfill)
+        {
+          window.location.href='/sidebar';
+        }
       } else {
         const errorData = await response.json();
         alert(errorData.message || 'Failed to sign up');

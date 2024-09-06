@@ -16,7 +16,8 @@ const Identification = () => {
   const [otpSend, setOtpSend] = useState(false);
   const [otp, setOtp] = useState("");
 
-  const verifyOTP = async () => {
+  const verifyOTP = async (e) => {
+    e.preventDefault();
     if (otp.length === 6) {
       try {
         const response = await fetch('http://localhost:5000/api/v1/farmer/verify-aadhaar-otp', {
@@ -91,6 +92,7 @@ const Identification = () => {
           onClose={handleClose}
           setOtp={setOtp}
           OTP={otp}
+          type={"button"}
           onSubmit={verifyOTP}
         />
       }
