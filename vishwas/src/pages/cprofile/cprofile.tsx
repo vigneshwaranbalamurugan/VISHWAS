@@ -53,14 +53,7 @@ const CProfile = () => {
        
 
         {/* Future Contracts Button */}
-        <div className="text-center">
-          <button
-            onClick={handleFutureContractsClick}
-            className="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600"
-          >
-            Future Contracts
-          </button>
-        </div>
+        
       </div>
     </div>
   );
