@@ -15,7 +15,7 @@ app.use('/api/v1/farmer',farmerRouter);
 app.use('/api/v1/requirement',requirementRouter);
 
 app.get('/',(req,res)=>{
-    res.send("Welcome to QuickPick")
+    res.send("Welcome to Vishwas")
 })
 
 
