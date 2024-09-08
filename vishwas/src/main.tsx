@@ -6,6 +6,7 @@ import FarmerForm from './pages/signup/newlogin/newloginuser'
 import Error from './pages/Error'
 import Home from './pages/home/Home'
 import Login from './pages/login/Login'
+import Logincf from './pages/login/logincf'
 import Signup from './pages/signup/Signup'
 import Layout from './components/Layout'
 import Market from './pages/market/Market'
@@ -27,8 +28,9 @@ import Status from './pages/status/Status'
 import History from './pages/status/History'
 import Contracts from './pages/status/Contracts'
 import AadhaarAuth from './pages/signup/AadhaarAuth'
-
+import CrequestForm from './pages/contractor/CrequestForm'
 import FaceDetection from './facedetection/face-api';
+import Farbidings from './pages/cprofile/farbidings';
 
 const router = createBrowserRouter(
   [
@@ -39,6 +41,7 @@ const router = createBrowserRouter(
       children:[
         {index:true, element:<Home />},
         {path:"/login",element:<Login/>},
+        {path:"/lcf",element:<Logincf/>},
         {path:"/signup",element:<Signup/>},
         {path:"/market",element:<Market/>},
         {path:"/nld",element:<NewLoginDetails/>},
@@ -54,10 +57,15 @@ const router = createBrowserRouter(
         {path:"/chat",element:<Chat/>},
         {path:"/req",element:<Request/>},
         {path:"/cprofile",element:<CPROFILE/>},
-        {path:"/Future/:id",element:<Future/>},
+        {path:"/Future",element:<CrequestForm/>},
         {path:"/aauth",element:<AadhaarAuth/>},
-
+        {path:"/fb",element:<Farbidings />},
         {path:"/face",element:<FaceDetection />},
+        
+        
+
+
+        
       ]
     }
   ]

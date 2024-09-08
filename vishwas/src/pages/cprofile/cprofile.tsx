@@ -1,13 +1,14 @@
 import React from 'react';
 import { contractors } from './cpt';
 import { useNavigate } from 'react-router-dom'; // Use useNavigate instead of useHistory
+import CrequestForm from '../contractor/CrequestForm';
 import Tabs from './Contracttabs';
 
 const CProfile = () => {
   const navigate = useNavigate(); // useNavigate hook for navigation
 
   const handleFutureContractsClick = () => {
-    navigate('/Future/1'); // Navigate to the future contracts page
+    navigate('/future'); // Navigate to the future contracts page
   };
 
   return (
