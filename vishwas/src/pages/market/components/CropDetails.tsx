@@ -32,22 +32,9 @@ const CropDetails = () => {
       </div>
 
 
-        <center>
-      <div>
-        <Link to='/req'>
-        <button
-          style={{
-            padding: '10px',
-            backgroundColor: 'green',
-            color: 'white',
-            fontWeight: 'bold',
-          }}
-          >
-          Request the Buyer
-        </button>
-            </Link>
-      </div>
-          </center>
+       
+     
+          
 
       {/* Details Section */}
       <div className="details-section w-full md:w-2/3 pl-0 md:pl-8">
@@ -75,9 +62,9 @@ const CropDetails = () => {
 
         {/* Buttons */}
         <div className="button-group flex gap-4 mt-4">
-          <Link to="/chat">
+          <Link to="/req">
             <button className="bg-green-600 text-white py-2 px-4 font-bold rounded shadow-md hover:bg-green-700 transition-colors duration-300">
-              Contact Buyer
+              Request The Buyer
             </button>
           </Link>
           <Link to="/contract">
