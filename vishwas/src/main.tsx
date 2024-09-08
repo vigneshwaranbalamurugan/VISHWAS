@@ -24,7 +24,7 @@ import FarmerDetails from './pages/market/components/Farmerreq'
 
 
 import Future from './pages/cprofile/Future'
-
+import FStatus from './pages/fstatus/FStatus'
 import Status from './pages/status/Status'
 import History from './pages/status/History'
 import Contracts from './pages/status/Contracts'
@@ -62,6 +62,7 @@ const router = createBrowserRouter(
 
         {path:"/face",element:<FaceDetection />},
         {path:"/fr",element:<FarmerDetails />},
+        {path:"/fstatus",element:<FStatus/>},
         
 
 
