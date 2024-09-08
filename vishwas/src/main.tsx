@@ -19,7 +19,7 @@ import Terms from './pages/contract/Terms'
 import Chat from './pages/chat/Chat'
 import CPROFILE from './pages/cprofile/cprofile'
 import DetailsOfContract from './pages/cprofile/contractm'
-
+import Request from './pages/market/components/RequestB'
 
 import Future from './pages/cprofile/Future'
 
@@ -52,7 +52,7 @@ const router = createBrowserRouter(
         {path:"/profile",element:<T/>},
         {path:"/terms",element:<Terms/>},
         {path:"/chat",element:<Chat/>},
-
+        {path:"/req",element:<Request/>},
         {path:"/cprofile",element:<CPROFILE/>},
         {path:"/Future/:id",element:<Future/>},
         {path:"/aauth",element:<AadhaarAuth/>},

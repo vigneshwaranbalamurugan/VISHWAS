@@ -59,7 +59,7 @@ const CropDetails = () => {
 
         <center>
       <div>
-        <Link to='/chat'>
+        <Link to='/req'>
         <button
           style={{
             padding: '10px',
@@ -68,7 +68,7 @@ const CropDetails = () => {
             fontWeight: 'bold',
           }}
           >
-          Contact With Buyer
+          Request the Buyer
         </button>
             </Link>
       </div>
