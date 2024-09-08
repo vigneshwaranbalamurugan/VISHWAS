@@ -5,14 +5,13 @@ interface SortingMenuProps {
 }
 
 const SortingMenu = ({ onSort }: SortingMenuProps) => {
-  
   return (
-    <div className="bg-gray-100 w-64 p-4 flex flex-col space-y-4">
+    <div className="bg-black w-64 p-4 flex flex-col space-y-4 text-white">  {/* Changed to black background */}
       <div className="mb-4">
         <h2 className="text-lg font-medium">Sort</h2>
       </div>
       <div className="space-y-4">
-        <h3 className="text-gray-600">Popularity-Based Sorting</h3>
+        <h3 className="text-white text-bold-300">Popularity-Based Sorting</h3>  {/* Gray text to contrast with black */}
         <button 
           onClick={() => onSort('most-popular')}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
@@ -25,11 +24,12 @@ const SortingMenu = ({ onSort }: SortingMenuProps) => {
         >
           Least Popular
         </button>
-        
-        
       </div>
     </div>
   );
 };
 
 export default SortingMenu;
+
+
+
