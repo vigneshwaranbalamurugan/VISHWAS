@@ -1,4 +1,3 @@
-// FarmerRequest.js
 import mongoose from 'mongoose';
 
 // Define the schema for farmer details
@@ -9,8 +8,9 @@ const farmerRequestSchema = new mongoose.Schema({
   quantity: { type: Number, required: true }, // in kilograms
   duration: { type: Number, required: true }, // duration in days
   availableDate: { type: Date, required: true }, // date by which the crop will be available
-  profileUrl: { type: String, required: false }, // optional field for farmer's profile URL
-  // Add other fields as needed
+  additionalNotes: { type: String, required: false }, // Optional additional notes
+  profileUrl: { type: String, required: false }, // Optional field for farmer's profile URL
+  status: { type: String, default: 'Pending' } // Add status field with default value
 }, { timestamps: true });
 
 // Create the model from the schema
