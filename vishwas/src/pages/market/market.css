@@ -497,3 +497,82 @@
   color: #f39c12;
   transform: scale(1.2);
 }
+/* Updated Side Hover Menu */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100%;
+  background-color: #000000; /* Change background color to black */
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.5s ease-in-out;
+  transform: translateX(-100%);
+  z-index: 1001;
+  padding: 20px;
+  opacity: 0.9;
+}
+
+.side-menu.open {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Menu Header */
+.menu-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.menu-header button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ffffff; /* Change text color to white */
+  padding: 10px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.menu-header button:hover {
+  color: #f39c12;
+  transform: rotate(180deg);
+}
+
+/* Menu Items */
+.side-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.side-menu ul li {
+  margin-bottom: 15px;
+}
+
+.side-menu ul li .sorting-menu {
+  color: #ffffff; /* Change text color to white */
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.side-menu ul li:hover .sorting-menu {
+  color: #f39c12; /* Highlighted text on hover */
+}
+
+/* Close button (X) */
+.menu-header .close-btn {
+  color: #000000; /* Changed close button color to black as per your request */
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  transition: color 0.3s ease;
+}
+
+.menu-header .close-btn:hover {
+  color: #f39c12;
+  transform: scale(1.2);
+}
