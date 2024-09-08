@@ -39,16 +39,15 @@ const CategoryFilter = ({ onFilter }: { onFilter: (filters: any) => void }) => {
 
   return (
     <div>
-      <h2 className="text-lg font-medium mb-4">Filter</h2>
+      <h2 className="text-white font-bold mb-10 ">Filter</h2>
 
       <div className="mb-4">
-        <h3 className="text-gray-600 mb-2">Categories</h3>
+        <h3 className="text-white font-bold mb-2">Categories</h3>
         {Object.keys(categories).map((category) => (
           <button
             key={category}
             className={`block w-full text-left p-2 mb-2 rounded ${
-              selectedCategory === category ? 'bg-blue-500 text-white' : 'bg-blue-100'
-            }`}
+              selectedCategory === category ? 'bg-green-600 text-white' : 'bg-green-300 text-black hover:bg-green-400'            }`}
             onClick={() => handleCategoryChange(category)}
           >
             {category}
@@ -57,7 +56,7 @@ const CategoryFilter = ({ onFilter }: { onFilter: (filters: any) => void }) => {
       </div>
 
       <div className="mb-4">
-        <h3 className="text-gray-600 mb-2">Quantity</h3>
+        <h3 className="text-white font-bold mb-2">Quantity</h3>
         <select
           className="w-full p-2 border border-gray-300 rounded"
           onChange={(e) => handleQuantityChange(e.target.value)}
@@ -73,8 +72,8 @@ const CategoryFilter = ({ onFilter }: { onFilter: (filters: any) => void }) => {
       </div>
 
       <div className="mb-4">
-        <h3 className="text-gray-600 mb-2">Price Range</h3>
-        <select
+      <h3 className="text-white font-bold mb-2">Price Range</h3>
+      <select
           className="w-full p-2 border border-gray-300 rounded"
           onChange={handlePriceRangeChange}
           value={priceRange}
@@ -89,7 +88,7 @@ const CategoryFilter = ({ onFilter }: { onFilter: (filters: any) => void }) => {
       </div>
 
       <div>
-        <h3 className="text-gray-600 mb-2">Location</h3>
+        <h3 className="text-white font-bold mb-2">Location</h3>
         <input
           type="text"
           placeholder="Enter location"

@@ -20,8 +20,7 @@ import Terms from './pages/contract/Terms'
 import Chat from './pages/chat/Chat'
 import CPROFILE from './pages/cprofile/cprofile'
 import DetailsOfContract from './pages/cprofile/contractm'
-import FarmerDetails from './pages/market/components/Farmerreq'
-
+import Request from './pages/market/components/RequestB'
 
 import Future from './pages/cprofile/Future'
 import FStatus from './pages/fstatus/FStatus'
@@ -31,6 +30,7 @@ import Contracts from './pages/status/Contracts'
 import AadhaarAuth from './pages/signup/AadhaarAuth'
 import CrequestForm from './pages/contractor/CrequestForm'
 import FaceDetection from './facedetection/face-api';
+import Farbidings from './pages/cprofile/farbidings';
 
 const router = createBrowserRouter(
   [
@@ -55,14 +55,18 @@ const router = createBrowserRouter(
         {path:"/profile",element:<T/>},
         {path:"/terms",element:<Terms/>},
         {path:"/chat",element:<Chat/>},
-
+        {path:"/req",element:<Request/>},
         {path:"/cprofile",element:<CPROFILE/>},
         {path:"/Future",element:<CrequestForm/>},
         {path:"/aauth",element:<AadhaarAuth/>},
-
+        {path:"/fb",element:<Farbidings />},
         {path:"/face",element:<FaceDetection />},
+
         {path:"/fr",element:<FarmerDetails />},
         {path:"/fstatus",element:<FStatus/>},
+
+        
+
         
 
 
