@@ -21,6 +21,7 @@ import Chat from './pages/chat/Chat'
 import CPROFILE from './pages/cprofile/cprofile'
 import DetailsOfContract from './pages/cprofile/contractm'
 import Request from './pages/market/components/RequestB'
+import FarmerDetails from './pages/market/components/Farmerreq'
 
 import Future from './pages/cprofile/Future'
 import FStatus from './pages/fstatus/FStatus'
