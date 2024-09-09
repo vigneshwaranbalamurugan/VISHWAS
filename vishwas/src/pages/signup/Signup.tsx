@@ -219,7 +219,7 @@ const Signup = () => {
             {isVerified &&
               <div>
                 <div>
-                  <label htmlFor="userrole">User Role:</label>
+                  <label htmlFor="userRole">User Role:</label>
                   <select
                     className="signup-form-control"
                     id="userRole"

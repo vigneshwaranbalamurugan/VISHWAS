@@ -36,15 +36,23 @@ const Login = () => {
         const data = await response.json();
         console.log('Success:', data);
 
-        alert("Login Successfully"); 
-        localStorage.setItem('islog','true');
-        localStorage.setItem('userid',data.userdetails.userid);
-        localStorage.setItem('role',data.userdetails.userRole);
+        alert("Login Successfully");
+        localStorage.setItem('islog', 'true');
         localStorage.setItem('mobile',formData.mobileNumber);
+        localStorage.setItem('userid', data.userdetails.userid);
+        localStorage.setItem('role', data.userdetails.userRole);
         if(!data.userdetails.userdetailsfill)
         {
           window.location.href='/sidebar';
         }
+        else if(data.userdetails.userdetailsfill && data.userdetails.userRole=='farmer')
+        {
+          window.location.href=`/profile/${formData.mobileNumber}`;
+        }
+        else if(data.userdetails.userdetailsfill && data.userdetails.userRole=='buyer')
+          {
+            window.location.href=`/cprofile/${formData.mobileNumber}`;
+          }
       } else {
         const errorData = await response.json();
         alert(errorData.message || 'Failed to sign up');

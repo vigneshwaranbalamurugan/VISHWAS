@@ -2,18 +2,10 @@
 import React, { useContext } from "react";
 import FinalInfoRow from './FinalInfowRow'
 import { GlobalNLContex } from "../../context/nlGlobalContext";
-import { FormContext } from "../../context/LandDetailsContext";
+import { CompanyContext } from "../../context/CompanyContext";
 import './FinalReview.css';
 
-interface UserData {
-    name: string;
-    email: string;
-    address: string;
-    phoneNumber: string;
-}
-
-
-const Summary= () => {
+const CompanySummary = () => {
     const {
         capturedImage,
         aadhaar,
@@ -33,10 +25,10 @@ const Summary= () => {
     } = useContext(GlobalNLContex);
 
     const {
-        formDetails
-    } = useContext(FormContext);
+        companyDetails
+    } = useContext(CompanyContext);
 
-    
+
 
     return (
         <>
@@ -108,39 +100,17 @@ const Summary= () => {
                         value={address}
                     />
                     <h3 className="text-primary-marineBlue text-2xl mt-5">Land Details</h3>
-                    <FinalInfoRow
-                        label={"Farm Size"}
-                        value={formDetails.farmSize + ' acres.'}
-                    />
-                    <FinalInfoRow
-                        label={"Years Of Experience"}
-                        value={formDetails.yearsOfExperience + ' years.'}
-                    />
-                    <FinalInfoRow
-                        label={"Farming Methods"}
-                        value={formDetails.farmingMethods}
-                    />
-                    <FinalInfoRow
-                        label={"Irrigation"}
-                        value={formDetails.irrigation}
-                    />
-                    <FinalInfoRow
-                        label={"Pesticide"}
-                        value={formDetails.pesticide}
-                    />
-                    {formDetails.lands.map((land, index) => (
-                        <div key={index} className="land-info">
-                            <h3 className="text-primary-marineBlue text-2xl mt-2">
-                               Land {index+1}
-                            </h3>
-                            <FinalInfoRow label="Survey Number" value={land.surveyNumber} />
-                            <FinalInfoRow label="Subdivision Number" value={land.subdivisionNumber} />
-                            <FinalInfoRow label="Soil Type" value={land.soilType} />
-                            <FinalInfoRow label="Land Size" value={land.landSize} />
-                            <FinalInfoRow label="Land Location" value={land.landLocation} />
-                            <FinalInfoRow label="File" value={<img src={land.filePreviewUrl || 'No URL'} alt="Land Image" style={{ width: '200px', height: '200px', borderRadius: '10px', border: '2px solid #ddd' }} />} />
-                        </div>
-                    ))}
+                    <FinalInfoRow label="Name" value={companyDetails.name} />
+                    <FinalInfoRow label="Address" value={companyDetails.address} />
+                    <FinalInfoRow label="Established Year" value={companyDetails.establishedYear.toString()} />
+                    <FinalInfoRow label="TIN Number" value={companyDetails.tinNumber} />
+                    <FinalInfoRow label="Phone Number" value={companyDetails.phoneNumber} />
+                    <FinalInfoRow label="Email" value={companyDetails.email} />
+                    <FinalInfoRow label="Website" value={companyDetails.website} />
+                    <FinalInfoRow label="CEO Name" value={companyDetails.ceoName} />
+                    <FinalInfoRow label="Headquarters Location" value={companyDetails.headquartersLocation} />
+
+
                 </div>
 
             </div>
@@ -148,4 +118,4 @@ const Summary= () => {
     );
 };
 
-export default Summary;
+export default CompanySummary;

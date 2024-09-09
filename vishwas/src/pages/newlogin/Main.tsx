@@ -2,10 +2,13 @@ import React, { useContext, useEffect } from "react";
 import Identification from "./Identification";
 import PersonalInfo from "./personalInfo";
 import LandDetails from "./landDetails";
+import CompanyDetails from "./CompanyDetails";
 import LocationDetails from "./LocationDetails";
 import Summary from "./Summary";
+import CompanySummary from "./CompanySummary";
 import { GlobalNLContex } from "../../context/nlGlobalContext";
 import { FormContext } from "../../context/LandDetailsContext";
+import { CompanyContext } from "../../context/CompanyContext";
 import Button from "./Button";
 
 const Main = () => {
@@ -48,11 +51,15 @@ const {
     formDetails
 } = useContext(FormContext);
 
+const {
+  companyDetails
+} = useContext(CompanyContext);
   useEffect(() => {
     setCompleted(currentStep !== 1);
   }, [currentStep, setCompleted]);
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 
   const sendFarmerData = async () => {
     const mobileNumber=localStorage.getItem('mobile');
@@ -79,6 +86,49 @@ const {
 
     try {
       const response = await fetch('http://localhost:5000/api/v1/farmer/store-farmer-data', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to save farmer data');
+      }
+
+      const result = await response.json();
+      alert('Farmer data saved successfully');
+      console.log('Farmer data saved successfully:', result);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+  const sendContracterData = async () => {
+    const mobileNumber=localStorage.getItem('mobile');
+    console.log(mobileNumber);
+    const data = {
+      mobileNumber,
+      firstName,
+      lastName,
+      email,
+      gender,
+      age,
+      capturedImage,
+      aadhaar,
+      dob,
+      selectedState,
+      pincode,
+      selectedDistrict,
+      lantitude,
+      longitude,
+      address,
+      companyDetails
+    };
+  
+
+    try {
+      const response = await fetch('http://localhost:5000/api/v1/contractor/store-buyer-data', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -144,6 +194,7 @@ const {
     setFormCompeleted(true);
   };
 
+  const role=localStorage.getItem('role');
   return (
     <>
       <div className="md:overflow-hidden md:min-h-full md:shadow-none shadow-md mx-auto md:m-0 rounded-xl md:rounded-none md:w-full w-[100%] md:bg-transparent min-h-[400px] bg-white z-10 mt-[84px]">
@@ -154,8 +205,10 @@ const {
           {currentStep === 1 ? <Identification /> : null}
           {currentStep === 2 ? <PersonalInfo /> : null}
           {currentStep === 3 ? <LocationDetails /> : null}
-          {currentStep === 4 ? <LandDetails /> : null}
-          {currentStep === 5 ? <Summary /> : null}
+          {currentStep === 4  && role =='farmer'? <LandDetails /> : null}
+          {currentStep === 4  && role =='buyer'? <CompanyDetails /> : null}
+          {currentStep === 5 && role =='farmer'? <Summary /> : null}
+          {currentStep === 5 && role =='buyer'? <CompanySummary /> : null}
           {formCompeleted ? null : (
             <footer className=" relative md:block hidden w-full p-3 left-0 right-0 bottom-0">
               <div className="flex">
@@ -173,7 +226,7 @@ const {
                 <div className="text-right">
                   <Button
                     text={currentStep === 5 ? "Confirm" : "Next Step"}
-                    onClick={currentStep === 5 ? sendFarmerData : nextStep}
+                    onClick={currentStep === 5 && role== "farmer" ? sendFarmerData :currentStep === 5 && role== "buyer" ?sendContracterData:nextStep}
                     className={
                       currentStep === 5
                         ? "bg-green-500 text-white"

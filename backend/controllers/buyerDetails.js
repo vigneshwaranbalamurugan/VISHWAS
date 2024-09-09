@@ -1,9 +1,10 @@
 import cloudinary from '../lib/cloudinary.js';
-import FarmerDetails from '../models/farmerdetails.js';
+import BuyerDetails from '../models/buyerdetails.js';
 import Farmer from '../models/farmerModel.js'
 
-export const storeFarmerData = async (req, res) => {
+export const storeBuyerData = async (req, res) => {
     try {
+        console.log("hi");
         const photoUrl = (await cloudinary.v2.uploader.upload(req.body.capturedImage, { folder: 'farmer_photos' })).secure_url
         console.log(req.body.mobileNumber);
         const  mobileNumber= req.body.mobileNumber;
@@ -29,18 +30,17 @@ export const storeFarmerData = async (req, res) => {
                 latitude: req.body.lantitude,
                 address: req.body.address
             },
-            landDetails: req.body.formDetails
+            companyDetails: req.body.companyDetails
         };
 
+        const newBuyer = new BuyerDetails(farmerData);
+        await newBuyer.save();
         await Farmer.findOneAndUpdate(
             { mobileNumber }, 
             { isfilled: true }, 
             { new: true }
         );
-        const newFarmer = new FarmerDetails(farmerData);
-        const savedFarmer = await newFarmer.save();
-
-        res.status(201).json({ message: "Farmer data saved successfully", farmer: savedFarmer });
+        res.status(201).json({ message: "Farmer data saved successfully"});
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: "Failed to save farmer data", error: error.message });
@@ -48,16 +48,17 @@ export const storeFarmerData = async (req, res) => {
 };
 
 
-export const getFarmerData = async (req,res) =>{ 
+export const getCompanyData = async (req,res) =>{ 
     const  mobileNumber  = req.body.mobileNumber;
     try {
-        const farmer = await FarmerDetails.findOne({ mobileNumber: mobileNumber});
-        if (!farmer) {
+        const buyer = await BuyerDetails.findOne({ mobileNumber: mobileNumber});
+        if (!buyer) {
           return res.status(404).json({ message: 'Farmer not found' });
         }
-        res.status(201).json(farmer);
+        res.status(201).json(buyer);
       } catch (error) {
         console.log(error);
         res.status(500).json({ message: 'Server error', error });
-      }
+      }    
+
 };
