@@ -1,18 +1,39 @@
-import CropRequest from '../models/CropRequest.js'; // Import the CropRequest model
+import CropRequest from '../models/CropRequest.js'; 
 
 export const storeCropRequestData = async (req, res) => {
     try {
-        const { cropType, estimatedEndDate, quantity, requestDetails } = req.body; // Extract data from the request body
-
-        // Create a new crop request instance with the extracted data
-        const newCropRequest = new CropRequest({
+        const {
+            cropName,
             cropType,
-            estimatedEndDate,
+            category,
+            pricePerKg,
             quantity,
+            location,
+            imageUrl,
+            estimatedMonth,
+            contractorProfile,
+            deliveryType,
+            paymentMethod,
             requestDetails,
+            estimatedEndDate
+        } = req.body;
+
+        const newCropRequest = new CropRequest({
+            cropName,
+            cropType,
+            category,
+            pricePerKg,
+            quantity,
+            location,
+            imageUrl,
+            estimatedMonth,
+            contractorProfile,
+            deliveryType,
+            paymentMethod,
+            requestDetails,
+            estimatedEndDate
         });
 
-        // Save the crop request data to the database
         const savedCropRequest = await newCropRequest.save();
 
         res.status(201).json({ message: "Crop request data saved successfully", cropRequest: savedCropRequest });

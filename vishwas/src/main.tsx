@@ -15,6 +15,7 @@ import NewLogin from './pages/newlogin/newLogin';
 import Logincf from './pages/login/logincf';
 import FarmerProfile from './pages/Profile/FarmerProfile';
 import ContractorProfile from './pages/cprofile/contractorProfile';
+import CropContractForm from './pages/cprofile/CreateContract';
 
 const router = createBrowserRouter(
   [
@@ -29,7 +30,8 @@ const router = createBrowserRouter(
         { path:'/sidebar', element: <NewLogin /> },        
         {path:"/lcf",element:<Logincf/>},
         {path:"/profile/:mobileNumber",element:<FarmerProfile/>},
-        {path:"/cprofile/:mobileNumber",element:<ContractorProfile/>}
+        {path:"/cprofile/:mobileNumber",element:<ContractorProfile/>},
+        {path:"/createcontract",element:<CropContractForm/>}
       ]
     }
   ]
