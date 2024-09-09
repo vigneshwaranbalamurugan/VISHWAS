@@ -4,7 +4,6 @@ import { registerFarmer, requestOTP, verifyOTP } from "../authentication/registe
 import { loginFarmer } from '../authentication/loginAuth.js';
 import { getAadhaarOTP, verifyAadhaarOTP } from '../controllers/verifyAadhar.js';
 import { storeFarmerData } from '../controllers/farmerDetails.js'; 
-import { storeCropRequestData, getCropRequests } from '../controllers/futurecon.js';
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
@@ -18,6 +17,5 @@ farmerRouter.post('/login', loginFarmer);
 farmerRouter.post('/get-aadhaar-otp', getAadhaarOTP);
 farmerRouter.post('/verify-aadhaar-otp', verifyAadhaarOTP);
 farmerRouter.post('/store-farmer-data', storeFarmerData);
-farmerRouter.post('/futurecon',storeCropRequestData);
-farmerRouter.get('/futureco', getCropRequests);
+
 export default farmerRouter;
