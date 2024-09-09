@@ -48,7 +48,7 @@ const router = createBrowserRouter(
         { path:'/sidebar', element: <NewLogin /> },        
         {path:"/profile/:mobileNumber",element:<FarmerProfile/>},
         {path:"/cprofile/:mobileNumber",element:<ContractorProfile/>},
-        {path:"/createcontract",element:<CropContractForm/>}
+        {path:"/createcontract",element:<CropContractForm/>},
         {path:"/market",element:<Market/>},
         {path:"/nld",element:<NewLoginDetails/>},
         {path:"/contract",element:<Contract/>},
