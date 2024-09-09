@@ -16,6 +16,25 @@ import FarmerProfile from './pages/Profile/FarmerProfile';
 import ContractorProfile from './pages/cprofile/contractorProfile';
 import CropContractForm from './pages/cprofile/CreateContract';
 
+import CropDetails from './pages/market/components/CropDetails'
+import T from './pages/fprofile/Fprofile'
+import Terms from './pages/contract/Terms'
+import Chat from './pages/chat/Chat'
+import CPROFILE from './pages/cprofile/cprofile'
+import DetailsOfContract from './pages/cprofile/contractm'
+import Request from './pages/market/components/RequestB'
+import FarmerDetails from './pages/market/components/Farmerreq'
+
+import Future from './pages/cprofile/Future'
+import FStatus from './pages/fstatus/FStatus'
+import Status from './pages/status/Status'
+import History from './pages/status/History'
+import Contracts from './pages/status/Contracts'
+import AadhaarAuth from './pages/signup/AadhaarAuth'
+import CrequestForm from './pages/contractor/CrequestForm'
+import FaceDetection from './facedetection/face-api';
+import Farbidings from './pages/cprofile/farbidings';
+
 const router = createBrowserRouter(
   [
     {
@@ -30,6 +49,34 @@ const router = createBrowserRouter(
         {path:"/profile/:mobileNumber",element:<FarmerProfile/>},
         {path:"/cprofile/:mobileNumber",element:<ContractorProfile/>},
         {path:"/createcontract",element:<CropContractForm/>}
+        {path:"/market",element:<Market/>},
+        {path:"/nld",element:<NewLoginDetails/>},
+        {path:"/contract",element:<Contract/>},
+        {path:"/doc",element:<DetailsOfContract/>},
+        {path:"/status",element:<Status/>},
+        {path:"/history",element:<History/>},
+        {path:"/contracts",element:<Contracts/>},
+        {path:"/farmerform",element:<FarmerForm/>},
+        {path:"/cropdetail/:id",element:<CropDetails/>},
+        {path:"/profile",element:<T/>},
+        {path:"/terms",element:<Terms/>},
+        {path:"/chat",element:<Chat/>},
+        {path:"/req",element:<Request/>},
+        {path:"/cprofile",element:<CPROFILE/>},
+        {path:"/Future",element:<CrequestForm/>},
+        {path:"/aauth",element:<AadhaarAuth/>},
+        {path:"/fb",element:<Farbidings />},
+        {path:"/face",element:<FaceDetection />},
+
+        {path:"/fr",element:<FarmerDetails />},
+        {path:"/fstatus",element:<FStatus/>},
+
+        
+
+        
+
+
+        
       ]
     }
   ]
