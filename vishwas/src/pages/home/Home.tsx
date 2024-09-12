@@ -326,17 +326,7 @@ const Home: React.FC = () => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8">
-        <div className="container mx-auto text-center">
-          <p className="text-lg">{t('footer_text')}</p>
-          <Link
-            to="/contact"
-            className="block mt-4 text-green-500 hover:text-green-700"
-          >
-            {t('contact_us')}
-          </Link>
-        </div>
-      </footer>
+      
     </div>
   );
 };
