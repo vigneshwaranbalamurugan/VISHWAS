@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="mb-6 md:mb-0">
           <ul className="list-none space-y-2">
             <li className="hover:text-gray-400 transition-colors duration-300">Home</li>
-            <li className="hover:text-gray-400 transition-colors duration-300">About Us</li>
+            <li className="hover:text-gray-400 transition-colors duration-300">Market</li>
             <li className="hover:text-gray-400 transition-colors duration-300">Services</li>
             <li className="hover:text-gray-400 transition-colors duration-300">Contact</li>
           </ul>
@@ -22,31 +22,17 @@ const Footer = () => {
             San Francisco, CA 94123<br />
             (255) 352-6258<br />
             <a href="mailto:info@yourwebsite.com" className="hover:text-gray-400 transition-colors duration-300">
-              info@yourwebsite.com
+              info@yourwebsite.com3
             </a>
           </p>
         </div>
 
-        {/* Right Section: Social Icons */}
-        <div className="flex space-x-6 text-lg">
-          <a href="#" aria-label="Facebook" className="hover:text-gray-400 transition-colors duration-300">
-            <FaFacebookF />
-          </a>
-          <a href="#" aria-label="Twitter" className="hover:text-gray-400 transition-colors duration-300">
-            <FaTwitter />
-          </a>
-          <a href="#" aria-label="Instagram" className="hover:text-gray-400 transition-colors duration-300">
-            <FaInstagram />
-          </a>
-          <a href="#" aria-label="LinkedIn" className="hover:text-gray-400 transition-colors duration-300">
-            <FaLinkedinIn />
-          </a>
-        </div>
+        
       </div>
 
       {/* Bottom Section: Copyright */}
       <div className="border-t border-gray-600 mt-8 pt-6 text-center text-sm">
-        <p>©2024 All Rights Reserved | Powered by Your Company</p>
+        <p>©2024 All Rights Reserved | Powered by Vishwas</p>
         <ul className="flex justify-center space-x-4 mt-4">
           <li>
             <a href="#" className="hover:text-gray-400">Privacy Policy</a>
