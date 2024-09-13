@@ -22,7 +22,7 @@ import CPROFILE from './pages/cprofile/cprofile'
 import DetailsOfContract from './pages/cprofile/contractm'
 import Request from './pages/market/components/RequestB'
 import FarmerDetails from './pages/market/components/Farmerreq'
-
+import CrequestFormm from './pages/createRequest/CrequestForm'
 import Future from './pages/cprofile/Future'
 import FStatus from './pages/fstatus/FStatus'
 import Status from './pages/status/Status'
@@ -68,6 +68,7 @@ const router = createBrowserRouter(
         {path:"/terms",element:<Terms/>},
         {path:"/chat",element:<Chat/>},
         {path:"/req",element:<Request/>},
+        {path:"/creq",element:<CrequestFormm/>},
         {path:"/cprofile",element:<CPROFILE/>},
         {path:"/Future",element:<CrequestForm/>},
         {path:"/aauth",element:<AadhaarAuth/>},

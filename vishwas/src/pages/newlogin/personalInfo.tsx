@@ -166,6 +166,16 @@ const PersonalInfo = () => {
             {!validGender && <p className="text-primary-strawberryRed font-medium">Select Gender</p>}
           </div>
           <FormControl
+            label={"Date of Birth"}
+            type={"date"}
+            id={"DOB"}
+            placeholder={"e.g. "}
+            onChange={handleDobChange}
+            value={dob}
+            valid={validAge}
+            errorLabel={"The age is must be greater than or equal to 18"}
+          />
+          <FormControl
             label={"Age"}
             type={"number"}
             id={"age"}
@@ -173,16 +183,6 @@ const PersonalInfo = () => {
             onChange={(e) => setAge(e.target.value)}
             value={age}
             disabled={true}
-            valid={validAge}
-            errorLabel={"The age is must be greater than or equal to 18"}
-          />
-          <FormControl
-            label={"Date of Birth"}
-            type={"date"}
-            id={"DOB"}
-            placeholder={"e.g. "}
-            onChange={handleDobChange}
-            value={dob}
             valid={validAge}
             errorLabel={"The age is must be greater than or equal to 18"}
           />
