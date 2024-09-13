@@ -82,9 +82,9 @@ const Home: React.FC = () => {
 
     {/* Content on the left side */}
     <div className="w-full md:w-1/2">
-      <h2 className="text-4xl font-bold text-gray-900 mb-6">What is Vishwas?</h2>
+      <h2 className="text-4xl font-bold text-gray-900 mb-6">{t('What is Vishwas?')}</h2>
       <p className="text-lg text-gray-700 leading-relaxed mb-4">
-        Vishwas is a trusted platform that connects farmers and buyers, providing reliable services to ensure secure transactions, contract management, and collaboration opportunities. It empowers farmers to reach a wider market while giving buyers access to quality products directly from the source.
+        {t('Vishwas is a trusted platform that connects farmers and buyers, providing reliable services to ensure secure transactions, contract management, and collaboration opportunities. It empowers farmers to reach a wider market while giving buyers access to quality products directly from the source.')}
       </p>
       <ul className="list-none space-y-3 text-gray-600">
         <li className="flex items-center">
@@ -99,7 +99,7 @@ const Home: React.FC = () => {
               clipRule="evenodd"
             />
           </svg>
-          Building trust between farmers and buyers
+          {t('Building trust between farmers and buyers')}
         </li>
         <li className="flex items-center">
           <svg
@@ -113,7 +113,7 @@ const Home: React.FC = () => {
               clipRule="evenodd"
             />
           </svg>
-          Ensuring fair and secure deals
+          {t('Ensuring fair and secure deals')}
         </li>
         <li className="flex items-center">
           <svg
@@ -127,7 +127,7 @@ const Home: React.FC = () => {
               clipRule="evenodd"
             />
           </svg>
-          Providing a transparent platform for agricultural transactions
+          {t('Providing a transparent platform for agricultural transactions')}
         </li>
       </ul>
     </div>

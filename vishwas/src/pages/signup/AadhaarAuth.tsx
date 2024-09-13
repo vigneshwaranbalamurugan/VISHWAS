@@ -1,21 +1,20 @@
 import React, { useState, FormEvent } from 'react';
 
-interface AadhaarAuthProps {
-  onSuccess?: (aadhaarNumber: string) => void; // Callback for successful verification
-}
 
-const AadhaarAuth: React.FC<AadhaarAuthProps> = ({ onSuccess }) => {
+
+const AadhaarAuth = () => {
   const [aadhaarNumber, setAadhaarNumber] = useState('');
   const [isOtpStep, setIsOtpStep] = useState(false);
 
   const handleAadhaarChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log("hi");
+    console.log(aadhaarNumber);
     setAadhaarNumber(event.target.value);
   };
 
   const handleAadhaarSubmit = () => {
     console.log(`Submitted Aadhaar number: ${aadhaarNumber}`);
     setIsOtpStep(true);
-    onSuccess?.(aadhaarNumber);
   };
 
   const handleOtpSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -25,7 +24,7 @@ const AadhaarAuth: React.FC<AadhaarAuthProps> = ({ onSuccess }) => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-green-200 p-4">
-      <div className="bg-green-400 text-white p-6 rounded-lg shadow-lg max-w-md w-full">
+      <div className="bg-green-400 text-black p-6 rounded-lg shadow-lg max-w-md w-full">
         <img
           src="https://meripehchaan.gov.in/assets/img/logo/meripahchaan-main.png"
           alt="Meri Pehchan Logo"
@@ -35,7 +34,7 @@ const AadhaarAuth: React.FC<AadhaarAuthProps> = ({ onSuccess }) => {
         {!isOtpStep ? (
           <form onSubmit={handleAadhaarSubmit} className="space-y-4">
             <div>
-              <label htmlFor="aadhaarNumber" className="block text-gray-200 font-bold mb-2">Enter your Aadhaar Number</label>
+              <label htmlFor="aadhaarNumber" className="block text-black font-bold mb-2">Enter your Aadhaar Number</label>
               <input
                 type="number"
                 id="aadhaarNumber"

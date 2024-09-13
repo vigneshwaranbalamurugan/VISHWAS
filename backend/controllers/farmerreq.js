@@ -4,7 +4,7 @@ import FarmerRequest from '../models/FarmerRequest.js'; // Import the FarmerRequ
 export const storeFarmerRequestData = async (req, res) => {
   try {
     const { farmerName, location, landArea, quantity, duration, availableDate, profileUrl, additionalNotes } = req.body; // Extract data from the request body
-
+    console.log(additionalNotes);
     // Create a new farmer request instance with the extracted data
     const newFarmerRequest = new FarmerRequest({
       farmerName,
