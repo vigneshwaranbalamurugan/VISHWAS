@@ -2,6 +2,7 @@ import express from 'express'
 import cookieParser from 'cookie-parser';
 import farmerRouter from './routes/farmerRoute.js';
 import requirementRouter from './routes/requirementRoute.js';
+import buyerRouter from './routes/buyerRoute.js';
 import cors from 'cors'
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(cors());
 
 app.use('/api/v1/farmer',farmerRouter);
 app.use('/api/v1/requirement',requirementRouter);
+app.use('/api/v1/contractor',buyerRouter);
 
 app.get('/',(req,res)=>{
     res.send("Welcome to Vishwas")

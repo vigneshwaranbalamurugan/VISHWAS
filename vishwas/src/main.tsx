@@ -32,6 +32,13 @@ import AadhaarAuth from './pages/signup/AadhaarAuth'
 import CrequestForm from './pages/contractor/CrequestForm'
 import FaceDetection from './facedetection/face-api';
 import Farbidings from './pages/cprofile/farbidings';
+import NewLogin from './pages/newlogin/newLogin'
+import FarmerProfile from './pages/Profile/FarmerProfile'
+import ContractorProfile from './pages/cprofile/contractorProfile'
+import CropContractForm from './pages/cprofile/CreateContract'
+import { GlobalNLProvider } from './context/nlGlobalContext'
+import { FormProvider } from './context/LandDetailsContext'
+import { CompanyProvider } from './context/CompanyContext'
 
 const router = createBrowserRouter(
   [
@@ -49,7 +56,7 @@ const router = createBrowserRouter(
         {path:"/profile/:mobileNumber",element:<FarmerProfile/>},
         {path:"/cprofile/:mobileNumber",element:<ContractorProfile/>},
         {path:"/createcontract",element:<CropContractForm/>},
-        {path:"/req",element:<CRequest/>},
+        {path:"/req",element:<Request/>},
         {path:"/market",element:<Market/>},
         {path:"/nld",element:<NewLoginDetails/>},
         {path:"/contract",element:<Contract/>},
@@ -69,7 +76,7 @@ const router = createBrowserRouter(
         {path:"/fb",element:<Farbidings />},
         {path:"/face",element:<FaceDetection />},
 
-        {path:"/fr",element:<FarmerDetails />},
+        {path:"/fr",element:<FarmerDetails farmer={undefined} />},
         {path:"/fstatus",element:<FStatus/>},
   
       ]
@@ -77,9 +84,15 @@ const router = createBrowserRouter(
   ]
 )
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
-  <React.StrictMode>
-    <RouterProvider router={router}/>
-  </React.StrictMode>
+  <GlobalNLProvider>
+  <FormProvider>
+    <CompanyProvider>
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
+    </CompanyProvider>
+  </FormProvider>
+</GlobalNLProvider>
 )
