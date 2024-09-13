@@ -52,7 +52,7 @@ const router = createBrowserRouter(
         {path:"/profile/:mobileNumber",element:<FarmerProfile/>},
         {path:"/cprofile/:mobileNumber",element:<ContractorProfile/>},
         {path:"/createcontract",element:<CropContractForm/>},
-        {path:"/req",element:<CRequest/>}
+        {path:"/req",element:<CRequest/>},
         {path:"/market",element:<Market/>},
         {path:"/nld",element:<NewLoginDetails/>},
         {path:"/contract",element:<Contract/>},
