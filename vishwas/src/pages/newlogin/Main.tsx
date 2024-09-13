@@ -181,6 +181,9 @@ const {
         setCurrentStep(currentStep + 1);
       }
     }
+    if (currentStep == 4) {
+         setCurrentStep(currentStep + 1);
+     }
 
   };
 
