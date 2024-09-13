@@ -5,7 +5,6 @@ dotenv.config();
 const verificationStore = new Map();
 const verifiedNumber = new Map();
 const aadharverificationStore = new Map();
-const aadharStore = new Map();
 
 const client = new twilio(process.env.TWILIO_ACCOUNT_SID,process.env.TWILIO_AUTH_TOKEN);
 
@@ -26,4 +25,4 @@ const sendSms = async (senderNum,otp,purpose) => {
     }
   };
 
-export {verificationStore,generateVerificationCode,verifiedNumber,sendSms,aadharverificationStore,aadharStore};
+export {verificationStore,generateVerificationCode,verifiedNumber,sendSms,aadharverificationStore};

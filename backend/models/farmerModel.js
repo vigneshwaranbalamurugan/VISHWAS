@@ -2,12 +2,35 @@ import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 
 const farmerSchema = new mongoose.Schema({
+    userName: {
+        firstName: {
+            type: String,
+            required: true
+        },
+        middleName: {
+            type: String
+        },
+        lastName: {
+            type: String,
+            required: true
+        }
+    },
     mobileNumber: {
         type: String,
         minlength: 10,
         maxlength: 10,
         unique:true,
         required: true
+    },
+    email: {
+        type: String,
+        lowercase: true,
+        unique: true,
+        default: null
+    },
+    dateOfBirth: {
+        type: String,
+        default:'00-00-0000'
     },
     password: {
         type: String,
@@ -20,6 +43,7 @@ const farmerSchema = new mongoose.Schema({
     },
     role:{
         type:String,
+        default:"null"
     },
     created_at: {
         type: Date,

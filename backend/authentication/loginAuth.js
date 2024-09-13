@@ -3,7 +3,6 @@ import Farmer from "../models/farmerModel.js";
 
 export const loginFarmer = async (req,res) =>{
     const {mobileNumber,password}=req.body;
-    console.log(mobileNumber,password);
     try{
         const userauth = await Farmer.findOne({ mobileNumber: mobileNumber }).select(
             '+password'
@@ -17,9 +16,8 @@ export const loginFarmer = async (req,res) =>{
         const userdetails={
             userid:userauth._id,
             userdetailsfill:userauth.isfilled,
-            userRole:userauth.role,
+            userRole:userauth.role
         }
-        console.log('su');
         return res.status(201).json({userdetails,message:'Login Sucessfully'});
     }catch (error) {
         console.error('Error during login:', error);

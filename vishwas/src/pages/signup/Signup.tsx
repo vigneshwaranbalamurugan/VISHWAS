@@ -1,28 +1,33 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import OtpPopup from '../otp/otpPopup';
+import OtpPopup from './otpInput';
 import './signup.css';
 import image from '../../assets/2farmers.png';
 
 interface SignupFormValues {
+  firstName: string;
+  lastName: string;
   phoneNumber: string;
-  userRole: string;
+  email: string;
+  dateOfBirth: string;
   password: string;
   confirmPassword: string;
 }
 
 const Signup = () => {
   const [formData, setFormData] = useState<SignupFormValues>({
+    firstName: '',
+    lastName: '',
     phoneNumber: '',
-    userRole: 'farmer',
+    email: '',
+    dateOfBirth: '',
     password: '',
-    confirmPassword: '',
+    confirmPassword: '', 
   });
 
   const [errors, setErrors] = useState<Partial<SignupFormValues>>({});
   const [isVerified, setVerified] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [otp, setOtp] = useState('');
 
 
 
@@ -35,12 +40,32 @@ const Signup = () => {
 
   const validateForm = () => {
     const newErrors: Partial<SignupFormValues> = {};
+    const today = new Date().toISOString().split('T')[0];
+
+    // Name validation
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    }
 
     // Phone number validation: must be 10 digits
     if (!formData.phoneNumber.trim()) {
       newErrors.phoneNumber = 'Phone number is required';
     } else if (!/^\d{10}$/.test(formData.phoneNumber)) {
       newErrors.phoneNumber = 'Phone number must be 10 digits';
+    }
+
+    // Email validation
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Invalid email format';
+    }
+
+    // Date of Birth validation: must be earlier than today
+    if (!formData.dateOfBirth.trim()) {
+      newErrors.dateOfBirth = 'Date of birth is required';
+    } else if (formData.dateOfBirth >= today) {
+      newErrors.dateOfBirth = 'Date of birth must be earlier than today';
     }
 
     // Password validation: must be at least 6 characters
@@ -63,14 +88,6 @@ const Signup = () => {
 
   const handleverify = async (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
-    const newErrors: Partial<SignupFormValues> = {};
-    if (!formData.phoneNumber.trim()) {
-      newErrors.phoneNumber = 'Phone number is required';
-      return;
-    } else if (!/^\d{10}$/.test(formData.phoneNumber)) {
-      newErrors.phoneNumber = 'Phone number must be 10 digits';
-      return;
-    }
     try {
       const response = await fetch('http://localhost:5000/api/v1/farmer/request-otp', {
         method: 'POST',
@@ -84,7 +101,6 @@ const Signup = () => {
         console.log('Success:', data);
         alert(`${data.message}`);
         setIsPopupOpen(true);
-        setVerified(true);
       } else {
         alert(`${data.message}`);
       }
@@ -103,56 +119,27 @@ const Signup = () => {
     });
   }
 
-  const verifyOTP = async () => {
-    console.log(otp);
-    if (otp.length === 6) {
-      try {
-        const response = await fetch('http://localhost:5000/api/v1/farmer/verify-otp', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ phoneNumber: formData.phoneNumber, otp: otp }),
-        });
-        const data = await response.json();
-        if (response.ok) {
-          console.log('Success:', data.message);
-          alert(data.message);
-          setIsPopupOpen(false);
-          setIsPopupOpen(false)
-        } else {
-          alert(data.message || 'Wrong OTP');
-        }
-      } catch (error) {
-        alert('An error occurred. Please try again later.');
-        console.error('Error:', error);
-      }
-
-    } else {
-      alert("Please enter a 6-digit OTP.");
-    }
-  };
-
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!validateForm()) {
-      return;
-    }
     if (formData.password !== formData.confirmPassword) {
       alert('Confirm Password does not match');
       return;
     }
 
     try {
+      const formattedDateOfBirth = formData.dateOfBirth ? new Date(formData.dateOfBirth).toISOString().split('T')[0] : '';
       const response = await fetch('http://localhost:5000/api/v1/farmer/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
           phoneNumber: formData.phoneNumber,
+          email:formData.email,
+          dateOfBirth: formattedDateOfBirth,
           password: formData.password,
-          userRole: formData.userRole
         }),
       });
       if (response.ok) {
@@ -160,12 +147,14 @@ const Signup = () => {
         console.log('Success:', data);
 
         alert("Farmer Registered Successfully");
-        setVerified(false);
         setFormData({
+          firstName: '',
+          lastName: '',
           phoneNumber: '',
+          email: '',
+          dateOfBirth: '',
           password: '',
           confirmPassword: '',
-          userRole: 'farmer',
         });
       } else {
         const errorData = await response.json();
@@ -184,17 +173,44 @@ const Signup = () => {
       {isPopupOpen && (
         <OtpPopup
           onClose={() => setIsPopupOpen(false)}
-          setOtp={setOtp}
-          OTP={otp}
-          onSubmit={verifyOTP}
+          onVerify={() => setVerified(true)}
+          phoneNumber={formData.phoneNumber}
         />
       )}
       <div className="signup-image-container"><img className='signup-image' src={image} style={{ width: '100%', height: '100%' }} alt='signup'></img></div>
 
       <div className="signup-container">
-        <div className="signuu-inner">
-          <h2 style={{ marginTop: '5vh' }}>Sign Up</h2>
-          <form onSubmit={handleSubmit}>
+        <h2 style={{ marginTop: '5vh' }}>Sign Up</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="signup-form-group">
+            <div>
+              <label htmlFor="name">FirstName:</label>
+              <input
+                type="text"
+                className="signup-form-control"
+                id="firstName"
+                name="firstName"
+                placeholder="Enter your first name"
+                value={formData.firstName}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="name">LastName:</label>
+              <input
+                type="text"
+                className="signup-form-control"
+                id="lastName"
+                name="lastName"
+                placeholder="Enter your last name"
+                value={formData.lastName}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
+          <div className="signup-form-group">
             <div>
               <label htmlFor="phoneNumber">Phone Number:</label>
               <input
@@ -209,70 +225,77 @@ const Signup = () => {
                 onChange={handleChangeNum}
                 required
               />
-              {errors.phoneNumber && <div className="error">{errors.phoneNumber}</div>}
-
             </div>
-            {!isVerified && <div>
-              <button onClick={handleverify} className="signup-verify-button">Get OTP</button>
+            <div>
+              <label htmlFor="hi" style={{ color: 'white' }}>h</label>
+              <button onClick={handleverify} className="signup-verify-button">Verify</button>
             </div>
-            }
-            {isVerified &&
-              <div>
-                <div>
-                  <label htmlFor="userRole">User Role:</label>
-                  <select
-                    className="signup-form-control"
-                    id="userRole"
-                    name="userRole"
-                    value={formData.userRole}
-                    onChange={handleChange}
-                    required
-                  >
-                    <option value="farmer">Farmer</option>
-                    <option value="buyer">Buyer</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="password">Password:</label>
-                  <input
-                    type="password"
-                    className="signup-form-control"
-                    id="password"
-                    name="password"
-                    placeholder="Enter your password"
-                    value={formData.password}
-                    onChange={handleChange}
-                    required
-                  />
-                  {errors.password && <div className="error">{errors.password}</div>}
+          </div>
 
-                </div>
-
-                <div>
-                  <label htmlFor="confirmPassword">Confirm Password:</label>
-                  <input
-                    type="password"
-                    className="signup-form-control"
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    placeholder="Confirm your password"
-                    value={formData.confirmPassword}
-                    onChange={handleChange}
-                    required
-                  />
-                  {errors.confirmPassword && <div className="error">{errors.confirmPassword}</div>}
-
-                </div>
-
-                <button type="submit" className="signup-button">Register</button></div>}
-
-            <div className="signup-link-container">
-              <p>
-                <Link to="/login">Already have an account? Log In</Link>
-              </p>
+          <div className="signup-form-group">
+            <div>
+              <label htmlFor="email">Email:</label>
+              <input
+                type="email"
+                className="signup-form-control"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
             </div>
-          </form>
-        </div>
+            <div>
+              <label htmlFor="dateOfBirth">Date of Birth:</label>
+              <input
+                type="date"
+                className="signup-form-control"
+                id="dateOfBirth"
+                name="dateOfBirth"
+                value={formData.dateOfBirth}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
+
+          <div className="signup-form-group">
+            <div>
+              <label htmlFor="password">Password:</label>
+              <input
+                type="password"
+                className="signup-form-control"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="confirmPassword">Confirm Password:</label>
+              <input
+                type="password"
+                className="signup-form-control"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="Confirm your password"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
+
+          {isVerified && <button type="submit" className="signup-button">Register</button>}
+          <div className="signup-link-container">
+            <p>
+              <Link to="/login">Already have an account? Log In</Link>
+            </p>
+          </div>
+        </form>
       </div>
     </section>
   );

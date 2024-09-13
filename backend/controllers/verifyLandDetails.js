@@ -16,7 +16,6 @@ export const getLandOTP =async (req, res) =>{
         const aadhar = await Aadhaar.findOne({ _id: oldLand.aadhaarNumber });
         const phoneNumber = aadhar.phoneNumber;
         const otp=generateVerificationCode();
-        console.log(otp);
         sendSms(phoneNumber,otp,"Aadhar Verify");
         aadharverificationStore.set(surveyNumber, otp);
         res.status(201).json({ message: `OTP sent to your Mobile - ${phoneNumber}` });
@@ -29,20 +28,12 @@ export const getLandOTP =async (req, res) =>{
 
 export const verifyLandOTP =async (req, res) =>{
     try{
-        const { surveyNumber,subdivisionNumber, otp} = req.body;
+        const { surveyNumber, otp} = req.body;
         console.log(surveyNumber);
         const storedCode = aadharverificationStore.get(surveyNumber);
-        const oldLand = await Land.findOne({surveyNumber:surveyNumber,subDivisionNumber:subdivisionNumber});
-        const landdetails={
-            acre:oldLand.extentOfLand,
-            soil:oldLand.soilType,
-            address:oldLand.address
-        };
-        console.log(oldLand);
-        console.log(surveyNumber,subdivisionNumber,storedCode,otp);
         if (storedCode && storedCode == otp) {
             aadharverificationStore.delete(surveyNumber);
-            res.status(201).json({landdetails, message: 'Account verified!' });
+            res.status(201).json({ message: 'Account verified!' });
         } else {
             res.status(400).send('Invalid verification code');
         }

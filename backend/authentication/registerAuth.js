@@ -42,8 +42,8 @@ export const verifyOTP = async (req, res) => {
 
 export const registerFarmer = async (req, res) => {
     try {
-        const {  phoneNumber,password,userRole } = req.body;
-        if (!phoneNumber ||!userRole|| !password) {
+        const { firstName, lastName, phoneNumber, email, dateOfBirth, password } = req.body;
+        if (!firstName || !phoneNumber || !email || !dateOfBirth || !password) {
             return res.status(400).json({ message: 'All fields are required' });
         }
 
@@ -62,8 +62,13 @@ export const registerFarmer = async (req, res) => {
         }
 
         const newFarmer = new Farmer({
+            userName: {
+                firstName,
+                lastName
+            },
             mobileNumber: phoneNumber,
-            role:userRole,
+            email,
+            dateOfBirth:dateOfBirth,
             password
         });
         await newFarmer.save();

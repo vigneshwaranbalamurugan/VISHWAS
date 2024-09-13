@@ -1,0 +1,158 @@
+/* Container Styling */
+.ccontainer {
+  padding: 25px;
+  max-width: 750px;
+  margin: 40px auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 15px;
+  background-color: #f9f9f9;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  font-family: 'Arial', sans-serif; /* Set a cleaner font */
+  color: #444; /* Default text color */
+}
+
+/* Button Styling */
+.cbutton {
+  background-color: #0062cc;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+}
+
+.cbutton:hover {
+  background-color: #004a99;
+  transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+/* Heading Styling */
+.ctitle {
+  color: #2c3e50;
+  font-size: 26px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase; /* Uppercase heading for emphasis */
+  letter-spacing: 1px; /* Increase space between letters */
+}
+
+/* Paragraph Styling */
+.cdetail {
+  font-size: 18px;
+  color: #555;
+  margin: 12px 0;
+  line-height: 1.6; /* Improve readability with increased line height */
+}
+
+/* Strong Element Styling */
+.cdetail strong {
+  color: #333;
+  font-weight: 700;
+}
+
+/* Additional Styles */
+.cdetail + .cdetail {
+  border-top: 1px solid #ddd; /* Divider between paragraphs */
+  padding-top: 12px;
+}
+
+.ccontainer * {
+  box-sizing: border-box; /* Ensure padding/margins are included in element width/height */
+}
+
+/* Additional Enhancements */
+.ccontainer {
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); /* Soft gradient background */
+}
+
+.ccontainer h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background-color: #0062cc;
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+ 
+
+/* Image Styling */
+.cimage {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+/* Button Styling */
+.cbutton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.cbutton:hover {
+  background-color: #0056b3;
+}
+
+/* Heading Styling */
+.ctitle {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+/* Paragraph Styling */
+.cdetail {
+  font-size: 18px;
+  color: #555;
+  margin: 10px 0;
+}
+
+/* Strong Element Styling */
+.cdetail strong {
+  color: #333;
+  font-weight: 600;
+}
+
+/* Additional Styles */
+.cdetail + .cdetail {
+  border-top: 1px solid #eee; /* Divider between paragraphs */
+  padding-top: 10px;
+}
+
+.ccontainer * {
+  box-sizing: border-box; /* Ensure padding/margins are included in element width/height */
+}
+/* Farmer Image Styling */
+.cimage {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+/* Link Styling */
+.farmer-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.farmer-link:hover {
+  text-decoration: underline;
+}
