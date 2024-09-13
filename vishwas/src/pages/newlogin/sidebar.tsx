@@ -44,7 +44,7 @@ const Sidebar = () => {
                   {step}
                 </p>
                 <p className="uppercase text-secondary-alabaster font-medium tracking-widest">
-                {(step==4 && userRole==='buyer')?'Company Details':title}
+                {(userRole==='buyer')?title[1]:title[0]}
                 </p>
               </div>
             </div>
