@@ -99,6 +99,7 @@ const {
 
       const result = await response.json();
       alert('Farmer data saved successfully');
+      window.location.href=`/profile/${data.mobileNumber}`;
       console.log('Farmer data saved successfully:', result);
     } catch (error) {
       console.error('Error:', error);
@@ -141,7 +142,8 @@ const {
       }
 
       const result = await response.json();
-      alert('Farmer data saved successfully');
+      alert('Company data saved successfully');
+      window.location.href=`/cprofile/${data.mobileNumber}`;
       console.log('Farmer data saved successfully:', result);
     } catch (error) {
       console.error('Error:', error);

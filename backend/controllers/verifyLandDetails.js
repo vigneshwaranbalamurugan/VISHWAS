@@ -17,7 +17,7 @@ export const getLandOTP =async (req, res) =>{
         const phoneNumber = aadhar.phoneNumber;
         const otp=generateVerificationCode();
         console.log(otp);
-        // sendSms(phoneNumber,otp,"Aadhar Verify");
+        sendSms(phoneNumber,otp,"Aadhar Verify");
         aadharverificationStore.set(surveyNumber, otp);
         res.status(201).json({ message: `OTP sent to your Mobile - ${phoneNumber}` });
     }catch (error) {
