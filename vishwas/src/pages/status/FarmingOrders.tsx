@@ -11,6 +11,7 @@ interface Order {
 }
 
 const FarmingOrders: React.FC<Props> = ({ orders }) => {
+  const role=localStorage.getItem('role');
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Your Farming Orders</h1>
@@ -23,7 +24,7 @@ const FarmingOrders: React.FC<Props> = ({ orders }) => {
             <p className="text-gray-500 mb-2">Quantity: {order.quantity} quintals</p>
             <p className="text-gray-500 mb-2">Order Date: {order.orderDate}</p>
             <p className="text-gray-500 mb-2">Delivery Date: {order.deliveryDate}</p>
-            <Link to="/status" className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
+            <Link to={role==='farmer' ?"/fstatus":"/status" }className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
               View Status
             </Link>
           </div>
