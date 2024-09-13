@@ -1,53 +1,59 @@
 .signup-section {
   display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
   flex-direction: row;
   height: 80vh;
-  width: 95vw;
+  width: 80vw;
   margin: auto;
+  margin-top: 5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .signup-image-container  img{
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .signup-image-container {
-  flex: 0.53; /* 40% of the screen for image */
+  flex: 0.55; /* 40% of the screen for image */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
   height: 100%;
 }
 
 .signup-container {
-  flex: 0.57; /* 60% of the screen for form */
+  flex: 0.45; /* 60% of the screen for form */
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 32px;
+  height: 100%;
   background-color: #f0f8ff;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
+
 
 .signup-container h2 {
   text-align: center;
   color: #333;
-  margin-bottom: 12px;
-  font-size: 22px;
+  margin-bottom: 24px;
+  font-size: 24px;
   font-weight: bold;
 }
 
 /* Form input fields */
 .signup-form-control {
   width: 100%;
-  padding: 8px;
+  padding: 12px;
   margin: 6px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -55,7 +61,7 @@
 }
 
 /* Form labels */
-.signup-form-group label {
+.signup-container label {
   font-family: 'Poppins', sans-serif;
   font-size: 15px;
   font-weight: bold;
@@ -65,8 +71,8 @@
 }
 
 .signup-verify-button{
-  width: 70%;
-  padding: 8px;
+  width: 100%;
+  padding: 12px;
   margin: auto;
   background-color: #007bff;
   color: #fff;
@@ -75,9 +81,17 @@
   border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
+  margin-top: 1rem;
   transition: background-color 0.3s ease;
 
 }
+
+.signup-verify-button:hover {
+  background-color: #51c051;
+}
+
+
+
 /* Submit button */
 .signup-button {
   width: 100%; /* Full width for all screen sizes */

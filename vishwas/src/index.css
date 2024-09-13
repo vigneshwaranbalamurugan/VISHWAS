@@ -7,8 +7,81 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --primary-marineBlue: hsl(213, 96%, 18%);
+  --primary-purplishBlue: hsl(243, 100%, 62%);
+  --primary-lightBlue: hsl(206, 94%, 87%);
+  --primary-strawberryRed: hsl(354, 84%, 57%);
+  --primary-lightroundform: hsl(206, 94%, 37%);
+  --secondary-coolGray: hsl(231, 11%, 63%);
+  --secondary-lightGray:#DD8A22;
+  --secondary-mongolia: hsl(217, 100%, 97%);
+  --secondary-alabaster: hsl(0, 0%, 0%);
+  --secondary-summary:hsl(210, 1%, 65%);
 }
 
+.bg-primary-marineBlue {
+  background-color: var(--primary-marineBlue);
+}
+
+.bg-primary-purplishBlue {
+  background-color: var(--primary-purplishBlue);
+}
+
+.bg-primary-lightBlue {
+  background-color: var(--primary-lightBlue);
+}
+
+.bg-primary-strawberryRed {
+  background-color: var(--primary-strawberryRed);
+}
+
+.bg-secondary-coolGray {
+  background-color: var(--secondary-coolGray);
+}
+
+.bg-secondary-lightGray {
+  background-color: var(--secondary-lightGray);
+}
+
+.bg-secondary-mongolia {
+  background-color: var(--secondary-mongolia);
+}
+
+.bg-secondary-alabaster {
+  background-color: var(--secondary-alabaster);
+}
+
+.text-primary-marineBlue {
+  color: var(--primary-marineBlue);
+}
+
+.text-primary-purplishBlue {
+  color: var(--primary-purplishBlue);
+}
+
+.text-primary-lightBlue {
+  color: var(--primary-lightBlue);
+}
+
+.text-primary-strawberryRed {
+  color: var(--primary-strawberryRed);
+}
+
+.text-secondary-coolGray {
+  color: var(--secondary-coolGray);
+}
+
+.text-secondary-lightGray {
+  color: var(--secondary-lightGray);
+}
+
+.text-secondary-mongolia {
+  color: var(--secondary-mongolia);
+}
+
+.text-secondary-alabaster {
+  color: var(--secondary-alabaster);
+}
 body {
   margin: 0;
   display: flex;

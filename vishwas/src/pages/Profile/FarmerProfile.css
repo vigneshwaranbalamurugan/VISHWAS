@@ -1,0 +1,56 @@
+.farmer-profile-container {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  
+  .profile-header h1 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .profile-header p {
+    margin: 0;
+    color: #666;
+  }
+  
+  .profile-section {
+    margin-bottom: 20px;
+  }
+  
+  .profile-section h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .profile-section p {
+    margin: 5px 0;
+  }
+  
+  .land-details {
+    margin-bottom: 10px;
+  }
+  
+  .land-details p {
+    margin: 2px 0;
+  }
+  

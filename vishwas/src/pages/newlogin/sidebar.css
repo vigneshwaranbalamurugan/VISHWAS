@@ -1,0 +1,11 @@
+.sidebar-bg{
+    align-items: stretch;
+    justify-content: center;
+    background-image: url('../../assets//firstloginform.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+}
