@@ -67,16 +67,7 @@ const CropDetails = () => {
               Request The Buyer
             </button>
           </Link>
-          <Link to="/contract">
-            <button className="bg-green-600 text-white py-2 px-4 font-bold rounded shadow-md hover:bg-green-700 transition-colors duration-300">
-              Sign Contract
-            </button>
-          </Link>
-          <Link to="/cprofile">
-            <button className="bg-green-600 text-white py-2 px-4 font-bold rounded shadow-md hover:bg-green-700 transition-colors duration-300">
-              Contractor Profile
-            </button>
-          </Link>
+          
         </div>
       </div>
     </div>
