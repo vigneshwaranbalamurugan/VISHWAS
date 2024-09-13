@@ -24,6 +24,7 @@ const Sidebar = () => {
     // }
     // setFormCompeleted(false)
   }
+  const userRole=localStorage.getItem('role');
 
   return (
     <>
@@ -43,7 +44,7 @@ const Sidebar = () => {
                   {step}
                 </p>
                 <p className="uppercase text-secondary-alabaster font-medium tracking-widest">
-                  {title}
+                {(step==4 && userRole==='buyer')?'Company Details':title}
                 </p>
               </div>
             </div>
