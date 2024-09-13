@@ -22,7 +22,7 @@ import CPROFILE from './pages/cprofile/cprofile'
 import DetailsOfContract from './pages/cprofile/contractm'
 import Request from './pages/market/components/RequestB'
 import FarmerDetails from './pages/market/components/Farmerreq'
-
+import CrequestFormm from './pages/createRequest/CrequestForm'
 import Future from './pages/cprofile/Future'
 import FStatus from './pages/fstatus/FStatus'
 import Status from './pages/status/Status'
@@ -32,6 +32,13 @@ import AadhaarAuth from './pages/signup/AadhaarAuth'
 import CrequestForm from './pages/contractor/CrequestForm'
 import FaceDetection from './facedetection/face-api';
 import Farbidings from './pages/cprofile/farbidings';
+import NewLogin from './pages/newlogin/newLogin'
+import FarmerProfile from './pages/Profile/FarmerProfile'
+import ContractorProfile from './pages/cprofile/contractorProfile'
+import CropContractForm from './pages/cprofile/CreateContract'
+import { GlobalNLProvider } from './context/nlGlobalContext'
+import { FormProvider } from './context/LandDetailsContext'
+import { CompanyProvider } from './context/CompanyContext'
 
 const router = createBrowserRouter(
   [
@@ -42,8 +49,12 @@ const router = createBrowserRouter(
       children:[
         {index:true, element:<Home />},
         {path:"/login",element:<Login/>},
-        {path:"/lcf",element:<Logincf/>},
         {path:"/signup",element:<Signup/>},
+        { path:'/sidebar', element: <NewLogin /> },        
+        {path:"/lcf",element:<Logincf/>},
+        {path:"/profile/:mobileNumber",element:<FarmerProfile/>},
+        {path:"/cprofile/:mobileNumber",element:<ContractorProfile/>},
+        {path:"/createcontract",element:<CropContractForm/>},
         {path:"/market",element:<Market/>},
         {path:"/nld",element:<NewLoginDetails/>},
         {path:"/contract",element:<Contract/>},
@@ -57,29 +68,30 @@ const router = createBrowserRouter(
         {path:"/terms",element:<Terms/>},
         {path:"/chat",element:<Chat/>},
         {path:"/req",element:<Request/>},
+        {path:"/creq",element:<CrequestFormm/>},
         {path:"/cprofile",element:<CPROFILE/>},
         {path:"/Future",element:<CrequestForm/>},
         {path:"/aauth",element:<AadhaarAuth/>},
         {path:"/fb",element:<Farbidings />},
         {path:"/face",element:<FaceDetection />},
 
-        {path:"/fr",element:<FarmerDetails />},
+        {path:"/fr",element:<FarmerDetails farmer={undefined} />},
         {path:"/fstatus",element:<FStatus/>},
-
-        
-
-        
-
-
-        
+  
       ]
     }
   ]
 )
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
-  <React.StrictMode>
-    <RouterProvider router={router}/>
-  </React.StrictMode>
+  <GlobalNLProvider>
+  <FormProvider>
+    <CompanyProvider>
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
+    </CompanyProvider>
+  </FormProvider>
+</GlobalNLProvider>
 )

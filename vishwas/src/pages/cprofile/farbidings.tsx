@@ -147,16 +147,20 @@ const Farbidings: React.FC = () => {
               <React.Fragment key={request._id}>
                 <tr className="hover:bg-green-100 transition duration-150 ease-in-out">
                   <td className="py-3 px-6 border-b">
-                    <span className="text-gray-700">{request.farmerName}</span>
+                  <span className="hidden md:inline text-gray-700">{request.farmerName}</span>
+                    <button
+                      onClick={() => openDetailModal(request)}
+                      className="text-gray-700 font-semibold hover:underline md:hidden"
+                    >
+                      {request.farmerName}
+                    </button>
                   </td>
                   <td className="py-3 px-6 border-b">{request.location}</td>
                   <td className="py-3 px-6 border-b">{request.landArea}</td>
                   <td className="py-3 px-6 border-b">{request.quantity}</td>
                   <td className="py-3 px-6 border-b">{request.duration}</td>
                   <td className="py-3 px-6 border-b">{new Date(request.availableDate).toLocaleDateString()}</td>
-                  <td className="py-3 px-6 border-b">
-                    {request.additionalNotes || '-'}
-                  </td>
+                  <td className="py-3 px-6 border-b">{request.additionalNotes || '-'}</td>
                   <td className="py-3 px-6 border-b">
                     {request.profileUrl ? (
                       <a href={request.profileUrl} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
@@ -218,118 +222,125 @@ const Farbidings: React.FC = () => {
               >
                 {request.farmerName}
               </button>
+              <div className="mt-4 flex space-x-4">
+                {request.status === 'Accepted' ? (
+                  <>
+                    <button
+                      onClick={() => openConfirmationModal('signContract')}
+                      className="bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 transition"
+                    >
+                      Sign Contract
+                    </button>
+                    <button
+                      onClick={() => openConfirmationModal('chat')}
+                      className="bg-purple-500 text-white px-4 py-2 rounded-md shadow hover:bg-purple-600 transition"
+                    >
+                      Chat
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <button
+                      onClick={() => openActionModal(request, 'accept')}
+                      className="bg-green-500 text-white px-4 py-2 rounded-md shadow hover:bg-green-600 transition"
+                    >
+                      Accept
+                    </button>
+                    <button
+                      onClick={() => openActionModal(request, 'reject')}
+                      className="bg-red-500 text-white px-4 py-2 rounded-md shadow hover:bg-red-600 transition"
+                    >
+                      Reject
+                    </button>
+                  </>
+                )}
+              </div>
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Detail Modal */}
-      {isModalOpen && selectedFarmer && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full">
-            <h2 className="text-2xl font-bold mb-4">{selectedFarmer.farmerName}</h2>
-            <p><strong>Location:</strong> {selectedFarmer.location}</p>
-            <p><strong>Land Area:</strong> {selectedFarmer.landArea} acres</p>
-            <p><strong>Quantity:</strong> {selectedFarmer.quantity} kg</p>
-            <p><strong>Duration:</strong> {selectedFarmer.duration} days</p>
-            <p><strong>Available By:</strong> {new Date(selectedFarmer.availableDate).toLocaleDateString()}</p>
-            <p><strong>Additional Notes:</strong> {selectedFarmer.additionalNotes || '-'}</p>
-            <p><strong>Profile URL:</strong> {selectedFarmer.profileUrl || 'No URL'}</p>
-            <button
-              onClick={closeDetailModal}
-              className="mt-4 bg-gray-500 text-white px-4 py-2 rounded-md shadow hover:bg-gray-600 transition"
-            >
-              Close
-            </button>
-            {selectedFarmer.status !== 'Accepted' && (
-              <div className="mt-4 flex space-x-4">
-                <button
-                  onClick={() => openConfirmationModal('signContract')}
-                  className="bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 transition"
-                >
-                  Sign Contract
-                </button>
-                <button
-                  onClick={() => openConfirmationModal('chat')}
-                  className="bg-purple-500 text-white px-4 py-2 rounded-md shadow hover:bg-purple-600 transition"
-                >
-                  Chat
-                </button>
-                <button
-                  onClick={() => openActionModal(selectedFarmer, 'accept')}
-                  className="bg-green-500 text-white px-4 py-2 rounded-md shadow hover:bg-green-600 transition"
-                >
-                  Accept
-                </button>
-                <button
-                  onClick={() => openActionModal(selectedFarmer, 'reject')}
-                  className="bg-red-500 text-white px-4 py-2 rounded-md shadow hover:bg-red-600 transition"
-                >
-                  Reject
-                </button>
+        {/* Modal for displaying farmer details */}
+        {isModalOpen && selectedFarmer && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full">
+              <h2 className="text-2xl font-bold mb-4">{selectedFarmer.farmerName}'s Details</h2>
+              <p><strong>Location:</strong> {selectedFarmer.location}</p>
+              <p><strong>Land Area:</strong> {selectedFarmer.landArea} acres</p>
+              <p><strong>Quantity:</strong> {selectedFarmer.quantity} kg</p>
+              <p><strong>Duration:</strong> {selectedFarmer.duration} days</p>
+              <p><strong>Available Date:</strong> {new Date(selectedFarmer.availableDate).toLocaleDateString()}</p>
+              <p><strong>Additional Notes:</strong> {selectedFarmer.additionalNotes || 'None'}</p>
+              {selectedFarmer.profileUrl && (
+                <p><a href={selectedFarmer.profileUrl} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">View Profile</a></p>
+              )}
+              <div className="flex justify-end mt-4">
+                <button onClick={closeDetailModal} className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition">Close</button>
               </div>
-            )}
-          </div>
-        </div>
-      )}
-
-      {/* Confirmation Modal */}
-      {isModalOpen && confirmActionType && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
-            <h2 className="text-lg font-bold mb-4">Are you sure?</h2>
-            <p className="mb-4">Do you want to {confirmActionType} this request?</p>
-            <div className="flex space-x-4">
-              <button
-                onClick={confirmAction}
-                className="bg-green-500 text-white px-4 py-2 rounded-md shadow hover:bg-green-600 transition"
-              >
-                Yes
-              </button>
-              <button
-                onClick={closeActionModal}
-                className="bg-gray-500 text-white px-4 py-2 rounded-md shadow hover:bg-gray-600 transition"
-              >
-                No
-              </button>
             </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {/* Confirmation Modal for Sign Contract and Chat */}
-      {isModalOpen && actionType && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
-            <h2 className="text-lg font-bold mb-4">Are you sure?</h2>
-            <p className="mb-4">Do you want to proceed with {actionType === 'signContract' ? 'signing the contract' : 'chat'}?</p>
-            <div className="flex space-x-4">
-              {actionType === 'signContract' && (
-                <button
-                  onClick={confirmSignContract}
-                  className="bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 transition"
-                >
-                  Yes
-                </button>
-              )}
-              {actionType === 'chat' && (
-                <button
-                  onClick={confirmChat}
-                  className="bg-purple-500 text-white px-4 py-2 rounded-md shadow hover:bg-purple-600 transition"
-                >
-                  Yes
-                </button>
-              )}
+        {/* Modal for action confirmation */}
+        {isModalOpen && confirmActionType && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+              <h2 className="text-2xl font-bold mb-4">
+                {confirmActionType === 'accept' ? 'Accept' : 'Reject'} Farmer Request
+              </h2>
+              <p>Are you sure you want to {confirmActionType === 'accept' ? 'accept' : 'reject'} this request?</p>
+              <div className="flex justify-end mt-4 space-x-4">
               <button
-                onClick={closeConfirmationModal}
-                className="bg-gray-500 text-white px-4 py-2 rounded-md shadow hover:bg-gray-600 transition"
-              >
-                No
-              </button>
+                  onClick={confirmAction}
+                  className={`${
+                    confirmActionType === 'accept' ? 'bg-green-500 hover:bg-green-600' : 'bg-red-500 hover:bg-red-600'
+                  } text-white px-4 py-2 rounded-md transition`}
+                >
+                  Confirm
+                </button>
+                <button
+                  onClick={closeActionModal}
+                  className="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 transition"
+                >
+                  Cancel
+                </button>
+               
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+
+        {/* Modal for confirmation of sign contract or chat */}
+        {isModalOpen && actionType && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+              <h2 className="text-2xl font-bold mb-4">
+                {actionType === 'signContract' ? 'Sign Contract' : 'Chat with Farmer'}
+              </h2>
+              <p>
+                Are you sure you want to {actionType === 'signContract' ? 'sign a contract' : 'start a chat'} with this
+                farmer?
+              </p>
+              <div className="flex justify-end mt-4 space-x-4">
+              <button
+                  onClick={actionType === 'signContract' ? confirmSignContract : confirmChat}
+                  className={`${
+                    actionType === 'signContract' ? 'bg-blue-500 hover:bg-blue-600' : 'bg-purple-500 hover:bg-purple-600'
+                  } text-white px-4 py-2 rounded-md transition`}
+                >
+                  Confirm
+                </button>
+                <button
+                  onClick={closeConfirmationModal}
+                  className="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 transition"
+                >
+                  Cancel
+                </button>
+              
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

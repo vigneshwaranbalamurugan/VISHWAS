@@ -66,7 +66,7 @@ const CropDetails = () => {
             </button>
           </Link>
          
-          <Link to="/cprofile">
+          <Link to="/cprofile/9786817856">
             <button className="bg-green-600 text-white py-2 px-4 font-bold rounded shadow-md hover:bg-green-700 transition-colors duration-300">
               Contractor Profile
             </button>

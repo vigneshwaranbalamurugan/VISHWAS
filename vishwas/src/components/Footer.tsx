@@ -17,11 +17,11 @@ const Footer = () => {
 
         <div>
           <p>
-            1234 Divi St. #1000<br />
-            San Francisco, CA 94123<br />
-            (255) 352-6258<br />
+          Secure your harvest <br />
+          with hassle-free contracts real-time<br />
+          updates guaranteed payments<br />
             <a href="mailto:info@yourwebsite.com" className="hover:text-gray-400 transition-colors duration-300">
-              info@yourwebsite.com3
+            vishwas@gmail.com
             </a>
           </p>
         </div>
