@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 
 const FarmerRequestForm = () => {
   const [formData, setFormData] = useState({
-    farmerName: '',
-    location: '',
+    farmerName: 'Sri',
+    location: 'Salem',
     landArea: '',
     quantity: '',
     duration: '',
     durationUnit: 'days', // Add durationUnit to state
     availableDate: '',
-    profileUrl: '',
+    profileUrl: 'http://localhost:3000/profile/8940790989',
     additionalNotes: '', // Add additionalNotes to state
   });
 
@@ -34,11 +34,11 @@ const FarmerRequestForm = () => {
         const result = await response.json();
         alert('Form submitted successfully: ' + result.message);
         setFormData({
-          farmerName: '',
-          location: '',
+          farmerName: 'Sri',
+          location: 'Location',
           landArea: '',
           quantity: '',
-          duration: '',
+          duration: '6',
           durationUnit: 'days', // Reset durationUnit
           availableDate: '',
           profileUrl: '',
@@ -55,12 +55,13 @@ const FarmerRequestForm = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto mt-12 p-8 bg-white rounded-lg shadow-xl border border-gray-300">
+    <div className="mx-auto mt-6 mb-6 p-12 bg-white rounded-lg shadow-xl border border-gray-300 min-w-[40%]">
       <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Farmer Details Form</h2>
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Farmer Name */}
         <div>
-          <label className="block text-gray-700 font-semibold mb-2" htmlFor="farmerName">
+          <label className="block text-gray-700 font-semibold mb-2"            style={{display:'none'}}
+ htmlFor="farmerName">
             Farmer Name
           </label>
           <input
@@ -69,6 +70,7 @@ const FarmerRequestForm = () => {
             name="farmerName"
             value={formData.farmerName}
             onChange={handleChange}
+            style={{display:'none'}}
             className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter farmer's name"
             required
@@ -77,7 +79,7 @@ const FarmerRequestForm = () => {
 
         {/* Location */}
         <div>
-          <label className="block text-gray-700 font-semibold mb-2" htmlFor="location">
+          <label className="block text-gray-700 font-semibold mb-2"  style={{display:'none'}} htmlFor="location">
             Location
           </label>
           <input
@@ -85,6 +87,7 @@ const FarmerRequestForm = () => {
             id="location"
             name="location"
             value={formData.location}
+            style={{display:'none'}}
             onChange={handleChange}
             className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter location"
@@ -128,7 +131,7 @@ const FarmerRequestForm = () => {
 
         {/* Duration */}
         <div>
-          <label className="block text-gray-700 font-semibold mb-2" htmlFor="duration">
+          <label className="block text-gray-700 font-semibold mb-2" htmlFor="duration" style={{display:'none'}}>
             Duration
           </label>
           <div className="flex items-center space-x-2">
@@ -138,6 +141,7 @@ const FarmerRequestForm = () => {
               name="duration"
               value={formData.duration}
               onChange={handleChange}
+              style={{display:'none'}}
               className="w-2/3 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder={`Enter duration in ${formData.durationUnit}`}
               required
@@ -146,6 +150,7 @@ const FarmerRequestForm = () => {
               name="durationUnit"
               value={formData.durationUnit}
               onChange={handleChange}
+              style={{display:'none'}}
               className="w-1/3 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="days">Days</option>
@@ -199,6 +204,7 @@ const FarmerRequestForm = () => {
             onChange={handleChange}
             className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter profile URL"
+            disabled={true}
           />
         </div> 
 

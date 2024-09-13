@@ -15,7 +15,6 @@ const CropDetails = () => {
   const commodity = "Agricultural";
   const specifications = "High-quality, organic produce";
   const deliveryType = "On-site pickup";
-  const estimatedPrice = "1200";
   const typeOfPayment = "Installments available";
   const collaborativeOrder = "Collaborative";
   const methodOfCultivation = "Organic, sustainable farming methods";
@@ -40,7 +39,7 @@ const CropDetails = () => {
       <div className="details-section w-full md:w-2/3 pl-0 md:pl-8">
         <h2 className="text-4xl font-bold text-gray-800 mb-4">{crop.name} ({crop.type})</h2>
         <p className="text-2xl font-bold text-green-600 mb-6">
-          ₹{crop.price} <span className="line-through text-gray-400">₹{crop.originalPrice}</span>
+          ₹{crop.price} <span className="line-through text-gray-400"></span>
         </p>
         <p className="text-gray-700 mb-2"><strong>Category:</strong> {crop.category}</p>
         <p className="text-gray-700 mb-2"><strong>Quantity:</strong> {crop.quantity}</p>
@@ -54,7 +53,6 @@ const CropDetails = () => {
           <p className="text-gray-700"><strong>Contractor:</strong> {contractor}</p>
           <p className="text-gray-700"><strong>Commodity and Specifications:</strong> {commodity} - {specifications}</p>
           <p className="text-gray-700"><strong>Delivery Type:</strong> {deliveryType}</p>
-          <p className="text-gray-700"><strong>Estimated Price:</strong> ₹{estimatedPrice}</p>
           <p className="text-gray-700"><strong>Type of Payment:</strong> {typeOfPayment}</p>
           <p className="text-gray-700"><strong>Collaborative Order:</strong> {collaborativeOrder}</p>
           <p className="text-gray-700 mb-6"><strong>Method of Cultivation:</strong> {methodOfCultivation}</p>
@@ -67,11 +65,7 @@ const CropDetails = () => {
               Request The Buyer
             </button>
           </Link>
-          <Link to="/contract">
-            <button className="bg-green-600 text-white py-2 px-4 font-bold rounded shadow-md hover:bg-green-700 transition-colors duration-300">
-              Sign Contract
-            </button>
-          </Link>
+         
           <Link to="/cprofile">
             <button className="bg-green-600 text-white py-2 px-4 font-bold rounded shadow-md hover:bg-green-700 transition-colors duration-300">
               Contractor Profile
