@@ -63,7 +63,7 @@ const Home: React.FC = () => {
             onClick={scrollToDemoVideo}
             className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
           >
-            {t('Demo Video')}
+            {t('demo_video')}
           </button>
         </div>
       </div>
@@ -83,9 +83,9 @@ const Home: React.FC = () => {
 
     {/* Content on the left side */}
     <div className="w-full md:w-1/2">
-      <h2 className="text-4xl font-bold text-gray-900 mb-6">{t('What is Vishwas?')}</h2>
+      <h2 className="text-4xl font-bold text-gray-900 mb-6">{t('what_is_vishwas')}</h2>
       <p className="text-lg text-gray-700 leading-relaxed mb-4">
-        {t('Vishwas is a trusted platform that connects farmers and buyers, providing reliable services to ensure secure transactions, contract management, and collaboration opportunities. It empowers farmers to reach a wider market while giving buyers access to quality products directly from the source.')}
+        {t('vishwas_description')}
       </p>
       <ul className="list-none space-y-3 text-gray-600">
         <li className="flex items-center">
@@ -100,7 +100,7 @@ const Home: React.FC = () => {
               clipRule="evenodd"
             />
           </svg>
-          {t('Building trust between farmers and buyers')}
+          {t('building_trust')}
         </li>
         <li className="flex items-center">
           <svg
@@ -114,7 +114,7 @@ const Home: React.FC = () => {
               clipRule="evenodd"
             />
           </svg>
-          {t('Ensuring fair and secure deals')}
+          {t('ensuring_deals')}
         </li>
         <li className="flex items-center">
           <svg
@@ -128,7 +128,7 @@ const Home: React.FC = () => {
               clipRule="evenodd"
             />
           </svg>
-          {t('Providing a transparent platform for agricultural transactions')}
+          {t('providing_platform')}
         </li>
       </ul>
     </div>
@@ -226,7 +226,7 @@ const Home: React.FC = () => {
       {/* Content Card on the left side */}
       <div className="w-full md:w-1/2 p-4">
         <div className="bg-white rounded-lg shadow-lg p-6">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">{t('For Contractor')}</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">{t('For Contractors')}</h2>
           <ul className="list-none space-y-3 text-gray-600">
             <li className="flex items-center">
               <svg
@@ -312,8 +312,8 @@ const Home: React.FC = () => {
           style={{ height: '150px' }}
           onClick={handleCard1Click}
         >
-          <h2 className="text-2xl font-semibold mb-4 text-center">{t('Demo Video')}</h2>
-          <p className="text-center">{t('Click to navigate to a video page')}</p>
+          <h2 className="text-2xl font-semibold mb-4 text-center">{t('demo_video')}</h2>
+          <p className="text-center">{t('navi_video')}</p>
         </div>
 
         <div
@@ -321,8 +321,8 @@ const Home: React.FC = () => {
           style={{ height: '150px' }}
           onClick={handleCard2Click}
         >
-          <h2 className="text-2xl font-semibold mb-4 text-center">{t('About')}</h2>
-          <p className="text-center">{t('Click to navigate to another page')}</p>
+          <h2 className="text-2xl font-semibold mb-4 text-center">{t('about')}</h2>
+          <p className="text-center">{t('navi_page')}</p>
         </div>
       </div>
 
