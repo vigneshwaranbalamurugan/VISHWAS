@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../../locales/i18n';
 import { useTranslation } from 'react-i18next';
+import Footer from '../../components/Footer';
 
 const Home: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -326,17 +327,6 @@ const Home: React.FC = () => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8">
-        <div className="container mx-auto text-center">
-          <p className="text-lg">{t('footer_text')}</p>
-          <Link
-            to="/contact"
-            className="block mt-4 text-green-500 hover:text-green-700"
-          >
-            {t('contact_us')}
-          </Link>
-        </div>
-      </footer>
     </div>
   );
 };
