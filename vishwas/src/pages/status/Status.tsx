@@ -21,14 +21,14 @@ function Status() {
   ];
 
   return (
-    <div className="container mx-auto p-4 relative">
+    <div className="container mt-12 mx-auto p-4 relative">
       <ProgressTracker currentStage={5} stages={stages} />
       <History />
 
       {/* Chat Icon Button */}
       <Link to="/chat">
         <button
-          className="fixed bottom-8 right-4 bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-600 focus:outline-none"
+          className="fixed mt-10 bottom-8 right-4 bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-600 focus:outline-none"
         >
           <FontAwesomeIcon icon={faComments} size="2x" />
         </button>
