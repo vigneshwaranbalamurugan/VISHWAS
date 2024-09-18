@@ -6,10 +6,10 @@ const FarmerRequestForm = () => {
     location: 'Salem',
     landArea: '',
     quantity: '',
-    duration: '',
+    duration: '6',
     durationUnit: 'days', // Add durationUnit to state
     availableDate: '',
-    profileUrl: 'http://localhost:3000/profile/8940790989',
+    profileUrl: 'http://localhost:5173/profile/8940790989',
     additionalNotes: '', // Add additionalNotes to state
   });
 
@@ -33,6 +33,7 @@ const FarmerRequestForm = () => {
       if (response.ok) {
         const result = await response.json();
         alert('Form submitted successfully: ' + result.message);
+        window.location.href='/market';
         setFormData({
           farmerName: 'Sri',
           location: 'Location',
