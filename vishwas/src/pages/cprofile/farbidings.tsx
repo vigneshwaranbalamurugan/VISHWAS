@@ -163,7 +163,7 @@ const Farbidings: React.FC = () => {
                   <td className="py-3 px-6 border-b">{request.additionalNotes || '-'}</td>
                   <td className="py-3 px-6 border-b">
                     {request.profileUrl ? (
-                      <a href={request.profileUrl} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                      <a href={request.profileUrl}  rel="noopener noreferrer" className="text-blue-500 hover:underline">
                         View Profile
                       </a>
                     ) : (

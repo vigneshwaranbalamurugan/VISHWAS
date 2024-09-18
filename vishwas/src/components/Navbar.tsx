@@ -19,7 +19,6 @@ const Navbars = () => {
         height: navbarHeight,
         top: 0,
         left: 0,
-        position: 'fixed',
         width: '100%',
         zIndex: 1000 // Ensure it stays above other content
       }}
@@ -67,7 +66,29 @@ const Navbars = () => {
             </Button>
           </NavbarItem>
          )}
-      
+      {log && role === "buyer" && (  <NavbarItem>
+            {/* <Link color="foreground" href="/market" style={{ fontSize, color: 'white' }}>
+      Market
+    </Link> */}
+            <Button
+              as={Link}
+              style={{
+                color: 'white',
+                backgroundColor: '#82b440',
+                borderRadius: '5px',
+                height: 'auto',
+                fontSize,
+                padding: '7px 25px',
+                border: 'none', // Remove border for a cleaner look
+                boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.25)', // Add subtle shadow for depth
+              }}
+              href="/fb"
+              variant="flat"
+            >
+              Applications
+            </Button>
+          </NavbarItem>
+         )}
         {log && (
           <NavbarItem>
             <Button
