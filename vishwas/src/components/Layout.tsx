@@ -8,8 +8,8 @@ const Layout = () => {
   return (
     <div id="app" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', width: '100vw',overflowX: 'hidden',  // Prevents horizontal scrolling
       boxSizing: 'border-box'}}>
-      <Navbars />
-      <Outlet />
+      <Navbars/>
+      <Outlet/>
        {/* <Footer/> */}
       {location.pathname !== '/login' && location.pathname !== '/signup' /*&& <Footer />*/}
     </div>

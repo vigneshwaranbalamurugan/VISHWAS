@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
+import { useTranslation } from 'react-i18next';
 
 const Navbars = () => {
   const navbarHeight = '54px';
@@ -12,6 +13,8 @@ const Navbars = () => {
     localStorage.clear();
     window.location.href = '/login';
   };
+  const { t, i18n } = useTranslation();
+
   return (
     <Navbar
       style={{
@@ -36,7 +39,7 @@ const Navbars = () => {
             href="/"
             variant="flat"
           >
-            VISHWAS
+           { t('VISHWAS')}
           </Button>
         </NavbarBrand>
       </NavbarContent>
@@ -121,7 +124,7 @@ const Navbars = () => {
               href="/login"
               variant="flat"
             >
-              Login
+              {t('login')}
             </Button>
           </NavbarItem>
           <NavbarItem className="hidden sm:flex gap-4">
@@ -131,7 +134,7 @@ const Navbars = () => {
               href="/signup"
               variant="flat"
             >
-              Sign Up
+              {t('signup')}
             </Button>
           </NavbarItem>
 
