@@ -1,5 +1,6 @@
 import Aadhaar from "../models/aadharModel.js";
 import { sendSms,aadharStore,generateVerificationCode } from "../utils/genrateMobOTP.js";
+import { sendConfirmationEmail } from "../utils/sendMail.js";
 
 export const getAadhaarOTP =async (req, res) =>{
     try{
@@ -10,7 +11,8 @@ export const getAadhaarOTP =async (req, res) =>{
         }
         const phoneNumber = aadhar.phoneNumber;
         const otp=generateVerificationCode();
-        sendSms(phoneNumber,otp,"Aadhar Verify");
+        // sendSms(phoneNumber,otp,"Aadhar Verify");
+        sendConfirmationEmail(otp);
         console.log(otp);
         aadharStore.set(AadhaarNumber, otp);
         res.status(201).json({ message: `OTP sent to your Mobile linked with aadhar` });
