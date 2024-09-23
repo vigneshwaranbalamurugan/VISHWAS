@@ -2,10 +2,10 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Assured Contract Farming System for Stable Market Access",
-  "main": "server.js",
+  "main": "app.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "nodemon app.js",
     "test": "npm start"
   },
   "repository": {
