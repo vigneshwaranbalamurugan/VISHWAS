@@ -5,6 +5,12 @@ import requirementRouter from './routes/requirementRoute.js';
 import cors from 'cors';
 import buyerRouter from './routes/buyerRoute.js';
 
+import { config } from 'dotenv';
+import connectDB from "./lib/database.js";
+
+config();
+connectDB();
+
 const app = express();
 
 app.use(express.json({ limit: '50mb' })); 
@@ -19,6 +25,8 @@ app.use('/api/v1/requirement',requirementRouter);
 app.get('/',(req,res)=>{
     res.send("Welcome to QuickPick")
 })
-
+app.listen(process.env.PORT, () => {
+    console.log(`Server is running on port ${process.env.PORT}`);
+})
 
 export default app;
