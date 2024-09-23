@@ -52,6 +52,7 @@ export const getCompanyData = async (req,res) =>{
     const  mobileNumber  = req.body.mobileNumber;
     try {
         const buyer = await BuyerDetails.findOne({ mobileNumber: mobileNumber});
+        console.log('hi');
         if (!buyer) {
           return res.status(404).json({ message: 'Farmer not found' });
         }

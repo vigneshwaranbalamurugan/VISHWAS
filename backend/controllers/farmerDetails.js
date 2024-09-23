@@ -55,6 +55,7 @@ export const getFarmerData = async (req,res) =>{
         if (!farmer) {
           return res.status(404).json({ message: 'Farmer not found' });
         }
+        console.log(mobileNumber);
         res.status(201).json(farmer);
       } catch (error) {
         console.log(error);
