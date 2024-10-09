@@ -30,6 +30,7 @@ const Login = () => {
         try {
             const data = await loginFarmer(formData);
             Alert.alert("Login Successful");
+            navigation.navigate('Profile', { mobileNumber: formData.mobileNumber });
         } catch (error) {
             Alert.alert(error.message);
             console.error('Error:', error);
