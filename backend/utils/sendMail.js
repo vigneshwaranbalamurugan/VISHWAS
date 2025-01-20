@@ -8,8 +8,8 @@ dotenv.config();
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user:'vigneshsobalamurugan2005@gmail.com', 
-      pass: 'fsum hfnq rlns oyms',
+      user:'vijaybharathslmfencing@gmail.com', 
+      pass: 'uodp vjeq duha czvc',
     },
 });
 
@@ -17,11 +17,11 @@ const transporter = nodemailer.createTransport({
 
 const sendConfirmationEmail = (verificationCode) => {
     const mailOptions = {
-      from: 'vigneshsobalamurugan2005@gmail.com',
-      to: 'vanjulas.22cse@kongu.edu',
+      from: 'vijaybharathslmfencing@gmail.com',
+      to: 'vijaybharathv.22cse@kongu.edu',
       subject: 'Account Verification',
       text: `This Message is Vishwas of you have Registered In our Website,\n
-      Your email: vanjulas.22cse@kongu.edu,\n
+      Your email: vijaybharathv.22cse@kongu.edu,\n
       Your verification code is: ${verificationCode},\n
       If you did not registered kindly ignore this message.`,
     };
