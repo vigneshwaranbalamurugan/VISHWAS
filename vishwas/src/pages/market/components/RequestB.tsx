@@ -9,7 +9,7 @@ const FarmerRequestForm = () => {
     duration: '6',
     durationUnit: 'days', // Add durationUnit to state
     availableDate: '',
-    profileUrl: 'http://localhost:5173/profile/8940790989',
+    profileUrl: 'https://vishwasweb.netlify.app/profile/8940790989',
     additionalNotes: '', // Add additionalNotes to state
   });
 

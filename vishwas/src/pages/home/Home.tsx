@@ -3,7 +3,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../../locales/i18n';
 import { useTranslation } from 'react-i18next';
 import Footer from '../../components/Footer';
-
+import crop1 from "../../assets/crop1.jpg"
+import crop from "../../assets/crop.jpg";
+import f2jpg from "../../assets/f2.jpg.jpg";
+import b2 from "../../assets/b2.jpg";
 const Home: React.FC = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
@@ -33,8 +36,8 @@ const Home: React.FC = () => {
       {/* Header Section */}
       <div
         className="relative bg-cover bg-center h-[500px]"
-        style={{ backgroundImage: "url('src/assets/crop.jpg')" }}
-      >
+        style={{ backgroundImage: `url(${crop})` }}
+              >
         <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center">
           <h1 className="text-5xl font-extrabold text-white">{t('welcome')}</h1>
           <p className="text-2xl text-white mt-4">{t('home_page_intro')}</p>
@@ -74,7 +77,7 @@ const Home: React.FC = () => {
     {/* Image on the right side */}
     <div className="w-full md:w-1/2">
       <img
-        src="src/assets/crop1.jpg"
+        src={crop1}
         alt="What is Vishwas"
         className="object-cover w-full h-full rounded-lg shadow-md"
         style={{ maxHeight: '350px' }}
@@ -147,7 +150,7 @@ const Home: React.FC = () => {
       <div className="w-full md:w-1/2 p-4">
         <div className="bg-white rounded-lg shadow-lg">
           <img
-            src="src/assets/f2.jpg.jpg"
+            src={f2jpg}
             alt="For Farmers"
             className="object-cover w-full rounded-t-lg"
             style={{ height: '300px' }}
@@ -288,7 +291,7 @@ const Home: React.FC = () => {
       <div className="w-full md:w-1/2 p-4">
         <div className="bg-white rounded-lg shadow-lg">
           <img
-            src="src/assets/b2.jpg"
+            src={b2}
             alt="For Buyers"
             className="object-cover w-full rounded-t-lg"
             style={{ height: '300px' }}
