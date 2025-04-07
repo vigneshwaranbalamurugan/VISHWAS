@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import LandOtpPopup from './landOtp';
 import './newlogin.css';
-
+import { Backend_URL } from '../../../url/backendURL';
 const FarmerForm = () => {
   const [states, setStates] = useState([]);
   const [districts, setDistricts] = useState([]);
@@ -17,7 +17,7 @@ const FarmerForm = () => {
   useEffect(() => {
     const fetchStates = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/v1/requirement/get-state');
+        const response = await fetch(`${Backend_URL}/api/v1/requirement/get-state`);
         const data = await response.json();
         setStates(data.states);
       } catch (error) {
@@ -31,7 +31,7 @@ const FarmerForm = () => {
   useEffect(() => {
     const fetchDistricts = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/v1/requirement/get-city`, {
+        const response = await fetch(`${Backend_URL}api/v1/requirement/get-city`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -62,7 +62,7 @@ const FarmerForm = () => {
   const handleVerify = async (index, event) => {
     try {
       const { surveyNumber, subdivisionNumber } = lands[index];
-      const response = await fetch('http://localhost:5000/api/v1/requirement/get-land-otp', {
+      const response = await fetch(`${Backend_URL}/api/v1/requirement/get-land-otp`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

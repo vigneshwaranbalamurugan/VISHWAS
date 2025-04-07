@@ -10,7 +10,7 @@ import { GlobalNLContex } from "../../context/nlGlobalContext";
 import { FormContext } from "../../context/LandDetailsContext";
 import { CompanyContext } from "../../context/CompanyContext";
 import Button from "./Button";
-
+import { Backend_URL } from "../../url/backendURL";
 const Main = () => {
   const {
     currentStep,
@@ -86,7 +86,7 @@ const {
   
 
     try {
-      const response = await fetch('http://localhost:5000/api/v1/farmer/store-farmer-data', {
+      const response = await fetch(`${Backend_URL}/api/v1/farmer/store-farmer-data`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -130,7 +130,7 @@ const {
   
 
     try {
-      const response = await fetch('http://localhost:5000/api/v1/contractor/store-buyer-data', {
+      const response = await fetch(`${Backend_URL}/api/v1/contractor/store-buyer-data`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

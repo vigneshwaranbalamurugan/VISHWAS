@@ -4,7 +4,7 @@ import FormControl from "./formControl";
 import OtpPopup from "../otp/otpPopup"
 import './landcontainer.css'
 import Button from './Button'
-
+import { Backend_URL } from '../../url/backendURL';
 
 const LandEntry: React.FC<{ index: number }> = ({ index }) => {
     const { formDetails, handleLandInputChange, handleLandFileChange, setFormDetails, removeLand } = useContext(FormContext);
@@ -39,7 +39,7 @@ const LandEntry: React.FC<{ index: number }> = ({ index }) => {
         event.preventDefault();
         try {
             const { surveyNumber, subdivisionNumber } = formDetails.lands[index];
-            const response = await fetch('http://localhost:5000/api/v1/requirement/get-land-otp', {
+            const response = await fetch(`${Backend_URL}/api/v1/requirement/get-land-otp`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ const LandEntry: React.FC<{ index: number }> = ({ index }) => {
     const handleVerifyOtp = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:5000/api/v1/requirement/verify-land-otp', { // Adjust the endpoint according to your setup
+            const response = await fetch(`${Backend_URL}/api/v1/requirement/verify-land-otp`, { // Adjust the endpoint according to your setup
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

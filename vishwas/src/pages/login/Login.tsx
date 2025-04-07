@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './login.css';
 import image from '../../assets/farmer1.png';
-
+import { Backend_URL } from '../../url/backendURL';
 interface LoginFormValues {
   mobileNumber: string;
   password: string;
@@ -26,7 +26,7 @@ const Login = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/v1/farmer/login', {
+      const response = await fetch(`${Backend_URL}/api/v1/farmer/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -3,7 +3,7 @@ import { GlobalNLContex } from "../../context/nlGlobalContext";
 import DbControl from "./dropdownControl";
 import FormControl from "./formControl";
 import Button from "./Button";
-
+import { Backend_URL } from "../../url/backendURL";
 const LocationDetails = () => {
     const {
         states,
@@ -58,7 +58,7 @@ const LocationDetails = () => {
     useEffect(() => {
         const fetchStates = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/v1/requirement/get-state');
+                const response = await fetch(`${Backend_URL}/api/v1/requirement/get-state`);
                 const data = await response.json();
                 setStates(data.states);
             } catch (error) {
@@ -72,7 +72,7 @@ const LocationDetails = () => {
     useEffect(() => {
         const fetchDistricts = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/v1/requirement/get-city`, {
+                const response = await fetch(`${Backend_URL}/api/v1/requirement/get-city`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

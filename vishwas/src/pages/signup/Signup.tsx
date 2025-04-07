@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import OtpPopup from '../otp/otpPopup';
 import './signup.css';
 import image from '../../assets/2farmers.png';
-
+import { Backend_URL } from '../../url/backendURL';
 interface SignupFormValues {
   phoneNumber: string;
   userRole: string;
@@ -72,7 +72,7 @@ const Signup = () => {
       return;
     }
     try {
-      const response = await fetch('http://localhost:5000/api/v1/farmer/request-otp', {
+      const response = await fetch(`${Backend_URL}/api/v1/farmer/request-otp`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -107,7 +107,7 @@ const Signup = () => {
     console.log(otp);
     if (otp.length === 6) {
       try {
-        const response = await fetch('http://localhost:5000/api/v1/farmer/verify-otp', {
+        const response = await fetch(`${Backend_URL}/api/v1/farmer/verify-otp`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -142,7 +142,7 @@ const Signup = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/v1/farmer/register', {
+      const response = await fetch(`${Backend_URL}/api/v1/farmer/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

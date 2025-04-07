@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { Backend_URL } from '../../url/backendURL';
 const CrequestFormm: React.FC = () => {
   const [cropType, setCropType] = useState('');
   const [estimatedEndDate, setEstimatedEndDate] = useState('');
@@ -27,7 +27,7 @@ const CrequestFormm: React.FC = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/api/v1/farmer/futurecon', {
+      const response = await fetch(`${Backend_URL}/api/v1/farmer/futurecon`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

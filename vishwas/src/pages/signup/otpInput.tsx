@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './otpinput.css';
-
+import { Backend_URL } from '../../url/backendURL';
 const OtpPopup = ({ onClose, onVerify, phoneNumber }) => {
     const [otp, setOtp] = useState('');
 
@@ -14,7 +14,7 @@ const OtpPopup = ({ onClose, onVerify, phoneNumber }) => {
     const handleSubmit = async () => {
         if (otp.length === 6) {
             try {
-                const response = await fetch('http://localhost:5000/api/v1/farmer/verify-otp', {
+                const response = await fetch(`${Backend_URL}/api/v1/farmer/verify-otp`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

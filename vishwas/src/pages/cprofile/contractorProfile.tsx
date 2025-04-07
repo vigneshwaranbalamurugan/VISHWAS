@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
-// Define types for contractor data
+import { Backend_URL } from '../../url/backendURL';// Define types for contractor data
 interface Contractor {
   mobileNumber: string;
   personalIdentification: {
@@ -44,7 +43,7 @@ const ContractorProfile = () => {
   useEffect(() => {
     const fetchContractor = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/v1/contractor/get-buyer-data', {
+        const response = await fetch(`${Backend_URL}/api/v1/contractor/get-buyer-data`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

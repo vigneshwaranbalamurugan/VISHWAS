@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+import { Backend_URL } from '../../url/backendURL';
 interface FarmerRequest {
   _id: string;
   farmerName: string;
@@ -28,7 +28,7 @@ const Farbidings: React.FC = () => {
   useEffect(() => {
     const fetchFarmerRequests = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/v1/farmer/freq');
+        const response = await axios.get(`${Backend_URL}/api/v1/farmer/freq`);
         setFarmerRequests(response.data);
       } catch (err) {
         setError('Failed to fetch farmer requests');
@@ -43,7 +43,7 @@ const Farbidings: React.FC = () => {
 
   const handleAccept = async (id: string) => {
     try {
-      await axios.post(`http://localhost:5000/api/v1/farmer/accept/${id}`);
+      await axios.post(`${Backend_URL}/api/v1/farmer/accept/${id}`);
       setFarmerRequests(farmerRequests.map(req =>
         req._id === id ? { ...req, status: 'Accepted' } : req
       ));
@@ -54,7 +54,7 @@ const Farbidings: React.FC = () => {
 
   const handleReject = async (id: string) => {
     try {
-      await axios.delete(`http://localhost:5000/api/v1/farmer/reject/${id}`);
+      await axios.delete(`${Backend_URL}/api/v1/farmer/reject/${id}`);
       setFarmerRequests(farmerRequests.filter(req => req._id !== id));
     } catch (err) {
       console.error('Failed to reject request', err);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { Backend_URL } from '../../../url/backendURL';
 const FarmerRequestForm = () => {
   const [formData, setFormData] = useState({
     farmerName: 'Sri',
@@ -22,7 +22,7 @@ const FarmerRequestForm = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/api/v1/farmer/farreq', { // Replace with your backend URL
+      const response = await fetch(`${Backend_URL}/api/v1/farmer/farreq`, { // Replace with your backend URL
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

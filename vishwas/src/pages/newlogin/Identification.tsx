@@ -5,7 +5,7 @@ import FaceRecognition from "../../facedetection/facedetection";
 import FormControl from "./formControl";
 import Button from "./Button";
 import OtpPopup from "../otp/otpPopup";
-
+import { Backend_URL } from "../../url/backendURL";
 const Identification = () => {
   const {
     aadhaar,
@@ -20,7 +20,7 @@ const Identification = () => {
     e.preventDefault();
     if (otp.length === 6) {
       try {
-        const response = await fetch('http://localhost:5000/api/v1/farmer/verify-aadhaar-otp', {
+        const response = await fetch(`${Backend_URL}/api/v1/farmer/verify-aadhaar-otp`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -62,7 +62,7 @@ const Identification = () => {
       return;
     }
     try {
-      const response = await fetch('http://localhost:5000/api/v1/farmer/get-aadhaar-otp', {
+      const response = await fetch(`${Backend_URL}/api/v1/farmer/get-aadhaar-otp`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

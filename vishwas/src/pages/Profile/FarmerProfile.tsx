@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
+import { Backend_URL } from '../../url/backendURL';
 interface PersonalIdentification {
   photo: string;
   aadhaarNumber: string;
@@ -58,7 +58,7 @@ const FarmerProfile = () => {
   useEffect(() => {
     const fetchFarmerDetails = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/v1/farmer/get-farmer-data', {
+        const response = await fetch(`${Backend_URL}/api/v1/farmer/get-farmer-data`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

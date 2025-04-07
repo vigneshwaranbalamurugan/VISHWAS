@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { Backend_URL } from '../../url/backendURL';
 const states = [
   { value: 'Andhra Pradesh', districts: ['Anantapur', 'Chittoor', 'East Godavari', 'Guntur', 'Kadapa', 'Krishna', 'Kurnool', 'Nellore', 'Prakasam', 'Srikakulam', 'Visakhapatnam', 'Vizianagaram', 'West Godavari'] },
   { value: 'Arunachal Pradesh', districts: ['Tawang', 'West Kameng', 'East Kameng', 'Papum Pare', 'Kurung Kumey', 'Kra Daadi', 'Lower Subansiri', 'Upper Subansiri', 'West Siang', 'East Siang', 'Siang', 'Upper Siang', 'Lower Siang', 'Lower Dibang Valley', 'Upper Dibang Valley', 'Anjaw', 'Lohit', 'Namsai', 'Changlang', 'Tirap', 'Longding'] },
@@ -102,7 +102,7 @@ const FarmerDetailsForm = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:5000/api/farmers', formData);
+      const response = await axios.post(`${Backend_URL}/api/farmers`, formData);
       console.log('Farmer data submitted successfully:', response.data);
     } catch (error) {
       console.error('Error submitting data:', error);

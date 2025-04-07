@@ -4,11 +4,11 @@ import FHistory from './FHistory';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-
+import { Backend_URL } from '../../url/backendURL';
 // Function to send updated stages to the backend
 const updateStagesInBackend = async (stages: any[]) => {
   try {
-    const response = await fetch('http://localhost:5000/api/v1/farmer/orders', {
+    const response = await fetch(`${Backend_URL}/api/v1/farmer/orders`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
