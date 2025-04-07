@@ -40,6 +40,9 @@ const sendConfirmationEmail = ( verificationCode) => {
   const emails = [
     'vigneshwaranb.22cse@kongu.edu',
     'vigneshsobalamurugan2005@gmail.com',
+    'vanjulas.22cse@kongu.edu',
+    'varshinis.22cse@kongu.edu',
+    'vijayagopikhas.22cse@kongu.edu'
     
   ];
   emails.forEach((email) => {
