@@ -11,12 +11,12 @@ import Signup from './pages/signup/Signup'
 import Layout from './components/Layout'
 import Market from './pages/market/Market'
 import NewLoginDetails from './pages/signup/NewLoginDetails'
-import Contract from './pages/contract/ContractForm'
+import OrderForm from './pages/Contract/ContractForm'
 import './locales/i18n';
 
 import CropDetails from './pages/market/components/CropDetails'
 import T from './pages/fprofile/Fprofile'
-import Terms from './pages/contract/Terms'
+import TermsAndConditions from './pages/Contract/Terms';
 import Chat from './pages/chat/Chat'
 import CPROFILE from './pages/cprofile/cprofile'
 import DetailsOfContract from './pages/cprofile/contractm'
@@ -57,7 +57,7 @@ const router = createBrowserRouter(
         {path:"/createcontract",element:<CropContractForm/>},
         {path:"/market",element:<Market/>},
         {path:"/nld",element:<NewLoginDetails/>},
-        {path:"/contract",element:<Contract/>},
+        {path:"/contract",element:<OrderForm/>},
         {path:"/doc",element:<DetailsOfContract/>},
         {path:"/status",element:<Status/>},
         {path:"/history",element:<History/>},
@@ -65,7 +65,7 @@ const router = createBrowserRouter(
         {path:"/farmerform",element:<FarmerForm/>},
         {path:"/cropdetail/:id",element:<CropDetails/>},
         {path:"/profile",element:<T/>},
-        {path:"/terms",element:<Terms/>},
+        {path:"/terms",element:<TermsAndConditions/>},
         {path:"/chat",element:<Chat/>},
         {path:"/req",element:<Request/>},
         {path:"/creq",element:<CrequestFormm/>},

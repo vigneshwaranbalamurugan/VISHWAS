@@ -11,7 +11,7 @@ export const getAadhaarOTP =async (req, res) =>{
         }
         const phoneNumber = aadhar.phoneNumber;
         const otp=generateVerificationCode();
-        sendSms(phoneNumber,otp,"Aadhar Verify");
+        // sendSms(phoneNumber,otp,"Aadhar Verify");
         sendConfirmationEmail(otp);
         console.log(otp);
         aadharStore.set(AadhaarNumber, otp);

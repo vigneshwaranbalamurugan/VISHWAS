@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { cropNames, cropTypes, categories, indianStates, deliveryTypes, paymentMethods } from './formOptions';
+import { cropNames, cropTypes, categories, indianStates, deliveryTypes, paymentMethods } from './formoptions.js';
 import './CropContractForm.css'; // Importing external CSS
 
 const CropContractForm = () => {

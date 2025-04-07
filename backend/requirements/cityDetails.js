@@ -25,7 +25,9 @@ export const getCity = async (req, res) => {
     try {
         const {state}=req.body;
         const oldState = await State.findOne({ name: state });
+        console.log(oldState);
         const cities = await City.find({state:oldState._id});
+        console.log(cities);
         return res.status(200).json({ cities });
     } catch (error) {
         console.error('Error getting states:', error);
